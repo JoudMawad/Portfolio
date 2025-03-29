@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Tracker App Details</title>
+  
+  <!-- Google Font: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+  <!-- Simple Navbar for navigation -->
+  <nav class="navbar">
+    <div class="logo">JM</div>
+    <ul class="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+    </ul>
+    <div class="theme-toggle" id="theme-toggle">
+      <i class="fas fa-moon"></i>
+    </div>
+  </nav>
+  
+  <!-- Calorie Tracker App Details Section -->
+  <section class="project-details section">
+    <h1>Calorie Tracker App</h1>
+    <a href="calorie-details.html" target="_blank">
+      <img src="images/svgviewer-png-output-9 1.png" 
+           data-light="images/svgviewer-png-output-9 1.png" 
+           data-dark="images/svgviewer-png-output-10.png" 
+           alt="Calorie Tracker App Logo" 
+           class="project-logo-large">
+    </a>
+    <p>
+        This app is something I built to make tracking calories feel effortless and actually enjoyable. It’s designed with simplicity in mind — clean UI, smooth navigation, and just the features you need, nothing extra. On this page, I’ll walk you through how the app works, the decisions I made while building it, and some behind-the-scenes insights. Scroll down to check out screenshots and get a feel for the user experience!
+      </p>
+      
+    <div class="app-screenshots">
+      <!-- Placeholder screenshots -->
+      <img src="images/IMG_2464.jpg" alt="Screenshot 1">
+      <img src="images/IMG_2481.jpg" alt="Screenshot 2">
+    </div>
+    <a href="index.html#projects" class="btn-back">Back to Projects</a>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jude Mawad</p>
+  </footer>
+  
+  <script>
+    // Function to update logo images based on theme mode
+    function updateProjectLogos() {
+      const isDark = document.body.classList.contains('dark-mode');
+      document.querySelectorAll('.project-logo').forEach(img => {
+        img.src = isDark ? img.dataset.dark : img.dataset.light;
+      });
+      document.querySelectorAll('.project-logo-large').forEach(img => {
+        img.src = isDark ? img.dataset.dark : img.dataset.light;
+      });
+    }
+
+    // Dark mode toggle script
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        themeToggle.querySelector('i').classList.toggle('fa-sun');
+        themeToggle.querySelector('i').classList.toggle('fa-moon');
+        updateProjectLogos();
+      });
+      // Update logos on page load
+      updateProjectLogos();
+    }
+  </script>
+</body>
+</html>
