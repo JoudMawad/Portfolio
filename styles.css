@@ -1,4 +1,29 @@
 /* =========================
+   CSS VARIABLES & THEME
+========================= */
+:root {
+  --primary-color: #000000;
+  --secondary-color: #555555;
+  --bg-color: #ffffff;
+  --accent-color: #444444;
+  --nav-bg: #ffffff;
+  --hero-bg: linear-gradient(135deg, #f6f9fc, #e9eff5);
+  --footer-bg: #000000;
+  --footer-color: #ffffff;
+}
+
+body.dark-mode {
+  --primary-color: #ffffff;
+  --secondary-color: #cccccc;
+  --bg-color: #1a1a1a;
+  --accent-color: #666666;
+  --nav-bg: #2b2b2b;
+  --hero-bg: linear-gradient(135deg, #2b2b2b, #1a1a1a);
+  --footer-bg: #000000;
+  --footer-color: #ffffff;
+}
+
+/* =========================
    GLOBAL STYLES / RESET
 ========================= */
 * {
@@ -7,16 +32,15 @@
   box-sizing: border-box;
 }
 
-/* Use Poppins or fallback to sans-serif */
 body {
   font-family: 'Poppins', sans-serif;
-  background: #ffffff;
-  color: #000000;
+  background: var(--bg-color);
+  color: var(--primary-color);
   line-height: 1.6;
-  overflow-x: hidden; /* Hide horizontal scrollbar if any */
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
@@ -31,33 +55,47 @@ html {
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  background: #fff;
+  background: var(--nav-bg);
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s;
 }
+
 .logo {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
 }
+
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
+
 .nav-menu li a {
   text-decoration: none;
-  color: #000;
+  color: var(--primary-color);
   font-weight: 500;
   padding: 0.5rem 1rem;
-  transition: color 0.3s;
+  transition: color 0.3s, background 0.3s;
+  border-radius: 4px;
 }
+
 .nav-menu li a:hover,
 .nav-menu li a.active {
-  color: #555;
+  background: var(--accent-color);
+  color: var(--bg-color);
 }
+
 .theme-toggle {
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* =========================
@@ -65,59 +103,74 @@ html {
 ========================= */
 .hero-section {
   display: flex;
-  flex-wrap: wrap; /* Stack on mobile */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 2rem 2rem;
-  background: #f9f9f9;
+  padding: 3rem 2rem;
+  background: var(--hero-bg);
+  animation: fadeIn 1s ease-out;
 }
+
 .hero-text {
   flex: 1 1 400px;
   max-width: 600px;
   margin: 1rem;
   text-align: left;
 }
-.hero-text p {
+
+.hero-text .welcome {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
   margin-bottom: 1rem;
 }
+
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
+
 .hero-text h1 span {
-  color: #555;
+  color: var(--secondary-color);
 }
+
 .hero-text .subtitle {
   margin-bottom: 1.5rem;
-  color: #666;
+  color: var(--secondary-color);
   font-size: 1rem;
 }
+
 .social-icons {
   margin-bottom: 1.5rem;
 }
+
 .social-icons a {
   text-decoration: none;
-  color: #000;
+  color: var(--primary-color);
   margin-right: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   transition: color 0.3s;
 }
+
 .social-icons a:hover {
-  color: #666;
+  color: var(--accent-color);
 }
+
 .btn-cv {
   padding: 0.8rem 1.5rem;
   border: none;
-  background: #000;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--bg-color);
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.3s;
 }
+
 .btn-cv:hover {
-  background: #444;
+  background: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 .hero-image {
@@ -126,42 +179,120 @@ html {
   margin: 1rem;
   text-align: center;
 }
+
 .hero-image img {
   width: 100%;
   max-width: 300px;
   border-radius: 10px;
-  filter: grayscale(100%); /* Make it black & white */
+  filter: grayscale(100%);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.hero-image img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
 /* =========================
    SECTIONS (About, Resume, etc.)
 ========================= */
-section {
-  padding: 3rem 2rem;
+.section {
+  padding: 4rem 2rem;
   text-align: center;
+  animation: fadeUp 1s ease-out;
 }
+
 section h2 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
 section p {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   line-height: 1.8;
-  color: #555;
+  color: var(--secondary-color);
+}
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--nav-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.project-card p {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.project-card a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.project-card a:hover {
+  color: var(--accent-color);
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact-section p {
+  margin-bottom: 2rem;
+  color: var(--secondary-color);
 }
 
 /* =========================
    FOOTER
 ========================= */
 footer {
-  background: #000;
-  color: #fff;
+  background: var(--footer-bg);
+  color: var(--footer-color);
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   font-size: 0.9rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
@@ -174,14 +305,19 @@ footer {
   }
   .nav-menu {
     flex-wrap: wrap;
+    justify-content: center;
   }
   .hero-section {
     padding: 2rem 1rem;
+    flex-direction: column;
   }
   .hero-text {
     text-align: center;
   }
   .hero-image {
+    text-align: center;
+  }
+  .project-card {
     text-align: center;
   }
 }

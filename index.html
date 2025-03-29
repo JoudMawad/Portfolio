@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <title>Jude Mawad Portfolio</title>
   
   <!-- Google Font: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome (for social icons) -->
+  <!-- Font Awesome (for icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Main CSS -->
@@ -20,17 +20,15 @@
   
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar">
-    <div class="logo">JM
-    </div>
+    <div class="logo">JM</div>
     <ul class="nav-menu">
-      <li><a href="#home" class="active">HOME</a></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#resume">RESUME</a></li>
-      <li><a href="#projects">PROJECTS</a></li>
-      <li><a href="#contact">CONTACT</a></li>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="theme-toggle">
-      <!-- Placeholder for dark/light mode toggle -->
+    <div class="theme-toggle" id="theme-toggle">
       <i class="fas fa-moon"></i>
     </div>
   </nav>
@@ -38,12 +36,11 @@
   <!-- ========== HERO SECTION ========== -->
   <header id="home" class="hero-section">
     <div class="hero-text">
-      <p>Welcome to my digital space!</p>
+      <p class="welcome">Welcome to my digital space!</p>
       <h1>I'm Jude Mawad<br><span>A Passionate Developer</span></h1>
       <p class="subtitle">
         Take a journey through my portfolio and discover the intersection of creativity and craftsmanship.
       </p>
-      
       <div class="social-icons">
         <a href="https://www.instagram.com/jude_mawad?igsh=ZGxocXBueHZld3I2" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-instagram"></i>
@@ -52,54 +49,47 @@
           <i class="fab fa-github"></i>
         </a>
       </div>
-      
-      
       <button class="btn-cv">Download CV</button>
     </div>
     <div class="hero-image">
-      <!-- Profile Pic -->
       <img src="images/img_8246.JPG" alt="Jude Photo">
     </div>
   </header>
   
   <!-- ========== ABOUT SECTION ========== -->
-  <section id="about" class="about-section">
+  <section id="about" class="about-section section">
     <h2>About Me</h2>
     <p>
       Hi, I'm Jude Mawad — a Computer Science student at Technische Universität Braunschweig, with a strong passion for mobile and web development. I’m driven by the excitement of building clean, modern experiences that didn’t exist before. Whether it’s a personal idea or a class project, I love bringing ideas to life through code.
     </p>
     <p>
-      Outside of tech, I’m all about creativity and energy — you’ll find me playing piano, hitting the tennis court, or capturing moments through my camera. You can check out some of that on my Instagram page!
+      Outside of tech, I’m all about creativity and energy — you’ll find me playing piano, hitting the tennis court, or capturing moments through my camera. Check out some of that on my Instagram!
     </p>
   </section>
   
-  
   <!-- ========== RESUME SECTION ========== -->
-  <section id="resume" class="resume-section">
+  <section id="resume" class="resume-section section">
     <h2>Resume</h2>
     <p>
-      I'm currently building my career as a mobile and web developer, focusing on Swift, SwiftUI, and HTML. I’ve worked as a barista, which helped me develop strong time management and communication skills — especially under pressure. While I haven’t had a tech internship yet, I'm gaining hands-on experience through my university projects and personal apps.
+      I'm building my career as a mobile and web developer, focusing on Swift, SwiftUI, and HTML. I’ve worked as a barista, which helped me develop strong time management and communication skills — especially under pressure. While I haven’t had a tech internship yet, I'm gaining hands-on experience through my university projects and personal apps.
     </p>
     <p>
       You’ll be able to download my full CV here soon.
     </p>
   </section>
   
-  
   <!-- ========== PROJECTS SECTION ========== -->
-  <section id="projects" class="projects-section">
+  <section id="projects" class="projects-section section">
     <h2>Projects</h2>
-    <div class="project">
+    <div class="project-card">
       <h3>Calorie Tracker App</h3>
       <p>
-        A fully functional iOS app built using Swift and SwiftUI that helps users track their daily calorie intake. It features a sleek, minimalistic UI and is designed for simplicity and usability.
+        A fully functional iOS app built using Swift and SwiftUI that helps users track their daily calorie intake. Featuring a sleek, minimalistic UI designed for simplicity and usability.
       </p>
-      <p>
-        <a href="https://github.com/JoudMawad/Ignite" target="_blank">View on GitHub</a>
-      </p>
+      <a href="https://github.com/JoudMawad/Ignite" target="_blank">View on GitHub</a>
     </div>
   
-    <div class="project">
+    <div class="project-card">
       <h3>Semester Project</h3>
       <p>
         Currently working on a project as part of my studies at TU Braunschweig. More details coming soon!
@@ -107,13 +97,13 @@
     </div>
   </section>
   
-  
   <!-- ========== CONTACT SECTION ========== -->
-  <section id="contact" class="contact-section">
+  <section id="contact" class="contact-section section">
     <h2>Contact</h2>
     <p>
-      <!-- Contact form or details here -->
+      Feel free to reach out via my social channels or send an email.
     </p>
+    <!-- Optional: Add a contact form here -->
   </section>
   
   <!-- ========== FOOTER ========== -->
@@ -121,5 +111,14 @@
     <p>© 2025 Jude Mawad</p>
   </footer>
 
+  <script>
+    // Dark mode toggle script
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeToggle.querySelector('i').classList.toggle('fa-sun');
+      themeToggle.querySelector('i').classList.toggle('fa-moon');
+    });
+  </script>
 </body>
 </html>
