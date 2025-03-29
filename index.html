@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Jude Mawad Portfolio - Passionate Developer specializing in mobile and web development. Explore projects, resume, and contact details." />
+  <meta name="keywords" content="Jude Mawad, Portfolio, Web Development, Mobile Development, Swift, SwiftUI, HTML, Projects" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jude Mawad Portfolio</title>
   
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+
   <!-- Google Font: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,13 +18,16 @@
   <!-- Font Awesome (for icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
+  <!-- AOS CSS for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   
   <!-- ========== NAVBAR ========== -->
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" data-aos="fade-down">
     <div class="logo">JM</div>
     <div class="menu-toggle" id="mobile-menu">
       <i class="fas fa-bars"></i>
@@ -37,7 +45,7 @@
   </nav>
   
   <!-- ========== HERO SECTION ========== -->
-  <header id="home" class="hero-section">
+  <header id="home" class="hero-section" role="banner" data-aos="fade-up">
     <div class="hero-text">
       <p class="welcome">Welcome to my digital space!</p>
       <h1>I'm Jude<br><span>A Passionate Developer</span></h1>
@@ -55,7 +63,7 @@
       <button class="btn-cv">Download CV</button>
     </div>
     <div class="hero-image">
-      <img src="images/img_8246.JPG" alt="Jude Photo">
+      <img src="images/img_8246.JPG" alt="Jude Photo" loading="lazy">
     </div>
     <div class="scroll-down">
       <a href="#about"><i class="fas fa-angle-down"></i></a>
@@ -63,7 +71,7 @@
   </header>
   
   <!-- ========== ABOUT SECTION ========== -->
-  <section id="about" class="about-section section">
+  <section id="about" class="about-section section" data-aos="fade-up">
     <h2>About Me</h2>
     <p>
       Hi, I'm Jude Mawad — a Computer Science student at Technische Universität Braunschweig, with a strong passion for mobile and web development. I’m driven by the excitement of building clean, modern experiences that didn’t exist before. Whether it’s a personal idea or a class project, I love bringing ideas to life through code.
@@ -74,7 +82,7 @@
   </section>
   
   <!-- ========== RESUME SECTION ========== -->
-  <section id="resume" class="resume-section section">
+  <section id="resume" class="resume-section section" data-aos="fade-up">
     <h2>Resume</h2>
     <p>
       I'm building my career as a mobile and web developer, focusing on Swift, SwiftUI, and HTML. I’ve worked as a barista, which helped me develop strong time management and communication skills — especially under pressure. While I haven’t had a tech internship yet, I'm gaining hands-on experience through my university projects and personal apps.
@@ -85,17 +93,17 @@
   </section>
   
   <!-- ========== PROJECTS SECTION ========== -->
-  <section id="projects" class="projects-section section">
+  <section id="projects" class="projects-section section" data-aos="fade-up">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card" data-aos="zoom-in" data-project-title="Calorie Tracker App">
         <!-- Clickable logo placeholder -->
         <a href="calorie-details.html" target="_blank">
           <img src="images/svgviewer-png-output-9 1.png" 
                data-light="images/svgviewer-png-output-9 1.png" 
                data-dark="images/svgviewer-png-output-10.png" 
                alt="Calorie Tracker App Logo" 
-               class="project-logo">
+               class="project-logo" loading="lazy">
         </a>
         <!-- Project name under the logo -->
         <h3>Calorie Tracker App</h3>
@@ -105,7 +113,7 @@
         <a href="https://github.com/JoudMawad/Ignite" target="_blank">View on GitHub</a>
       </div>
     
-      <div class="project-card">
+      <div class="project-card" data-aos="zoom-in" data-project-title="Semester Project">
         <h3>Semester Project</h3>
         <p>
           Currently working on a project as part of my studies at TU Braunschweig. More details coming soon!
@@ -115,30 +123,96 @@
   </section>
   
   <!-- ========== CONTACT SECTION ========== -->
-  <section id="contact" class="contact-section section">
+  <section id="contact" class="contact-section section" data-aos="fade-up">
     <h2>Contact</h2>
     <p>
       Feel free to reach out via my social channels or send an email.
     </p>
-    <!-- The form now uses mailto: to send emails directly -->
-    <form class="contact-form" action="mailto:judemawad@gmail.com" method="post" enctype="text/plain">
+    <!-- Enhanced Contact Form with AJAX simulation -->
+    <form class="contact-form" id="contactForm">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
+    <div id="formResponse" style="display:none;">Thank you for your message!</div>
   </section>
   
   <!-- ========== FOOTER ========== -->
-  <footer>
+  <footer data-aos="fade-up">
     <p>© 2025 Jude Mawad. All rights reserved.</p>
     <div class="back-to-top">
       <a href="#home"><i class="fas fa-angle-up"></i></a>
     </div>
   </footer>
 
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Barba.js for page transitions -->
+  <script src="https://unpkg.com/@barba/core"></script>
+  
   <script>
-    // Function to update logo images based on theme mode
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // GSAP parallax effect on hero image
+    gsap.to('.hero-image img', {
+      scrollTrigger: {
+        trigger: '.hero-image',
+        start: 'top top',
+        scrub: true
+      },
+      y: -50,
+      ease: 'none'
+    });
+
+    // Barba.js page transitions
+    barba.init({
+      transitions: [{
+        name: 'fade',
+        leave(data) {
+          return gsap.to(data.current.container, {
+            opacity: 0,
+            duration: 0.5
+          });
+        },
+        enter(data) {
+          return gsap.from(data.next.container, {
+            opacity: 0,
+            duration: 0.5
+          });
+        }
+      }]
+    });
+
+    // Project filter functionality
+    const projectSearch = document.getElementById('projectSearch');
+    projectSearch.addEventListener('input', function() {
+      const filter = projectSearch.value.toLowerCase();
+      document.querySelectorAll('.project-card').forEach(card => {
+        const title = card.getAttribute('data-project-title').toLowerCase();
+        card.style.display = title.includes(filter) ? 'block' : 'none';
+      });
+    });
+
+    // Simulate AJAX contact form submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      setTimeout(() => {
+        document.getElementById('formResponse').style.display = 'block';
+        contactForm.reset();
+      }, 500);
+    });
+
+    // Update project logos based on theme mode
     function updateProjectLogos() {
       const isDark = document.body.classList.contains('dark-mode');
       document.querySelectorAll('.project-logo').forEach(img => {
@@ -149,7 +223,7 @@
       });
     }
 
-    // Dark mode toggle script
+    // Dark mode toggle
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -157,16 +231,26 @@
       themeToggle.querySelector('i').classList.toggle('fa-moon');
       updateProjectLogos();
     });
-    // Update logos on page load
     updateProjectLogos();
 
-    // Mobile menu toggle script
+    // Mobile menu toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
     mobileMenu.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       mobileMenu.querySelector('i').classList.toggle('fa-times');
     });
+
+    // Service Worker registration for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
   </script>
 </body>
 </html>

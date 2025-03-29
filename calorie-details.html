@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Calorie Tracker App Details - Explore the design and functionality behind the Calorie Tracker App built by Jude Mawad.">
+  <meta name="keywords" content="Calorie Tracker App, App Details, Portfolio, Web Development, Mobile Development, Swift, SwiftUI">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calorie Tracker App Details</title>
   
-  <!-- Google Font: Poppins -->
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -13,51 +18,110 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Font Awesome (for icons) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
-  <!-- Simple Navbar for navigation -->
-  <nav class="navbar">
+  <!-- Simple Navbar -->
+  <nav class="navbar" role="navigation" data-aos="fade-down">
     <div class="logo">JM</div>
     <ul class="nav-menu">
       <li><a href="index.html#home">Home</a></li>
       <li><a href="index.html#projects">Projects</a></li>
     </ul>
-    <div class="theme-toggle" id="theme-toggle">
+    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
       <i class="fas fa-moon"></i>
     </div>
   </nav>
   
-  <!-- Calorie Tracker App Details Section -->
-  <section class="project-details section">
+  <!-- Project Details Section -->
+  <section class="project-details section" role="main" data-aos="fade-up">
     <h1>Calorie Tracker App</h1>
     <a href="calorie-details.html" target="_blank">
       <img src="images/svgviewer-png-output-9 1.png" 
            data-light="images/svgviewer-png-output-9 1.png" 
            data-dark="images/svgviewer-png-output-10.png" 
            alt="Calorie Tracker App Logo" 
-           class="project-logo-large">
+           class="project-logo-large" loading="lazy">
     </a>
     <p>
-        This app is something I built to make tracking calories feel effortless and actually enjoyable. It’s designed with simplicity in mind — clean UI, smooth navigation, and just the features you need, nothing extra. On this page, I’ll walk you through how the app works, the decisions I made while building it, and some behind-the-scenes insights. Scroll down to check out screenshots and get a feel for the user experience!
-      </p>
+      This app is something I built to make tracking calories feel effortless and actually enjoyable. It’s designed with simplicity in mind — clean UI, smooth navigation, and just the features you need, nothing extra. On this page, I’ll walk you through how the app works, the decisions I made while building it, and some behind-the-scenes insights. Scroll down to check out screenshots and get a feel for the user experience!
+    </p>
       
-    <div class="app-screenshots">
-      <!-- Placeholder screenshots -->
-      <img src="images/IMG_2464.jpg" alt="Screenshot 1">
-      <img src="images/IMG_2481.jpg" alt="Screenshot 2">
+    <div class="app-screenshots" data-aos="zoom-in">
+      <img src="images/IMG_2464.jpg" alt="Screenshot 1" loading="lazy">
+      <img src="images/IMG_2481.jpg" alt="Screenshot 2" loading="lazy">
     </div>
     <a href="index.html#projects" class="btn-back">Back to Projects</a>
   </section>
   
   <!-- Footer -->
-  <footer>
+  <footer data-aos="fade-up">
     <p>© 2025 Jude Mawad</p>
   </footer>
   
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Barba.js for page transitions -->
+  <script src="https://unpkg.com/@barba/core"></script>
+  
   <script>
-    // Function to update logo images based on theme mode
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // GSAP parallax effect on screenshots
+    gsap.to('.app-screenshots img', {
+      scrollTrigger: {
+        trigger: '.app-screenshots',
+        start: 'top bottom',
+        scrub: true
+      },
+      y: -30,
+      ease: 'none'
+    });
+
+    // Barba.js page transitions
+    barba.init({
+      transitions: [{
+        name: 'fade',
+        leave(data) {
+          return gsap.to(data.current.container, { opacity: 0, duration: 0.5 });
+        },
+        enter(data) {
+          return gsap.from(data.next.container, { opacity: 0, duration: 0.5 });
+        }
+      }]
+    });
+
+    // Dark mode toggle with localStorage persistence
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      const isDarkMode = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      themeToggle.querySelector('i').classList.toggle('fa-sun');
+      themeToggle.querySelector('i').classList.toggle('fa-moon');
+      updateProjectLogos();
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.querySelector('i').classList.remove('fa-moon');
+        themeToggle.querySelector('i').classList.add('fa-sun');
+      }
+    });
+
+    // Update project logos based on theme mode
     function updateProjectLogos() {
       const isDark = document.body.classList.contains('dark-mode');
       document.querySelectorAll('.project-logo').forEach(img => {
@@ -68,17 +132,15 @@
       });
     }
 
-    // Dark mode toggle script
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        themeToggle.querySelector('i').classList.toggle('fa-sun');
-        themeToggle.querySelector('i').classList.toggle('fa-moon');
-        updateProjectLogos();
-      });
-      // Update logos on page load
-      updateProjectLogos();
+    // Service Worker registration for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
     }
   </script>
 </body>
