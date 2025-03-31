@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="401" height="401" viewBox="0 0 401 401">
+  <defs>
+    <!-- Define a checkered pattern:
+         Each unit is 8×8 pixels (with four 4×4 cells).
+         50 repeats of this unit yield 400px, giving 100 small squares per side. -->
+    <pattern id="checkered" width="8" height="8" patternUnits="userSpaceOnUse">
+      <!-- Top-left small square (dark gray) -->
+      <rect x="0" y="0" width="4" height="4" fill="#111"/>
+      <!-- Top-right small square (black) -->
+      <rect x="4" y="0" width="4" height="4" fill="#000"/>
+      <!-- Bottom-left small square (black) -->
+      <rect x="0" y="4" width="4" height="4" fill="#000"/>
+      <!-- Bottom-right small square (dark gray) -->
+      <rect x="4" y="4" width="4" height="4" fill="#111"/>
+    </pattern>
+  </defs>
+  <!-- The outer rectangle:
+       - Inner area is 400×400px,
+       - 1px white stroke gives the white border around the big square.
+  -->
+  <rect x="0.5" y="0.5" width="400" height="400" fill="url(#checkered)" stroke="#111" stroke-width="1"/>
+</svg>

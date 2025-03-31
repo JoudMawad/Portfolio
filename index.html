@@ -2,255 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Jude Mawad Portfolio - Passionate Developer specializing in mobile and web development. Explore projects, resume, and contact details." />
-  <meta name="keywords" content="Jude Mawad, Portfolio, Web Development, Mobile Development, Swift, SwiftUI, HTML, Projects" />
+  <meta name="description" content="Minimal Black Portfolio" />
+  <meta name="keywords" content="Minimal, Black, Portfolio" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jude Mawad Portfolio</title>
+  <title>Minimal Black Portfolio</title>
   
-  <!-- Manifest for PWA -->
-  <link rel="manifest" href="manifest.json">
-
   <!-- Google Font: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome (for icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-  <!-- AOS CSS for scroll animations -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Top bar remains the same -->
+  <div class="top-bar">
+    <div class="local-time">LOCAL // 00:00:00</div>
+    <div class="contact-button">
+      <a href="#contact">CONTACT NOW</a>
+    </div>
+  </div>
+
   
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" role="navigation" data-aos="fade-down">
-    <div class="logo">JM</div>
-    <div class="menu-toggle" id="mobile-menu">
-      <i class="fas fa-bars"></i>
-    </div>
-    <ul class="nav-menu">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="theme-toggle" id="theme-toggle">
-      <i class="fas fa-moon"></i>
-    </div>
-  </nav>
+
+  <!-- Hero Section -->
+  <main class="center-content hero">
+    <h1 class="large-text">JUDE</h1>
+  </main>
+
+<div class="main-content">
+
+<div class="bottom-bar">
+  <div class="bottom-item">
+    <div class="icon icon-location"><i class="fas fa-map-marker-alt"></i></div>
+    <div class="text">BASED IN BRUNSWICK, GERMANY</div>
+  </div>
+  <div class="bottom-item">
+    <div class="icon icon-globe"><i class="fas fa-globe"></i></div>
+    <div class="text">AVAILABLE ALL AROUND WORLDWIDE</div>
+  </div>
+  <div class="bottom-item">
+    <div class="icon icon-code"><i class="fas fa-laptop-code"></i></div>
+    <div class="text">DIGITAL DESIGNER + APP DEVELOPER</div>
+  </div>
+</div>
+
   
-  <!-- ========== HERO SECTION ========== -->
-  <header id="home" class="hero-section" role="banner" data-aos="fade-up">
-    <div class="hero-text">
-      <p class="welcome">Welcome to my digital space!</p>
-      <h1>I'm Jude<br><span>A Passionate Developer</span></h1>
-      <p class="subtitle">
-        Take a journey through my portfolio and discover the intersection of creativity and craftsmanship.
-      </p>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/jude_mawad?igsh=ZGxocXBueHZld3I2" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://github.com/JoudMawad" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      <button class="btn-cv">Download CV</button>
-    </div>
-    <div class="hero-image">
-      <img src="images/img_8246.JPG" alt="Jude Photo" loading="lazy">
-    </div>
-    <div class="scroll-down">
-      <a href="#about"><i class="fas fa-angle-down"></i></a>
-    </div>
-  </header>
-  
-  <!-- ========== ABOUT SECTION ========== -->
-  <section id="about" class="about-section section" data-aos="fade-up">
+
+  <!-- About Section -->
+    <!-- About Section -->
+<section id="about" class="section">
+  <div class="aboutMe-card">
     <h2>About Me</h2>
-    <p>
-      Hi, I'm Jude Mawad — a Computer Science student at Technische Universität Braunschweig, with a strong passion for mobile and web development. I’m driven by the excitement of building clean, modern experiences that didn’t exist before. Whether it’s a personal idea or a class project, I love bringing ideas to life through code.
-    </p>
-    <p>
-      Outside of tech, I’m all about creativity and energy — you’ll find me playing piano, hitting the tennis court, or capturing moments through my camera. Check out some of that on my Instagram!
-    </p>
-  </section>
-  
-  <!-- ========== RESUME SECTION ========== -->
-  <section id="resume" class="resume-section section" data-aos="fade-up">
-    <h2>Resume</h2>
-    <p>
-      I'm building my career as a mobile and web developer, focusing on Swift, SwiftUI, and HTML. I’ve worked as a barista, which helped me develop strong time management and communication skills — especially under pressure. While I haven’t had a tech internship yet, I'm gaining hands-on experience through my university projects and personal apps.
-    </p>
-    <p>
-      You’ll be able to download my full CV here soon.
-    </p>
-  </section>
-  
-  <!-- ========== PROJECTS SECTION ========== -->
-  <section id="projects" class="projects-section section" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card" data-aos="zoom-in" data-project-title="Calorie Tracker App">
-        <!-- Clickable logo placeholder -->
-        <a href="calorie-details.html" target="_blank">
-          <img src="images/svgviewer-png-output-9 1.png" 
-               data-light="images/svgviewer-png-output-9 1.png" 
-               data-dark="images/svgviewer-png-output-10.png" 
-               alt="Calorie Tracker App Logo" 
-               class="project-logo" loading="lazy">
-        </a>
-        <!-- Project name under the logo -->
-        <h3>Calorie Tracker App</h3>
+    <div class="aboutMe-content">
+      <img src="images/img_8246.JPG" alt="Profile Picture" />
+      <div class="aboutMe-text">
         <p>
-          A fully functional iOS app built using Swift and SwiftUI that helps users track their daily calorie intake. Featuring a sleek, minimalistic UI designed for simplicity and usability.
+          Hi, I'm Jude Mawad — a Computer Science student at Technische Universität Braunschweig, with a strong passion for mobile and web development. I’m driven by the excitement of building clean, modern experiences that didn’t exist before. Whether it’s a personal idea or a class project, I love bringing ideas to life through code.
         </p>
-        <a href="https://github.com/JoudMawad/Ignite" target="_blank">View on GitHub</a>
-      </div>
-    
-      <div class="project-card" data-aos="zoom-in" data-project-title="Semester Project">
-        <h3>Semester Project</h3>
         <p>
-          Currently working on a project as part of my studies at TU Braunschweig. More details coming soon!
+          Outside of tech, I’m all about creativity and energy — you’ll find me playing piano, hitting the tennis court, or capturing moments through my camera. Check out some of that on my Instagram!
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <img src="images/svgviewer-png-output-10.png" alt="Project 1" />
+        <h3>IGNITE</h3>
+        <p>A Fully functional Calorie Tracking App.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/svgviewer-png-output-9 1.png" alt="Project 2" />
+        <h3>IGNITE</h3>
+        <p>A Fully functional Calorie Tracking App.</p>
+      </div>
+      <!-- Add more project cards as needed -->
+    </div>
   </section>
-  
-  <!-- ========== CONTACT SECTION ========== -->
-  <section id="contact" class="contact-section section" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>
-      Feel free to reach out via my social channels or send an email.
-    </p>
-    <!-- Enhanced Contact Form with AJAX simulation -->
-    <form class="contact-form" id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <!-- Contact Section -->
+<!-- Contact Section -->
+<section id="contact" class="section">
+  <div class="contact-card">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mjkyedpy" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+      </div>
       <button type="submit">Send Message</button>
     </form>
-    <div id="formResponse" style="display:none;">Thank you for your message!</div>
-  </section>
-  
-  <!-- ========== FOOTER ========== -->
-  <footer data-aos="fade-up">
-    <p>© 2025 Jude Mawad. All rights reserved.</p>
-    <div class="back-to-top">
-      <a href="#home"><i class="fas fa-angle-up"></i></a>
-    </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- GSAP for advanced animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Barba.js for page transitions -->
-  <script src="https://unpkg.com/@barba/core"></script>
-  
+</div>
+
+
+
+
+
+
+  <!-- JavaScript to update the local time every second -->
   <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true
-    });
-
-    // GSAP parallax effect on hero image
-    gsap.to('.hero-image img', {
-      scrollTrigger: {
-        trigger: '.hero-image',
-        start: 'top top',
-        scrub: true
-      },
-      y: -50,
-      ease: 'none'
-    });
-
-    // Barba.js page transitions
-    barba.init({
-      transitions: [{
-        name: 'fade',
-        leave(data) {
-          return gsap.to(data.current.container, {
-            opacity: 0,
-            duration: 0.5
-          });
-        },
-        enter(data) {
-          return gsap.from(data.next.container, {
-            opacity: 0,
-            duration: 0.5
-          });
-        }
-      }]
-    });
-
-    // Project filter functionality
-    const projectSearch = document.getElementById('projectSearch');
-    projectSearch.addEventListener('input', function() {
-      const filter = projectSearch.value.toLowerCase();
-      document.querySelectorAll('.project-card').forEach(card => {
-        const title = card.getAttribute('data-project-title').toLowerCase();
-        card.style.display = title.includes(filter) ? 'block' : 'none';
-      });
-    });
-
-    // Simulate AJAX contact form submission
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      setTimeout(() => {
-        document.getElementById('formResponse').style.display = 'block';
-        contactForm.reset();
-      }, 500);
-    });
-
-    // Update project logos based on theme mode
-    function updateProjectLogos() {
-      const isDark = document.body.classList.contains('dark-mode');
-      document.querySelectorAll('.project-logo').forEach(img => {
-        img.src = isDark ? img.dataset.dark : img.dataset.light;
-      });
-      document.querySelectorAll('.project-logo-large').forEach(img => {
-        img.src = isDark ? img.dataset.dark : img.dataset.light;
-      });
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const timeString = `LOCAL // ${hours}:${minutes}:${seconds}`;
+      document.querySelector('.local-time').textContent = timeString;
     }
-
-    // Dark mode toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      themeToggle.querySelector('i').classList.toggle('fa-sun');
-      themeToggle.querySelector('i').classList.toggle('fa-moon');
-      updateProjectLogos();
-    });
-    updateProjectLogos();
-
-    // Mobile menu toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    mobileMenu.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileMenu.querySelector('i').classList.toggle('fa-times');
-    });
-
-    // Service Worker registration for PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.log('Service Worker registration failed:', error);
-        });
-    }
+    updateTime();
+    setInterval(updateTime, 1000);
   </script>
 </body>
 </html>
