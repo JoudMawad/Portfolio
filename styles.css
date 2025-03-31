@@ -302,8 +302,4 @@ body::before {
     font-size: 8rem;
   }
   
-  .top-bar {
-    flex-direction: column;
-    text-align: center;
-  }
 }
