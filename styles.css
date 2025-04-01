@@ -486,7 +486,7 @@ body::before {
     padding: 0 0.5rem;
   }
   .large-text.in-view {
-    transform: translateY(-150px);
+    transform: translateY(-250px);
   }
   
   /* Also adjust overlay header text sizes */
