@@ -1,0 +1,216 @@
+/* PROJECTS HERO - Fullscreen style */
+.projects-hero {
+    display: flex;
+    flex-wrap: wrap;  /* stacks on mobile */
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1; /* above grid background */
+    color: #fff; /* ensure text is white */
+    left: 10%;
+    /* Starting state for animation */
+    opacity: 0;
+    transform: translateY(1000px);
+    animation: slideUp 1s forwards;
+  }
+  
+  .projects-left,
+  .projects-right {
+    flex: 1 1 50%;
+    padding: 1rem;
+    /* Apply sliding animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s forwards;
+  }
+  
+  /* Big heading & subtext */
+  .projects-left h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    /* Animate heading */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s forwards;
+  }
+  
+  .projects-left p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    /* Animate paragraph */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s forwards;
+  }
+  
+  /* Small white circle */
+  .circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 1rem 0;
+    /* Animate circle */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s forwards;
+  }
+  
+  /* Call-to-action Button */
+  .cta-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0.5rem;
+    /* Animate button */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s forwards;
+  }
+  
+  .cta-btn:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Right side image */
+  .projects-right img {
+    width: 100%;
+    max-width: 500px; /* limit size if preferred */
+    border-radius: 20px;
+    object-fit: cover;
+    /* Animate image */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s forwards;
+  }
+  
+  /* PROJECTS GALLERY SECTION */
+  .projects-gallery {
+    padding: 2rem;
+    background: #111;
+    color: #fff;
+    /* Custom animation for gallery landing */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpInfo 1s forwards;
+    animation-delay: 1s;
+  }
+  
+  .projects-gallery h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .gallery-item {
+    background: #222;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transform: translateY(20px);
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Standard Sliding Animation Keyframes */
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(-50px);
+    }
+  }
+  
+  /* Custom Animation for Gallery info */
+  @keyframes slideUpInfo {
+    to {
+      opacity: 1;
+      transform: translateY(-10rem);
+    }
+  }
+  
+  /* Responsive Adjustments for Mobile and Small Devices */
+  @media (max-width: 768px) {
+    .projects-hero {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 4rem; /* extra top padding if you have a sticky header */
+      left: 0;             /* remove left offset */
+      transform: translateY(0); /* reset vertical transform */
+      padding: 1rem;       /* reduce padding if needed */
+      opacity: 0;
+    }
+  
+    .projects-left,
+    .projects-right {
+      flex: 1 1 100%;
+      padding: 1rem;
+    }
+  
+    .projects-left h1 {
+      font-size: 2.5rem;
+    }
+  
+    .projects-left p {
+      font-size: 1rem;
+    }
+  
+    .projects-right img {
+      max-width: 80%;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(1000px);
+      animation: slideUp 1s forwards;
+      animation-delay: 0.3s;
+    }
+  
+    .projects-gallery {
+      flex-direction: column;
+      align-items: center;
+      animation: none; /* Disable custom animation if needed */
+      transform: translateY(0);  /* reset transform for mobile */
+      padding: 1rem;
+      opacity: 1;
+    }
+  
+    .gallery-item {
+      animation: none;
+      opacity: 1;
+    }
+  
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(-5px);
+      }
+    }
+    
+    @keyframes slideUpInfo {
+      to {
+        opacity: 1;
+        transform: translateY(-4rem);
+      }
+    }
+  }
+  
