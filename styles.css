@@ -473,6 +473,29 @@ body::before {
     font-size: 0.95rem;
     text-align: center;
   }
+
+  .aboutMe-card {
+    width: 100%;
+  }
+
+  .aboutMe-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutMe-content img {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+
+  .bottom-bar {
+    bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
   
   .project-card img {
     width: 90%;
@@ -486,6 +509,10 @@ body::before {
   }
   .large-text.in-view {
     transform: translateY(-150px);
+  }
+
+  .main-content {
+    transform: translateY(-330px);
   }
   
   /* Overlay header adjustments for tighter space */
