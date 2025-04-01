@@ -505,7 +505,11 @@ body::before {
   }
   .overlay-header .overlay-local,
   .overlay-header .overlay-contact {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .main-content {
+    transform: translateY(-280px);
   }
   
   /* Projects section header scaled down */
