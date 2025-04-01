@@ -489,6 +489,11 @@ body::before {
     margin: 0.5rem 0;
   }
 
+  .digit{
+    margin: -0.15rem;
+    font-size: 1.5rem;
+  }
+
  
   
 
@@ -574,6 +579,11 @@ body::before {
 
   .home-local,
   .home-contact {
+    font-size: 1rem;
+  }
+
+  .digit{
+    margin: -0.08rem;
     font-size: 1rem;
   }
 
