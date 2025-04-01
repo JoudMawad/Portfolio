@@ -364,6 +364,51 @@ body::before {
   margin-bottom: 0.3rem;
 }
 
+.projects-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #111;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.projects-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Using a grid layout for project items */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   html, body {
@@ -384,7 +429,7 @@ body::before {
     font-size: 5rem;
   }
   .large-text.in-view {
-    transform: translateY(-250px);
+    transform: translateY(-280px);
   }
   .bottom-bar {
     bottom: 2rem;
@@ -415,13 +460,20 @@ body::before {
   }
 }
 
+.overlay-header .overlay-local,
+.overlay-header .overlay-contact {
+  font-size: 1.5rem;
+}
+
+/* Media Query for smaller mobile devices */
 @media (max-width: 480px) {
-  html, body {
-    font-size: 0.85rem;
+  /* Reduce header text sizes */
+  .overlay-header .overlay-local,
+  .overlay-header .overlay-contact {
+    font-size: 1.5rem;
   }
-  .large-text {
-    font-size: 4rem;
-  }
+  
+  /* Adjust spacing in overlay header */
   .overlay-header {
     left: 1rem;
     right: 1rem;
@@ -429,20 +481,22 @@ body::before {
     flex-direction: column;
     gap: 0.5rem;
   }
-  .overlay-nav li a {
-    font-size: 4rem;
-    padding: 0.5rem;
+  
+  /* Projects section header */
+  .projects-section h2 {
+    font-size: 2rem;
   }
   
-  /* Contact Card adjustments for smaller screens */
-  .contact-card {
-    width: 95%;
-    padding: 1rem;
+  /* Project card text adjustments */
+  .project-card h3 {
+    font-size: 1.3rem;
+  }
+  .project-card p {
+    font-size: 0.9rem;
   }
   
-  /* Adjust burger menu touch target */
-  .burger-menu {
-    width: 35px;
-    height: 25px;
+  /* Reduce padding for the projects section */
+  .projects-section {
+    padding: 3rem 1rem;
   }
 }
