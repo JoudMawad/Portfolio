@@ -508,7 +508,7 @@ body::before {
     font-size: 1.3rem;
   }
 
-  .main-content {
+  .main-content.in-view {
     transform: translateY(-200px);
   }
   
