@@ -94,7 +94,7 @@ body::before {
 /* Home Header Elements */
 .home-local,
 .home-contact {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .blink-red {
@@ -198,7 +198,7 @@ body::before {
 
 .digit {
   display: inline-block; /* keeps the digits inline */
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: inherit;
   margin: -0.25rem;
   /* Optionally, add any padding or margin adjustments if needed */
@@ -295,6 +295,10 @@ body::before {
 
 .red-text {
   color: rgb(125, 0, 0);
+}
+
+.gray-text {
+  color: rgb(125, 125, 125);
 }
 
 

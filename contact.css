@@ -1,0 +1,227 @@
+/* CONTACT HERO - Fullscreen style */
+.contact-hero {
+    display: flex;
+    flex-wrap: wrap;  /* so it stacks on mobile */
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1; /* above the grid background if you have one */
+    color: #fff; /* ensure text is white */
+    left: 10%;
+    transform: translateY(-10rem );
+  }
+  
+  .contact-left, .contact-right {
+    flex: 1 1 50%;
+    padding: 1rem;
+  }
+  
+  /* Big heading & subtext */
+  .contact-left h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  
+  .contact-left p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Small white circle */
+  .circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 1rem 0;
+  }
+  
+  /* Subheading before the form */
+  .form-heading {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Form container */
+  .contact-left form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form Group spacing */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Form fields (inputs & textarea) */
+  .contact-left input,
+  .contact-left textarea {
+    width: 100%;
+    background-color: #111; 
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  /* Placeholder color for inputs */
+  .contact-left input::placeholder,
+  .contact-left textarea::placeholder {
+    color: #aaa;
+  }
+  
+  /* Submit button */
+  .submit-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .submit-btn:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  /* Right side image */
+  .contact-right img {
+    width: 100%;
+    max-width: 500px; /* limit size if you prefer */
+    border-radius: 20px;
+    object-fit: cover;
+    /* optionally add a box-shadow or other effects */
+  }
+
+  /* CONTACT INFO SECTION */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 2rem;
+    z-index: 2;
+    transform: translateY(-15rem );
+    align-self: center;
+  }
+  
+  /* Each column */
+  .contact-info .info-col {
+    flex: 1 1 200px; /* each column grows/shrinks but min 200px wide */
+    min-width: 200px;
+    z-index: 2;
+    align-self: center;
+  }
+  
+  .contact-info .info-col h3 {
+    font-size: 1.2rem;
+    font-weight: 100;
+    margin-bottom: -0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #bcb8b8ea;
+    z-index: 2;
+
+  }
+  
+  .contact-info .info-col p,
+  .contact-info .info-col li {
+    margin-bottom: -0.7rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    z-index: 2;
+
+  }
+  
+  .contact-info .info-col {
+    flex: 1 1 200px;
+    min-width: 200px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items:center; /* Use flex-start instead of left */
+    gap: 1rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start; /* Use flex-start instead of left */
+    margin-top: -0.5rem;
+  }
+  
+  .social-links a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+  .social-links a:hover {
+    color: #33c1ff;
+  }
+
+  .social-links ul {
+    display: flex;
+    justify-content: left;
+    list-style: none;
+
+  }
+  
+  .social-links li {
+    margin:0.5rem;
+  }
+  
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .contact-info {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .contact-info .info-col {
+      flex: 1 1 100%;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  
+  /* RESPONSIVE ADJUSTMENTS */
+  @media (max-width: 768px) {
+    .contact-hero {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 4rem; /* extra top padding if you have a sticky header */
+    }
+    .contact-left, .contact-right {
+      flex: 1 1 100%;
+      padding: 1rem;
+    }
+    .contact-left h1 {
+      font-size: 2.5rem;
+    }
+    .contact-left p {
+      font-size: 1rem;
+    }
+    .contact-right img {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+  

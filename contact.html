@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Contact Page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact – Minimal Black Portfolio</title>
+  
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Contact-specific CSS -->
+    <link rel="stylesheet" href="contact.css">
+  </head>    
+  <body>
+    <!-- Overlay Menu (same markup as your home page) -->
+    <div class="overlay-menu" id="overlayMenu">
+      <!-- Overlay Header -->
+      <div class="overlay-header animate delay-0">
+        <div class="overlay-local-location">LOCAL // 52°15'55.3"N</div>
+        <!-- This link can remain on contact or be changed as needed -->
+        <a href="contact.html" class="overlay-contact">CONTACT ME</a>
+      </div>
+      
+      <!-- Navigation Links -->
+      <div class="overlay-nav-container">
+        <ul class="overlay-nav">
+          <li class="animate delay-11"><a href="index.html">Home</a></li>
+          <li class="animate delay-22"><a href="#about">About Me</a></li>
+          <li class="animate delay-33"><a href="#projects">Projects</a></li>
+          <li class="animate delay-44"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="social-links animate delay-66">
+        <a href="https://www.instagram.com/jude_mawad" target="_blank">INSTAGRAM ↗</a>
+        <a href="https://github.com/JoudMawad" target="_blank">GITHUB ↗</a>
+      </div>
+    </div>
+    
+    <!-- Header with Burger Menu -->
+    <header class="home-header">
+      <div class="home-local animate delay-11">
+        LOCAL // 
+        <span class="time-hours">
+          <span class="digit" data-index="0">0</span>
+          <span class="digit" data-index="1">0</span>
+        </span>:
+        <span class="time-minutes">
+          <span class="digit" data-index="0">0</span>
+          <span class="digit" data-index="1">0</span>
+        </span>:
+        <span class="time-seconds">
+          <span class="digit" data-index="0">0</span>
+          <span class="digit" data-index="1">0</span>
+        </span>
+      </div>
+      <!-- Burger Menu -->
+      <div class="burger-container home-burger animate delay-11">
+        <div class="burger-menu" id="burgerMenuHome">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <!-- Top Right Home Button (optional – now the burger toggles the overlay) -->
+      <a href="index.html" class="home-contact animate delay-11">HOME</a>
+    </header>
+    
+    <!-- Fullscreen Hero-Style Contact Section -->
+    <section class="contact-hero">
+      <!-- Left side: text & form -->
+      <div class="contact-left">
+        <h1>RING A BELL!</h1>
+        <p>
+          Reach out and let’s create something amazing together.<br />
+          Let’s achieve greatness.
+        </p>
+        <!-- The small white circle -->
+        <div class="circle"></div>
+    
+        <!-- Subheading before the form -->
+        <h2 class="form-heading">FILL THIS FORM OUT</h2>
+    
+        <form action="https://formspree.io/f/mjkyedpy" method="POST">
+          <div class="form-group">
+            <label for="name" class="sr-only">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="Name*" 
+              required 
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="_replyto" 
+              placeholder="Email*" 
+              required 
+            />
+          </div>
+          <div class="form-group">
+            <label for="message" class="sr-only">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              placeholder="Message*" 
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit Now</button>
+        </form>
+      </div>
+    
+      <!-- Right side: image -->
+      <div class="contact-right">
+        <img src="images/img_8246.JPG" alt="Contact Portrait" />
+      </div>
+    </section>
+
+<!-- Contact Info Section -->
+<section class="contact-info">
+    <!-- Column 1: Follow Me -->
+    <div class="info-col">
+      <h3>Follow Me</h3>
+      <div class="social-links">
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/jude_mawad?igsh=c3oxYjN0MHFjZTJn&utm_source=qr" target="_blank">INSTAGRAM
+            </a>
+          </li>
+          <!-- Add additional social links here as needed -->
+        </ul>
+      </div>
+    </div>
+    <!-- You can add more columns here -->
+
+  
+  
+    <!-- Column 2: Current Location -->
+    <div class="info-col">
+      <h3>Current Location</h3>
+      <p>
+        Brunswick, 38100<br/>
+        Germany
+      </p>
+    </div>
+  
+    <!-- Column 3: Phone -->
+    <div class="info-col">
+      <h3>Phone</h3>
+      <p>GER +49 1772257937</p>
+    </div>
+  
+    <!-- Column 4: Email Me -->
+    <div class="info-col">
+      <h3>Email Me</h3>
+      <p>JudeMawad@Gmail.com</p>
+    </div>
+  </section>
+  
+    
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+      // Ensure the burger menu toggles the overlay menu
+      const burgerMenu = document.getElementById('burgerMenuHome');
+      const overlayMenu = document.getElementById('overlayMenu');
+      
+      if(burgerMenu && overlayMenu) {
+        burgerMenu.addEventListener('click', function() {
+          overlayMenu.classList.toggle('active');
+          burgerMenu.classList.toggle('open');
+        });
+      }
+    </script>
+  </body>
+</html>
