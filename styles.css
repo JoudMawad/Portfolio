@@ -40,7 +40,7 @@ body::before {
   transform: translateY(0);
 }
 .large-text.in-view {
-  transform: translateY(-100px);
+  transform: translateY(-150px);
 }
 
 /* Header Animation Override */
@@ -115,7 +115,7 @@ body::before {
 /* Center the burger menu in the home header */
 .home-burger {
   position: absolute;
-  left: 45%;
+  left: 50%;
 }
 
 /* Burger Menu (Re-used for both header and overlay) */
@@ -126,6 +126,7 @@ body::before {
   flex-direction: column;
   justify-content: space-between;
   height: 22px;
+
 }
 .burger-menu span {
   display: block;
@@ -386,13 +387,15 @@ body::before {
   position: sticky;
   flex-direction: row;
   bottom: 0;
-  width: 100%;
+  width: 90%;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
   z-index: 1;
+  left: 6.7%;
+  
 }
 .bottom-item {
   display: flex;
@@ -401,6 +404,7 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   opacity: 0.8;
+  
 }
 .bottom-item .icon {
   font-size: 1.2rem;
@@ -448,6 +452,12 @@ body::before {
   line-height: 1.5;
 }
 
+@media (min-width: 1024px) {
+  .large-text {
+    font-size: clamp(3rem, 8vw, 10rem);
+  }
+}
+
 /* Responsive Adjustments for Tablets & Smaller Devices */
 @media (max-width: 768px) {
   html, body {
@@ -459,10 +469,10 @@ body::before {
     font-size: 1.5rem;
     margin: 0.5rem 0;
   }
-  
   .aboutMe-card {
     width: 100%;
   }
+
   .aboutMe-content {
     flex-direction: column;
     align-items: center;
