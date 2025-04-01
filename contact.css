@@ -1,229 +1,312 @@
 /* CONTACT HERO - Fullscreen style */
 .contact-hero {
-    display: flex;
-    flex-wrap: wrap;  /* so it stacks on mobile */
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 1; /* above the grid background if you have one */
-    color: #fff; /* ensure text is white */
-    left: 10%;
-    transform: translateY(-10rem);
+  display: flex;
+  flex-wrap: wrap;  /* stacks on mobile */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1; /* above grid background */
+  color: #fff; /* ensure text is white */
+  left: 10%;
+  /* Starting state for animation */
+  opacity: 0;
+  transform: translateY(1000px);
+  animation: slideUp 1s forwards;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1 1 50%;
+  padding: 1rem;
+  /* Apply sliding animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+/* Big heading & subtext */
+.contact-left h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  /* Animate heading */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+.contact-left p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  /* Animate paragraph */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+/* Small white circle */
+.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  margin: 1rem 0;
+  /* Animate circle */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s forwards;
+}
+
+/* Subheading before the form */
+.form-heading {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  /* Animate subheading */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+/* Form container */
+.contact-left form {
+  display: flex;
+  flex-direction: column;
+  /* Animate form container */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+/* Form Group spacing */
+.form-group {
+  margin-bottom: 1rem;
+  /* Animate each form group */
+}
+
+/* Form fields (inputs & textarea) */
+.contact-left input,
+.contact-left textarea {
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-size: 1rem;
+
+}
+
+/* Placeholder color for inputs */
+.contact-left input::placeholder,
+.contact-left textarea::placeholder {
+  color: #aaa;
+}
+
+/* Submit button */
+.submit-btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 0.5rem;
+  /* Animate submit button */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+.submit-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Right side image */
+.contact-right img {
+  width: 100%;
+  max-width: 500px; /* limit size if preferred */
+  border-radius: 20px;
+  object-fit: cover;
+  /* Animate image */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
+
+/* CONTACT INFO SECTION */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem;
+  z-index: 2;
+  align-self: center;
+  /* Use custom animation so it lands higher */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpInfo 1s forwards;
+  animation-delay: 1s;
+}
+
+/* Each column in Contact Info */
+.contact-info .info-col {
+  flex: 1 1 200px; /* each column grows/shrinks with min width */
+  min-width: 200px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  /* Animate info columns */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpInfo 1s forwards;
+}
+
+.contact-info .info-col h3 {
+  font-size: 1.2rem;
+  font-weight: 100;
+  margin-bottom: -0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #bcb8b8ea;
+  z-index: 2;
+  /* Animate heading */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpInfo 1s forwards;
+}
+
+.contact-info .info-col p,
+.contact-info .info-col li {
+  margin-bottom: -0.7rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  z-index: 2;
+  /* Animate text items */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpInfo 1s forwards;
+}
+
+/* Social Links within Contact Info */
+.social-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin-top: -0.5rem;
+  /* Animate social links container */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s forwards;
+}
+
+.social-links a {
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+  /* Animate individual links */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s forwards;
+}
+
+.social-links a:hover {
+  color: #33c1ff;
+}
+
+.social-links ul {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  margin: 0.5rem;
+  /* Animate list items */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s forwards;
+}
+
+/* Standard Sliding Animation Keyframes */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(-30px);
   }
-  
+}
+
+/* Custom Animation for Contact Info landing higher */
+@keyframes slideUpInfo {
+  to {
+    opacity: 1;
+    transform: translateY(-4rem); /* Adjust landing position as desired */
+  }
+}
+
+/* Responsive Adjustments for Mobile and Small Devices */
+@media (max-width: 768px) {
+  .contact-hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 4rem; /* extra top padding if you have a sticky header */
+    left: 0;             /* remove left offset */
+    transform: translateY(0); /* reset vertical transform */
+    padding: 1rem;       /* reduce padding if needed */
+  }
+
   .contact-left,
   .contact-right {
-    flex: 1 1 50%;
+    flex: 1 1 100%;
     padding: 1rem;
   }
-  
-  /* Big heading & subtext */
+
   .contact-left h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+    font-size: 2.5rem;
   }
-  
+
   .contact-left p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Small white circle */
-  .circle {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #fff;
-    margin: 1rem 0;
-  }
-  
-  /* Subheading before the form */
-  .form-heading {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;
-  }
-  
-  /* Form container */
-  .contact-left form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Form Group spacing */
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  /* Form fields (inputs & textarea) */
-  .contact-left input,
-  .contact-left textarea {
-    width: 100%;
-    background-color: #111;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 0.75rem;
     font-size: 1rem;
   }
-  
-  /* Placeholder color for inputs */
-  .contact-left input::placeholder,
-  .contact-left textarea::placeholder {
-    color: #aaa;
-  }
-  
-  /* Submit button */
-  .submit-btn {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-top: 0.5rem;
-  }
-  
-  .submit-btn:hover {
-    background-color: #000;
-    color: #fff;
-  }
-  
-  /* Right side image */
+
   .contact-right img {
-    width: 100%;
-    max-width: 500px; /* limit size if you prefer */
-    border-radius: 20px;
-    object-fit: cover;
-    /* optionally add a box-shadow or other effects */
+    max-width: 80%;
+    margin: 0 auto;
   }
-  
-  /* CONTACT INFO SECTION */
+
   .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
-    padding: 2rem;
-    z-index: 2;
-    transform: translateY(-15rem);
-    align-self: center;
-  }
-  
-  /* Each column */
-  .contact-info .info-col {
-    flex: 1 1 200px; /* each column grows/shrinks but min 200px wide */
-    min-width: 200px;
-    z-index: 2;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    animation: none; /* Disable custom animation if needed */
+    transform: translateY(0);  /* reset transform for mobile */
+    padding: 1rem;
+    opacity: 1;
   }
-  
-  .contact-info .info-col h3 {
-    font-size: 1.2rem;
-    font-weight: 100;
-    margin-bottom: -0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #bcb8b8ea;
-    z-index: 2;
+
+  .contact-info .info-col {
+    flex: 1 1 100%;
+    margin-bottom: 1.5rem;
+    align-items: flex-start; /* align text to the left */
+    animation: none; /* Disable custom animation if needed */
+    opacity: 1;
   }
-  
-  .contact-info .info-col p,
-  .contact-info .info-col li {
-    margin-bottom: -0.7rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    z-index: 2;
-  }
-  
-  /* Social Links */
-  .social-links {
-    display: flex;
-    gap: 2rem;
-    justify-content: flex-start;
-    margin-top: -0.5rem;
-  }
-  
-  .social-links a {
-    color: #ffffff;
-    font-size: 1.2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    transition: color 0.3s ease;
-  }
-  
-  .social-links a:hover {
-    color: #33c1ff;
-  }
-  
-  .social-links ul {
-    display: flex;
-    justify-content: flex-start;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .social-links li {
-    margin: 0.5rem;
-  }
-  
-  /* Responsive Adjustments for Mobile and Small Devices */
-  @media (max-width: 768px) {
-    .contact-hero {
-      flex-direction: column;
-      text-align: center;
-      padding-top: 4rem; /* extra top padding if you have a sticky header */
-      left: 0;             /* remove left offset */
-      transform: translateY(0); /* reset vertical transform */
-      padding: 1rem;       /* reduce padding if needed */
-    }
-  
-    .contact-left,
-    .contact-right {
-      flex: 1 1 100%;
-      padding: 1rem;
-    }
-  
-    .contact-left h1 {
-      font-size: 2.5rem;
-    }
-  
-    .contact-left p {
-      font-size: 1rem;
-    }
-  
-    .contact-right img {
-      max-width: 80%;
-      margin: 0 auto;
-    }
-  
-    .contact-info {
-      flex-direction: column;
-      align-items: flex-start;
-      transform: translateY(0);  /* reset the transform for mobile */
-      padding: 1rem;
-    }
-  
-    .contact-info .info-col {
-      flex: 1 1 100%;
-      margin-bottom: 1.5rem;
-      align-items: flex-start; /* align text to the left */
-    }
-  }
-  
+}

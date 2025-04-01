@@ -193,7 +193,7 @@ body::before {
   align-items: center;
 }
 .overlay-local {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .digit {
@@ -210,7 +210,7 @@ body::before {
 
 
 .overlay-contact {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #fff;
   text-decoration: none;
   border: 1px solid #fff;
