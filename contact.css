@@ -177,7 +177,6 @@
 .contact-info .info-col h3 {
   font-size: 1.2rem;
   font-weight: 100;
-  margin-bottom: -0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #bcb8b8ea;
@@ -186,6 +185,7 @@
   opacity: 0;
   transform: translateY(20px);
   animation: slideUpInfo 1s forwards;
+  
 }
 
 .contact-info .info-col p,
@@ -202,18 +202,18 @@
 }
 
 /* Social Links within Contact Info */
-.social-links {
+.contact-social-links {
   display: flex;
   gap: 2rem;
   justify-content: flex-start;
-  margin-top: -0.5rem;
+
   /* Animate social links container */
   opacity: 0;
   transform: translateY(20px);
-  animation: slideUp 0.6s forwards;
+  animation: slideUpSocial 0.6s forwards;
 }
 
-.social-links a {
+.contact-social-links a {
   color: #ffffff;
   font-size: 1.2rem;
   text-decoration: none;
@@ -227,19 +227,19 @@
   animation: slideUp 0.6s forwards;
 }
 
-.social-links a:hover {
+.contact-social-links a:hover {
   color: #33c1ff;
 }
 
-.social-links ul {
+.contact-social-links ul {
   display: flex;
   justify-content: flex-start;
   list-style: none;
-  padding: 0;
+  padding-top: 10;
   margin: 0;
 }
 
-.social-links li {
+.contact-social-links li {
   margin: 0.5rem;
   /* Animate list items */
   opacity: 0;
@@ -252,6 +252,13 @@
   to {
     opacity: 1;
     transform: translateY(-30px);
+  }
+}
+
+@keyframes slideUpSocial {
+  to {
+    opacity: 1;
+    transform: translateY(-1rem); /* No upward shift */
   }
 }
 
