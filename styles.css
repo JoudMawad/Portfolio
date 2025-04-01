@@ -531,6 +531,11 @@ body::before {
   .home-contact {
     font-size: 1rem;
   }
+
+  .home-burger {
+    position: absolute;
+    left: 46%;
+  }
   
   .aboutMe-text {
     font-size: 0.95rem;
@@ -553,6 +558,11 @@ body::before {
   .home-header {
     font-size: 0.5rem;
   }
+
+  .overlay-menu {
+    background-size: calc(100vw / 2) calc(100vw / 2);
+    
+  }
   
   .overlay-header {
     left: 1rem;
@@ -561,9 +571,9 @@ body::before {
     flex-direction: row;
     gap: 0.5rem;
   }
-  .overlay-header .overlay-local
+  .overlay-header .overlay-local-location
   {
-    font-size: 1rem;
+    font-size: 0.9rem;
     transform: translateY(14px);
   }
 
