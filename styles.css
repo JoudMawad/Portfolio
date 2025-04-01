@@ -299,9 +299,9 @@ body::before {
 
 
 /* Colored Icons */
-.icon-location i { color:rgb(125, 0, 0); }
-.icon-globe i { color: #33c1ff; }
-.icon-code i { color: #006300; }
+.icon-location i { color:rgb(255, 255, 255); }
+.icon-globe i { color: #ffffff; }
+.icon-code i { color: #ffffff; }
 
 /* Section Styling */
 .section {
