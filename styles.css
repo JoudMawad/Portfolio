@@ -431,13 +431,6 @@ body::before {
     font-size: 1rem;
   }
   
-  .large-text {
-    font-size: 5rem;
-  }
-  .large-text.in-view {
-    transform: translateY(-280px);
-  }
-  
   .bottom-bar {
     bottom: 2rem;
     flex-direction: column;
@@ -448,7 +441,7 @@ body::before {
   }
   
   .main-content {
-    transform: translateY(-550px);
+    transform: translateY(-330px);
   }
   
   .overlay-header {
@@ -492,7 +485,7 @@ body::before {
     padding: 0 0.5rem;
   }
   .large-text.in-view {
-    transform: translateY(-250px);
+    transform: translateY(-150px);
   }
   
   /* Overlay header adjustments for tighter space */
@@ -500,17 +493,20 @@ body::before {
     left: 1rem;
     right: 1rem;
     top: 0.5rem;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
   }
   .overlay-header .overlay-local,
   .overlay-header .overlay-contact {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    transform: translateY(10px);
+  }
+  
+  .overlay-nav li a {
+    color: #6f00ff;
+    font-size: 5rem;
   }
 
-  .main-content.in-view {
-    transform: translateY(-200px);
-  }
   
   /* Projects section header scaled down */
   .projects-section h2 {
