@@ -509,7 +509,7 @@ body::before {
   }
 
   .main-content {
-    transform: translateY(-280px);
+    transform: translateY(-200px);
   }
   
   /* Projects section header scaled down */
