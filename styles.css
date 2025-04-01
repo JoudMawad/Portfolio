@@ -16,6 +16,11 @@ html, body {
   font-size: 0.95rem;
 }
 
+/* Viewport meta tag is critical for mobile!
+   (Include this in your HTML head)
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+*/
+
 /* Grid Background */
 body::before {
   content: "";
@@ -69,7 +74,7 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 25rem; /* This adds space between child elements */
+  gap: 25rem; /* Adjust spacing as needed */
   z-index: 3;
   background: transparent;
 }
@@ -117,12 +122,11 @@ body::before {
   justify-content: center;
   align-items: center;
   
-  /* Start off-screen (above) */
+  /* Start off-screen (below) */
   transform: translateY(100%);
   opacity: 0;
   visibility: hidden;
   
-  /* Transition for both transform and opacity */
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 2;
 }
@@ -185,7 +189,7 @@ body::before {
   color: #33c1ff;
 }
 
-/* Social Links (New) */
+/* Social Links */
 .social-links {
   display: flex;
   gap: 2rem;
@@ -364,6 +368,7 @@ body::before {
   margin-bottom: 0.3rem;
 }
 
+/* Projects Section */
 .projects-section {
   padding: 4rem 2rem;
   text-align: center;
@@ -373,48 +378,43 @@ body::before {
   max-width: 1200px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 .projects-section h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
-
-/* Using a grid layout for project items */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   padding: 0 1rem;
 }
-
+.project-card {
+  transition: transform 0.3s ease;
+}
 .project-card:hover {
   transform: translateY(-5px);
 }
-
 .project-card img {
   width: 50%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
-
 .project-card h3 {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
-
 .project-card p {
   font-size: 1rem;
   line-height: 1.5;
 }
 
-
-/* Responsive Adjustments */
+/* Responsive Adjustments for Tablets & Smaller Devices */
 @media (max-width: 768px) {
   html, body {
     font-size: 0.9rem;
   }
-
+  
   .aboutMe-card {
     width: 100%;
   }
@@ -430,12 +430,14 @@ body::before {
     text-align: center;
     font-size: 1rem;
   }
+  
   .large-text {
     font-size: 5rem;
   }
   .large-text.in-view {
     transform: translateY(-280px);
   }
+  
   .bottom-bar {
     bottom: 2rem;
     flex-direction: column;
@@ -444,11 +446,11 @@ body::before {
     gap: 1rem;
     padding: 0 1rem;
   }
+  
   .main-content {
     transform: translateY(-550px);
   }
   
-  /* Refine overlay header spacing on tablet sizes */
   .overlay-header {
     left: 2rem;
     right: 2rem;
@@ -457,38 +459,34 @@ body::before {
   .overlay-nav li a {
     font-size: 6rem;
   }
-  
-  /* Improve contact card for tablets */
   .contact-card {
     width: 95%;
     padding: 1.5rem;
   }
 }
 
-.overlay-header .overlay-local,
-.overlay-header .overlay-contact {
-  font-size: 1.5rem;
-}
-
-/* Media Query for smaller mobile devices */
+/* Responsive Adjustments for Mobile (up to 480px) */
 @media (max-width: 480px) {
-
-  .aboutMe-card {
+  /* Ensure full-width cards and centered content */
+  .aboutMe-card,
+  .contact-card,
+  .projects-section {
     width: 100%;
+    margin: 1rem auto;
+    padding: 1.5rem 1rem;
   }
-
+  
   .aboutMe-text {
+    font-size: 0.95rem;
     text-align: center;
-    font-size: 1rem;
   }
-
+  
   .project-card img {
     width: 90%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;
   }
-
+  
+  /* Scale down large text for readability */
   .large-text {
     font-size: 4rem;
     padding: 0 0.5rem;
@@ -497,13 +495,7 @@ body::before {
     transform: translateY(-250px);
   }
   
-  /* Also adjust overlay header text sizes */
-  .overlay-header .overlay-local,
-  .overlay-header .overlay-contact {
-    font-size: 1.5rem;
-  }
-  
-  /* Adjust spacing in overlay header */
+  /* Overlay header adjustments for tighter space */
   .overlay-header {
     left: 1rem;
     right: 1rem;
@@ -511,22 +503,21 @@ body::before {
     flex-direction: column;
     gap: 0.5rem;
   }
+  .overlay-header .overlay-local,
+  .overlay-header .overlay-contact {
+    font-size: 1.5rem;
+  }
   
-  /* Projects section header */
+  /* Projects section header scaled down */
   .projects-section h2 {
     font-size: 2rem;
   }
   
-  /* Project card text adjustments */
+  /* Project card text scaled for mobile */
   .project-card h3 {
     font-size: 1.3rem;
   }
   .project-card p {
     font-size: 0.9rem;
-  }
-  
-  /* Reduce padding for the projects section */
-  .projects-section {
-    padding: 3rem 1rem;
   }
 }
