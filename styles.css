@@ -12,14 +12,8 @@ html, body {
   background-color: #000;
   color: #fff;
   position: relative;
-  /* A slightly smaller base font-size for an overall shrunken effect */
   font-size: 0.95rem;
 }
-
-/* Viewport meta tag is critical for mobile!
-   (Include this in your HTML head)
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-*/
 
 /* Grid Background */
 body::before {
@@ -46,7 +40,7 @@ body::before {
   transform: translateY(0);
 }
 .large-text.in-view {
-  transform: translateY(-250px);
+  transform: translateY(-100px);
 }
 
 /* Delay Utilities */
@@ -64,25 +58,60 @@ body::before {
 .delay-5 { transition-delay: 1.7s; }
 .delay-6 { transition-delay: 1.9s; }
 
-/* Top Bar */
-.top-bar {
-  position: sticky;
-  top: 0;
+/* Home Header (Fixed Header for Home View) */
+.home-header {
+  max-width: 1200px;
   width: 100%;
-  padding: 2rem 0;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
-  gap: 25rem; /* Adjust spacing as needed */
   z-index: 3;
   background: transparent;
 }
 
-/* Burger Menu */
-.burger-container {
-  position: relative;
+/* Hide only the local & contact elements when overlay is active */
+.home-local.hide,
+.home-contact.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
+
+/* Home Header Elements */
+.home-local,
+.home-contact {
+  font-size: 2rem;
+}
+
+/* Home Contact Button Style */
+.home-contact {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.home-contact:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Center the burger menu in the home header */
+.home-burger {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Burger Menu (Re-used for both header and overlay) */
 .burger-menu {
   width: 30px;
   cursor: pointer;
@@ -121,12 +150,9 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  /* Start off-screen (below) */
   transform: translateY(100%);
   opacity: 0;
   visibility: hidden;
-  
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 2;
 }
@@ -137,7 +163,7 @@ body::before {
   visibility: visible;
 }
 
-/* Overlay Header (Local & Contact) */
+/* Overlay Header (Local & Contact) in Menu */
 .overlay-header {
   position: absolute;
   top: 1rem;
@@ -414,6 +440,14 @@ body::before {
   html, body {
     font-size: 0.9rem;
   }
+
+
+  
+  .home-local,
+  .home-contact {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
   
   .aboutMe-card {
     width: 100%;
@@ -460,7 +494,6 @@ body::before {
 
 /* Responsive Adjustments for Mobile (up to 480px) */
 @media (max-width: 480px) {
-  /* Ensure full-width cards and centered content */
   .aboutMe-card,
   .contact-card,
   .projects-section {
@@ -468,33 +501,16 @@ body::before {
     margin: 1rem auto;
     padding: 1.5rem 1rem;
   }
+
+
+  .home-local,
+.home-contact {
+  font-size: 1rem;
+}
   
   .aboutMe-text {
     font-size: 0.95rem;
     text-align: center;
-  }
-
-  .aboutMe-card {
-    width: 100%;
-  }
-
-  .aboutMe-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .aboutMe-content img {
-    width: 90%;
-    margin-bottom: 1rem;
-  }
-
-  .bottom-bar {
-    bottom: 2rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0 1rem;
   }
   
   .project-card img {
@@ -502,20 +518,18 @@ body::before {
     margin: 0 auto 1rem;
   }
   
-  /* Scale down large text for readability */
   .large-text {
-    font-size: 4rem;
+    font-size: 4.5rem;
     padding: 0 0.5rem;
   }
   .large-text.in-view {
     transform: translateY(-150px);
   }
 
-  .main-content {
-    transform: translateY(-330px);
+  .home-header{
+    font-size: 0.5rem;
   }
   
-  /* Overlay header adjustments for tighter space */
   .overlay-header {
     left: 1rem;
     right: 1rem;
@@ -525,7 +539,7 @@ body::before {
   }
   .overlay-header .overlay-local,
   .overlay-header .overlay-contact {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     transform: translateY(10px);
   }
   
@@ -533,14 +547,11 @@ body::before {
     color: #6f00ff;
     font-size: 5rem;
   }
-
   
-  /* Projects section header scaled down */
   .projects-section h2 {
     font-size: 2rem;
   }
   
-  /* Project card text scaled for mobile */
   .project-card h3 {
     font-size: 1.3rem;
   }

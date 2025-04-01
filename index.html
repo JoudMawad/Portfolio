@@ -19,20 +19,22 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Fixed Top Bar with burger menu, local time and contact link -->
-  <div class="top-bar">
-    <div class="burger-container">
-      <div class="burger-menu" id="burgerMenu">
+  <!-- Fixed Home Header: local (left), burger menu (center) & contact (right) -->
+  <header class="home-header">
+    <div class="home-local">LOCAL // Getting location...</div>
+    <div class="burger-container home-burger">
+      <div class="burger-menu" id="burgerMenuHome">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-  </div>
+    <a href="#contact" class="home-contact">CONTACT ME</a>
+  </header>
   
   <!-- Full-Screen Overlay Menu -->
   <div class="overlay-menu" id="overlayMenu">
-    <!-- New Overlay Header with Local Time & Contact Me -->
+    <!-- Overlay Header inside Menu -->
     <div class="overlay-header animate delay-0">
       <div class="overlay-local">LOCAL // 00:00:00</div>
       <a href="#contact" class="overlay-contact">CONTACT ME</a>
@@ -130,7 +132,7 @@
     </section>
   </div>
 
-  <!-- JavaScript for local time update in top bar and overlay header -->
+  <!-- JavaScript for updating local time in overlay & home headers -->
   <script>
     function updateTime() {
       const now = new Date();
@@ -138,8 +140,8 @@
       const minutes = now.getMinutes().toString().padStart(2, '0');
       const seconds = now.getSeconds().toString().padStart(2, '0');
       const timeText = `LOCAL // ${hours}:${minutes}:${seconds}`;
-      // Update both top bar and overlay local time elements
-      document.querySelectorAll('.local-time, .overlay-local').forEach(el => {
+      // Update both overlay and home header local elements
+      document.querySelectorAll('.overlay-local, .home-local').forEach(el => {
         el.textContent = timeText;
       });
     }
@@ -160,10 +162,12 @@
     });
   </script>
 
-  <!-- JavaScript for burger menu functionality and overlay animations -->
+  <!-- JavaScript for burger menu functionality, overlay animations & toggling header elements -->
   <script>
-    const burgerMenu = document.getElementById('burgerMenu');
+    const burgerMenu = document.getElementById('burgerMenuHome');
     const overlayMenu = document.getElementById('overlayMenu');
+    const homeLocal = document.querySelector('.home-local');
+    const homeContact = document.querySelector('.home-contact');
 
     // Array to keep track of pending timeout IDs
     const overlayTimeouts = [];
@@ -171,7 +175,16 @@
     burgerMenu.addEventListener('click', () => {
       const isActive = overlayMenu.classList.toggle('active');
       burgerMenu.classList.toggle('open');
-
+      
+      // Hide local and contact from home header when overlay is active
+      if (isActive) {
+        homeLocal.classList.add('hide');
+        homeContact.classList.add('hide');
+      } else {
+        homeLocal.classList.remove('hide');
+        homeContact.classList.remove('hide');
+      }
+      
       // Immediately remove all animation classes and clear pending timeouts
       const overlayAnimatedElements = overlayMenu.querySelectorAll('.animate');
       overlayAnimatedElements.forEach(el => {
