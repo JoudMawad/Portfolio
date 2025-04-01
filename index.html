@@ -32,13 +32,13 @@
     <a href="#contact" class="home-contact animate delay-11">CONTACT ME</a>
   </header>
   
-  <!-- Full-Screen Overlay Menu -->
-  <div class="overlay-menu" id="overlayMenu">
-    <!-- Overlay Header inside Menu -->
-    <div class="overlay-header animate delay-0">
-      <div class="overlay-local">LOCAL // 00:00:00</div>
-      <a href="#contact" class="overlay-contact">CONTACT ME</a>
-    </div>
+ <!-- Full-Screen Overlay Menu -->
+ <div class="overlay-menu" id="overlayMenu">
+  <!-- Overlay Header inside Menu -->
+  <div class="overlay-header animate delay-0">
+    <div class="overlay-local-location">LOCAL // 52°15'55.3"N</div>
+    <a href="#contact" class="overlay-contact">CONTACT ME</a>
+  </div> 
     
     <!-- Centered Navigation Links -->
     <div class="overlay-nav-container">
@@ -132,93 +132,9 @@
     </section>
   </div>
 
-  <!-- JavaScript for updating local time in overlay & home headers -->
-  <script>
-    function updateTime() {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      const timeText = `LOCAL // ${hours}:${minutes}:${seconds}`;
-      // Update both overlay and home header local elements
-      document.querySelectorAll('.overlay-local, .home-local').forEach(el => {
-        el.textContent = timeText;
-      });
-    }
-    updateTime();
-    setInterval(updateTime, 1000);
-  </script>
+ 
 
-  <!-- JavaScript to animate non-overlay elements on page load -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Animate all .animate elements except those inside the overlay menu
-      const nonOverlayElements = document.querySelectorAll('.animate:not(#overlayMenu .animate)');
-      nonOverlayElements.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add('in-view');
-        }, 100 * (index + 1));
-      });
-    });
-  </script>
-
-  <!-- JavaScript for burger menu functionality, overlay animations & toggling header elements -->
-  <script>
-    const burgerMenu = document.getElementById('burgerMenuHome');
-    const overlayMenu = document.getElementById('overlayMenu');
-    const homeLocal = document.querySelector('.home-local');
-    const homeContact = document.querySelector('.home-contact');
-
-    // Array to keep track of pending timeout IDs
-    const overlayTimeouts = [];
-
-    burgerMenu.addEventListener('click', () => {
-      const isActive = overlayMenu.classList.toggle('active');
-      burgerMenu.classList.toggle('open');
-      
-      // Hide local and contact from home header when overlay is active
-      if (isActive) {
-        homeLocal.classList.add('hide');
-        homeContact.classList.add('hide');
-      } else {
-        homeLocal.classList.remove('hide');
-        homeContact.classList.remove('hide');
-      }
-      
-      // Immediately remove all animation classes and clear pending timeouts
-      const overlayAnimatedElements = overlayMenu.querySelectorAll('.animate');
-      overlayAnimatedElements.forEach(el => {
-        el.classList.remove('in-view');
-      });
-      overlayTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
-      overlayTimeouts.length = 0;
-
-      // If overlay is active, animate its components from the start
-      if (isActive) {
-        overlayAnimatedElements.forEach((el, index) => {
-          const timeoutId = setTimeout(() => {
-            el.classList.add('in-view');
-          }, 100 * (index + 1));
-          overlayTimeouts.push(timeoutId);
-        });
-      }
-    });
-  </script>
-
-  <!-- JavaScript to update font size based on image height -->
-  <script>
-    const image = document.querySelector('.aboutMe-content img');
-    const text = document.querySelector('.aboutMe-text');
-    const observer = new ResizeObserver(entries => {
-      for (let entry of entries) {
-        const imageHeight = entry.contentRect.height;
-        const baseImageHeight = 300;
-        const baseFontSize = 1;
-        const newFontSize = (imageHeight / baseImageHeight) * baseFontSize;
-        text.style.fontSize = `${newFontSize}rem`;
-      }
-    });
-    if (image) observer.observe(image);
-  </script>
+  <script src="script.js"></script>
+  
 </body>
 </html>
