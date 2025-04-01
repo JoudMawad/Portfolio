@@ -103,7 +103,7 @@ body::before {
 
 @keyframes blinkRedAnimation {
   0% { color: #fff; }
-  50% { color: red; }
+  50% { color: rgb(125, 0, 0); }
   100% { color: #fff; }
 }
 
@@ -293,10 +293,15 @@ body::before {
   z-index: 1;
 }
 
+.red-text {
+  color: rgb(125, 0, 0);
+}
+
+
 /* Colored Icons */
-.icon-location i { color: #ff0000; }
+.icon-location i { color:rgb(125, 0, 0); }
 .icon-globe i { color: #33c1ff; }
-.icon-code i { color: #00ff00; }
+.icon-code i { color: #006300; }
 
 /* Section Styling */
 .section {
@@ -562,6 +567,7 @@ body::before {
     padding: 1.5rem;
   }
 }
+
 
 /* Responsive Adjustments for Mobile (up to 480px) */
 @media (max-width: 480px) {
