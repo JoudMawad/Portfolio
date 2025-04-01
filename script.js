@@ -85,3 +85,40 @@
     }
   });
   if (image) observer.observe(image);
+
+// blinking animation
+function updateTime() {
+  const now = new Date();
+  const hoursStr = now.getHours().toString().padStart(2, '0');
+  const minutesStr = now.getMinutes().toString().padStart(2, '0');
+  const secondsStr = now.getSeconds().toString().padStart(2, '0');
+
+  updateTimePart('.time-hours', hoursStr);
+  updateTimePart('.time-minutes', minutesStr);
+  updateTimePart('.time-seconds', secondsStr);
+}
+
+function updateTimePart(selector, newStr) {
+  const containers = document.querySelectorAll(selector);
+  containers.forEach(container => {
+    // Get all digit spans within the container
+    const digitSpans = container.querySelectorAll('.digit');
+    // Loop through each digit and compare
+    for (let i = 0; i < newStr.length; i++) {
+      const newDigit = newStr[i];
+      const digitEl = digitSpans[i];
+      // If the digit has changed, update and blink
+      if (digitEl.textContent !== newDigit) {
+        digitEl.textContent = newDigit;
+        digitEl.classList.add('blink-red');
+        setTimeout(() => {
+          digitEl.classList.remove('blink-red');
+        }, 500);
+      }
+    }
+  });
+}
+
+// Initial call and update every second
+updateTime();
+setInterval(updateTime, 1000);
