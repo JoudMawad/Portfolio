@@ -43,6 +43,14 @@ body::before {
   transform: translateY(-100px);
 }
 
+/* Header Animation Override */
+.home-header .animate {
+  transform: translateY(-150px);
+}
+.home-header .animate.in-view {
+  transform: translateY(0);
+}
+
 /* Delay Utilities */
 .delay-0 { transition-delay: 0.15s; }
 .delay-11 { transition-delay: 0.18s; }
@@ -97,8 +105,10 @@ body::before {
   text-decoration: none;
   border: 1px solid #fff;
   padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Combine slide-in and hover transitions */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, background-color 0.3s ease, color 0.3s ease;
 }
+
 .home-contact:hover {
   background-color: #fff;
   color: #000;
@@ -107,8 +117,7 @@ body::before {
 /* Center the burger menu in the home header */
 .home-burger {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 45%;
 }
 
 /* Burger Menu (Re-used for both header and overlay) */
@@ -441,8 +450,6 @@ body::before {
     font-size: 0.9rem;
   }
 
-
-  
   .home-local,
   .home-contact {
     font-size: 1.5rem;
@@ -502,11 +509,14 @@ body::before {
     padding: 1.5rem 1rem;
   }
 
+  body::before {
+    background-size: calc(100vw / 2) calc(100vw / 2);
+  }
 
   .home-local,
-.home-contact {
-  font-size: 1rem;
-}
+  .home-contact {
+    font-size: 1rem;
+  }
   
   .aboutMe-text {
     font-size: 0.95rem;
@@ -526,7 +536,7 @@ body::before {
     transform: translateY(-150px);
   }
 
-  .home-header{
+  .home-header {
     font-size: 0.5rem;
   }
   
@@ -537,10 +547,15 @@ body::before {
     flex-direction: row;
     gap: 0.5rem;
   }
-  .overlay-header .overlay-local,
-  .overlay-header .overlay-contact {
-    font-size: 1.3rem;
-    transform: translateY(10px);
+  .overlay-header .overlay-local
+  {
+    font-size: 1rem;
+    transform: translateY(14px);
+  }
+
+  .overlay-header .overlay-contact{
+    font-size: 1rem;
+    transform: translateY(14px);
   }
   
   .overlay-nav li a {
