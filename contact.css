@@ -10,10 +10,11 @@
     z-index: 1; /* above the grid background if you have one */
     color: #fff; /* ensure text is white */
     left: 10%;
-    transform: translateY(-10rem );
+    transform: translateY(-10rem);
   }
   
-  .contact-left, .contact-right {
+  .contact-left,
+  .contact-right {
     flex: 1 1 50%;
     padding: 1rem;
   }
@@ -64,7 +65,7 @@
   .contact-left input,
   .contact-left textarea {
     width: 100%;
-    background-color: #111; 
+    background-color: #111;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -105,16 +106,16 @@
     object-fit: cover;
     /* optionally add a box-shadow or other effects */
   }
-
+  
   /* CONTACT INFO SECTION */
-.contact-info {
+  .contact-info {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 2rem;
     padding: 2rem;
     z-index: 2;
-    transform: translateY(-15rem );
+    transform: translateY(-15rem);
     align-self: center;
   }
   
@@ -123,7 +124,10 @@
     flex: 1 1 200px; /* each column grows/shrinks but min 200px wide */
     min-width: 200px;
     z-index: 2;
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
   
   .contact-info .info-col h3 {
@@ -134,7 +138,6 @@
     letter-spacing: 0.05em;
     color: #bcb8b8ea;
     z-index: 2;
-
   }
   
   .contact-info .info-col p,
@@ -144,23 +147,13 @@
     font-weight: 600;
     color: #fff;
     z-index: 2;
-
   }
   
-  .contact-info .info-col {
-    flex: 1 1 200px;
-    min-width: 200px;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items:center; /* Use flex-start instead of left */
-    gap: 1rem;
-  }
-  
+  /* Social Links */
   .social-links {
     display: flex;
     gap: 2rem;
-    justify-content: flex-start; /* Use flex-start instead of left */
+    justify-content: flex-start;
     margin-top: -0.5rem;
   }
   
@@ -173,55 +166,64 @@
     letter-spacing: 0.05em;
     transition: color 0.3s ease;
   }
+  
   .social-links a:hover {
     color: #33c1ff;
   }
-
+  
   .social-links ul {
     display: flex;
-    justify-content: left;
+    justify-content: flex-start;
     list-style: none;
-
+    padding: 0;
+    margin: 0;
   }
   
   .social-links li {
-    margin:0.5rem;
+    margin: 0.5rem;
   }
   
-  
-  /* Responsive for smaller screens */
-  @media (max-width: 768px) {
-    .contact-info {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .contact-info .info-col {
-      flex: 1 1 100%;
-      margin-bottom: 1.5rem;
-    }
-  }
-  
-  
-  /* RESPONSIVE ADJUSTMENTS */
+  /* Responsive Adjustments for Mobile and Small Devices */
   @media (max-width: 768px) {
     .contact-hero {
       flex-direction: column;
       text-align: center;
       padding-top: 4rem; /* extra top padding if you have a sticky header */
+      left: 0;             /* remove left offset */
+      transform: translateY(0); /* reset vertical transform */
+      padding: 1rem;       /* reduce padding if needed */
     }
-    .contact-left, .contact-right {
+  
+    .contact-left,
+    .contact-right {
       flex: 1 1 100%;
       padding: 1rem;
     }
+  
     .contact-left h1 {
       font-size: 2.5rem;
     }
+  
     .contact-left p {
       font-size: 1rem;
     }
+  
     .contact-right img {
       max-width: 80%;
       margin: 0 auto;
+    }
+  
+    .contact-info {
+      flex-direction: column;
+      align-items: flex-start;
+      transform: translateY(0);  /* reset the transform for mobile */
+      padding: 1rem;
+    }
+  
+    .contact-info .info-col {
+      flex: 1 1 100%;
+      margin-bottom: 1.5rem;
+      align-items: flex-start; /* align text to the left */
     }
   }
   
