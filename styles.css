@@ -472,6 +472,10 @@ body::before {
   .overlay-header .overlay-contact {
     font-size: 1.5rem;
   }
+
+  .large-text {
+    font-size: 3rem;
+  }
   
   /* Adjust spacing in overlay header */
   .overlay-header {
