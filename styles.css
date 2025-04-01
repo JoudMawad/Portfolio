@@ -414,16 +414,21 @@ body::before {
   html, body {
     font-size: 0.9rem;
   }
+
+  .aboutMe-card {
+    width: 100%;
+  }
   .aboutMe-content {
     flex-direction: column;
     align-items: center;
   }
   .aboutMe-content img {
-    width: 50%;
+    width: 70%;
     margin-bottom: 1rem;
   }
   .aboutMe-text {
     text-align: center;
+    font-size: 1rem;
   }
   .large-text {
     font-size: 5rem;
@@ -467,14 +472,27 @@ body::before {
 
 /* Media Query for smaller mobile devices */
 @media (max-width: 480px) {
-  /* Reduce header text sizes */
+
+  .aboutMe-card {
+    width: 100%;
+  }
+
+  .aboutMe-text {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .large-text {
+    font-size: 3rem;
+    padding: 0 0.5rem;
+  }
+  .large-text.in-view {
+    transform: translateY(-150px);
+  }
+  
+  /* Also adjust overlay header text sizes */
   .overlay-header .overlay-local,
   .overlay-header .overlay-contact {
     font-size: 1.5rem;
-  }
-
-  .large-text {
-    font-size: 3rem;
   }
   
   /* Adjust spacing in overlay header */
