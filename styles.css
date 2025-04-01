@@ -41,7 +41,7 @@ body::before {
   transform: translateY(0);
 }
 .large-text.in-view {
-  transform: translateY(-180px);
+  transform: translateY(-250px);
 }
 
 /* Delay Utilities */
