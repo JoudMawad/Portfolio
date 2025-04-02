@@ -5,7 +5,7 @@
   <meta name="description" content="Minimal Black Portfolio" />
   <meta name="keywords" content="Minimal, Black, Portfolio" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Minimal Black Portfolio</title>
+  <title>JUDE Portfolio</title>
   
   <!-- Google Font: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
     <a href="contact.html" class="home-contact animate delay-11">CONTACT ME</a>
   </header>
 
-  <hr class="section-divider">
+
   
  <!-- Full-Screen Overlay Menu -->
  <div class="overlay-menu" id="overlayMenu">
@@ -71,12 +71,32 @@
     </div>
   </div>
 
-  <!-- Main Page Content (hidden beneath overlay) -->
-  <main id="hero" class="center-content hero">
-    <h1 class="large-text animate delay-1">HI! I'M JUDE</h1>
-    <h1 class="large-text animate delay-2">a<span class="red-text"> Com</span>puter Science</h1>
-    <h1 class="large-text animate delay-3">student</h1>
-  </main>
+<!-- Main Page Content (hidden beneath overlay) -->
+<main id="hero" class="center-content hero">
+  <h1 class="scalable-text animate delay-1" 
+      data-min-width="320" 
+      data-max-width="2560" 
+      data-min-size="4" 
+      data-max-size="14">
+    HI! I'M JUDE
+  </h1>
+  
+  <h1 class="scalable-text animate delay-2" 
+      data-min-width="320" 
+      data-max-width="2560" 
+      data-min-size="3.5" 
+      data-max-size="12">
+    a Computer Science
+  </h1>
+  
+  <h1 class="scalable-text animate delay-3" 
+      data-min-width="320" 
+      data-max-width="2560" 
+      data-min-size="3.5" 
+      data-max-size="12">
+    student
+  </h1>
+</main>
 
 
 
@@ -108,21 +128,15 @@
     <!-- About Section -->
     <section id="about" class="section animate delay-5">
       <div class="aboutMe-card">
-        <h2>About Me</h2>
-        <div class="aboutMe-content">
-         
-          <div class="aboutMe-text">
-            <p>
-              I study at the Technische Universität Braunschweig, with a strong passion for mobile and web development. I’m driven by the excitement of building clean, modern experiences that didn’t exist before. Whether it’s a personal idea or a class project, I love bringing ideas to life through code.
-            </p>
-            <p>
-              Outside of tech, I’m all about creativity and energy — you’ll find me playing piano, hitting the tennis court, or capturing moments through my camera. Check out some of that on my Instagram!
-            </p>
-
-          </div>
-          <img src="images/img_8246.JPG" alt="Profile Picture" class="animate delay-1">
+        <div class="aboutMe-left">
+          <h2>About<br/> Me</h2>
+          <p class="aboutMe-text">
+            I’m a creative developer with a passion for building clean, responsive, and user-friendly interfaces. I love turning ideas into beautifully functional apps and learning new technologies along the way.
+          </p>
         </div>
+        <img src="images/img_8246.JPG" alt="About Me Photo" class="aboutMe-image">
       </div>
+      
     </section>
 
     <div class="section-divider">
@@ -160,33 +174,6 @@
     </section>
     <hr class="section-divider">
     
-    
-
-    <!-- Contact Section -->
-    <section id="contact" class="section animate delay-4">
-      <div class="contact-card">
-        <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/mjkyedpy" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="animate button-bounce delay-2">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </div>
-
- 
-
   <script src="script.js"></script>
   
 </body>

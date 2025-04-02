@@ -1,4 +1,40 @@
 /* <!-- JavaScript for updating local time in overlay & home headers -->*/
+document.addEventListener('DOMContentLoaded', initDynamicText);
+window.addEventListener('resize', scaleAllText);
+
+function initDynamicText() {
+  // Run once on load
+  scaleAllText();
+}
+
+function scaleAllText() {
+  const elements = document.querySelectorAll('.scalable-text');
+
+  const windowWidth = window.innerWidth;
+  // If you also want to factor in height:
+  // const windowHeight = window.innerHeight;
+  // const ratio = windowWidth / windowHeight; // Example ratio, if needed
+
+  elements.forEach(element => {
+    // Get data attributes (convert them to numbers)
+    const minW = parseFloat(element.dataset.minWidth) || 320;
+    const maxW = parseFloat(element.dataset.maxWidth) || 2560;
+    const minSize = parseFloat(element.dataset.minSize) || 1;
+    const maxSize = parseFloat(element.dataset.maxSize) || 20;
+
+    // Constrain the current window width to [minW, maxW]
+    const clampedWidth = Math.min(Math.max(windowWidth, minW), maxW);
+
+    // Calculate interpolation factor (between 0 and 1)
+    const factor = (clampedWidth - minW) / (maxW - minW);
+
+    // Interpolate font size
+    const currentSize = minSize + (maxSize - minSize) * factor;
+
+    // Set the element's font size in REM (or PX if you prefer)
+    element.style.fontSize = currentSize + 'rem';
+  });
+}
 
   function updateTime() {
     const now = new Date();
@@ -71,20 +107,7 @@
   });
 
 
-/*<!-- JavaScript to update font size based on image height -->*/
 
-  const image = document.querySelector('.aboutMe-content img');
-  const text = document.querySelector('.aboutMe-text');
-  const observer = new ResizeObserver(entries => {
-    for (let entry of entries) {
-      const imageHeight = entry.contentRect.height;
-      const baseImageHeight = 300;
-      const baseFontSize = 1;
-      const newFontSize = (imageHeight / baseImageHeight) * baseFontSize;
-      text.style.fontSize = `${newFontSize}rem`;
-    }
-  });
-  if (image) observer.observe(image);
 
 // blinking animation
 function updateTime() {
