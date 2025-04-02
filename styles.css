@@ -57,7 +57,7 @@ body::before {
     ),
     /* Checkered grid background */
     url('grid.svg') repeat;
-  background-size: 100% 100%, 100% 100%, 400px 400px;
+  background-size: 100% 100%, 100% 100%, 500px 500px;
   background-repeat: no-repeat, no-repeat, repeat;
   background-attachment: fixed;
 }
@@ -745,7 +745,7 @@ body::before {
     padding: 1.5rem 1rem;
   }
   body::before {
-    background-size: calc(100vw / 2) calc(100vw / 2);
+    background-size: 150% 150%, 150% 150%, 500px 500px !important;
   }
   .home-local,
   .home-contact { font-size: 1rem; }
@@ -851,9 +851,4 @@ body::before {
     padding: 0 1em;          /* Reduced horizontal padding */
   }
 
-    body::before {
-      /* Keep the vertical divider gradients covering the full viewport,
-         but reduce the grid tile size to, say, 200px by 200px */
-      background-size: 100% 100%, 100% 100%, 200px 200px;
-    }
 }
