@@ -1,11 +1,14 @@
-/* Reset & Global Styles */
+/* =============================================================================
+   RESET & GLOBAL STYLES
+============================================================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
@@ -15,7 +18,17 @@ html, body {
   font-size: 0.95rem;
 }
 
-/* Grid Background */
+@font-face {
+  font-family: 'OrganettoSemiExt';
+  src: url('fonts/Organetto-Regular-SemiExt.woff2') format('woff2'),
+       url('fonts/Organetto-Regular-SemiExt.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* -----------------------------------------------------------------------------
+   Grid Background
+----------------------------------------------------------------------------- */
 body::before {
   content: "";
   position: fixed;
@@ -23,13 +36,39 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('grid.svg');
-  background-repeat: repeat;
-  background-size: calc(100vw / 3) calc(100vw / 3);
+  pointer-events: none;
   z-index: 0;
+  background: 
+    /* Vertical divider at 33.33% */
+    linear-gradient(
+      to right,
+      transparent calc(33.33% - 1px),
+      #111 calc(33.33% - 1px),
+      #111 calc(33.33% + 1px),
+      transparent calc(33.33% + 1px)
+    ),
+    /* Vertical divider at 66.66% */
+    linear-gradient(
+      to right,
+      transparent calc(66.66% - 1px),
+      #111 calc(66.66% - 1px),
+      #111 calc(66.66% + 1px),
+      transparent calc(66.66% + 1px)
+    ),
+    /* Checkered grid background */
+    url('grid.svg') repeat;
+  background-size: 100% 100%, 100% 100%, 400px 400px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-attachment: fixed;
 }
 
-/* Animation Base */
+
+
+
+
+/* =============================================================================
+   ANIMATION & TRANSITION BASE
+============================================================================= */
 .animate {
   opacity: 0;
   transform: translateY(-100px);
@@ -43,7 +82,7 @@ body::before {
   transform: translateY(-150px);
 }
 
-/* Header Animation Override */
+/* Header-specific override */
 .home-header .animate {
   transform: translateY(-150px);
 }
@@ -66,12 +105,86 @@ body::before {
 .delay-5 { transition-delay: 1.7s; }
 .delay-6 { transition-delay: 1.9s; }
 
-/* Home Header */
+/* =============================================================================
+   Section Divider
+============================================================================= */
+.section-divider {
+  position: relative;
+  margin: 2rem 0rem;  /* Adjust vertical spacing as needed */
+  width: 100%;
+  border: none;
+}
+
+/* Draw the horizontal line */
+.section-divider::before {
+  content: "";
+  display: block;
+  border-top: 3px solid #111;  /* Change line color/thickness as needed */
+}
+
+/* Container for the optional text over the divider */
+.divider-text {
+  position: absolute;
+  margin-top: 1rem;  /* Adjust vertical placement of the text */
+  left: 0;
+  right: 0;
+  pointer-events: none;  /* So the text doesn't interfere with clicks */
+}
+
+/* Middle word – exactly centered */
+.divider-word.middle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'OrganettoSemiExt', sans-serif;
+  font-size: 1rem;       /* Adjust as needed */
+  font-weight: 500;      
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 1em;        /* Minimal padding to cover the line behind */
+  color: #cecece;
+}
+
+/* Left word – anchored to the left */
+.divider-word.left {
+  position: absolute;
+  left: 0;
+  font-family: 'OrganettoSemiExt', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 4em;
+  color: #cecece;
+}
+
+/* Right word – anchored to the right */
+.divider-word.right {
+  position: absolute;
+  right: 0;
+  font-family: 'OrganettoSemiExt', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 4em;
+  color: #898989;
+}
+
+
+
+
+
+
+/* =============================================================================
+   HEADER & NAVIGATION
+============================================================================= */
 .home-header {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 1rem 2rem;
+  padding-top: 2rem;
   position: sticky;
   top: 0;
   display: flex;
@@ -82,6 +195,10 @@ body::before {
   background: transparent;
 }
 
+.home-local,
+.home-contact {
+  font-size: 1.5rem;
+}
 .home-local.hide,
 .home-contact.hide {
   opacity: 0;
@@ -90,37 +207,25 @@ body::before {
   transition: opacity 0.3s ease;
 }
 
-.home-local,
-.home-contact {
-  font-size: 1.5rem;
-}
-
-.blink-red {
-  animation: blinkRedAnimation 0.5s;
-}
-@keyframes blinkRedAnimation {
-  0% { color: #fff; }
-  50% { color: rgb(125, 0, 0); }
-  100% { color: #fff; }
-}
-
+/* Header Contact Button */
 .home-contact {
   color: #fff;
   text-decoration: none;
   border: 1px solid #fff;
   padding: 0.5rem 1rem;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out, background-color 0.3s ease, color 0.3s ease;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out,
+              background-color 0.3s ease, color 0.3s ease;
 }
 .home-contact:hover {
   background-color: #fff;
   color: #000;
 }
 
+/* Burger Menu */
 .home-burger {
   position: absolute;
   left: 50%;
 }
-
 .burger-menu {
   width: 30px;
   cursor: pointer;
@@ -146,7 +251,7 @@ body::before {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Overlay Menu */
+/* Overlay Menu & Header */
 .overlay-menu {
   position: fixed;
   top: 0;
@@ -205,6 +310,7 @@ body::before {
   color: #000;
 }
 
+/* Overlay Navigation */
 .overlay-nav-container {
   text-align: center;
 }
@@ -230,6 +336,7 @@ body::before {
   color: #33c1ff;
 }
 
+/* Social Links */
 .social-links {
   display: flex;
   gap: 2rem;
@@ -249,15 +356,17 @@ body::before {
   color: #33c1ff;
 }
 
+/* =============================================================================
+   MAIN CONTENT & HERO SECTION
+============================================================================= */
 .main-content {
   transform: translateY(-320px);
 }
 
-/* Hero Section */
 .hero {
   display: flex;
   justify-content: center;
-  flex-direction: column;  
+  flex-direction: column;
   align-items: center;
   text-align: center;
   height: 100vh;
@@ -272,153 +381,76 @@ body::before {
   padding: 0 1rem;
   z-index: 1;
 }
-.red-text {
-  color: rgb(125, 0, 0);
-}
-.gray-text {
-  color: rgb(125, 125, 125);
+.red-text { color: rgb(125, 0, 0); }
+.gray-text { color: rgb(125, 125, 125); }
+
+/* =============================================================================
+   ICON STYLES
+============================================================================= */
+.icon-location i,
+.icon-globe i,
+.icon-code i {
+  color: #fff;
 }
 
-/* Colored Icons */
-.icon-location i { color: rgb(255, 255, 255); }
-.icon-globe i { color: #ffffff; }
-.icon-code i { color: #ffffff; }
-
-/* Section Styling */
+/* =============================================================================
+   SECTION BASE
+============================================================================= */
 .section {
   padding: 4rem 2rem;
   text-align: center;
   position: relative;
   z-index: 1;
 }
-/* 
-  About Me Section – Fully Customizable
-  ----------------------------------------
-  Use the custom properties below to control:
-    • The about title's font size, color, and spacing.
-    • The gap and layout of the content (image and text).
-    • The image size and text styling.
-*/
 
-/* Base styling for the About Me section */
+/* =============================================================================
+   ABOUT ME SECTION
+============================================================================= */
+/* Custom Properties for About Me */
 .aboutMe-card {
-  /* Customization Variables */
   --about-title-font-size: 10rem;
   --about-title-color: #fff;
   --about-title-margin-bottom: 1.5rem;
-  
   --about-content-gap: 2rem;
-  
-  --about-image-width: 30%;       /* Percentage of the container width */
+  --about-image-width: 40%;
   --about-image-border-radius: 20px;
-  
   --about-text-font-size: 4rem !important;
   --about-text-line-height: 2;
-  --about-text-align: left;
-  
+  --about-text-align: center;
 
   padding: 2rem;
   border-radius: 20px;
   max-width: 92%;
   margin: 2rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
-/* About Me Title */
 .aboutMe-card h2 {
   text-align: left;
   font-size: var(--about-title-font-size);
   color: var(--about-title-color);
   margin-bottom: var(--about-title-margin-bottom);
+  margin-top: -5rem;
   text-transform: uppercase;
 }
-
-/* About Me Content Layout */
 .aboutMe-content {
   display: flex;
   gap: var(--about-content-gap);
   align-items: flex-start;
 }
-
-/* About Me Image */
 .aboutMe-content img {
   width: var(--about-image-width);
   height: auto;
   border-radius: var(--about-image-border-radius);
   object-fit: cover;
 }
-
-/* About Me Text */
 .aboutMe-text {
   font-size: var(--about-text-font-size);
   line-height: var(--about-text-line-height);
   text-align: var(--about-text-align);
 }
 
-/* 
-  Mobile Optimizations
-  -----------------------
-  On smaller screens, we stack the content vertically and adjust sizes.
-*/
-
-/* For tablets (up to 768px) */
-@media (max-width: 768px) {
-  .aboutMe-card {
-    width: 100%;
-    padding: 1.5rem;
-    align-items: left;
-  }
-  .aboutMe-content img {
-    width: 90%;
-    margin-bottom: 1rem;
-  }
-  .aboutMe-text {
-    text-align: center;
-    font-size: 1rem;
-  }
-}
-
-/* For small mobiles (up to 480px) */
-@media (max-width: 480px) {
-  .aboutMe-card {
-    width: 100%;
-    margin: 1rem auto;
-    padding
-    : 1rem;
-    align-items: left;
-  }
-
-  .aboutMe-content {
-    flex-direction: column;
-    align-items: left;
-  }
-  .aboutMe-card h2 {
-    font-size: 2.5rem;
-  }
-
-  .aboutMe-content img {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .aboutMe-text {
-    font-size: 0.9rem;
-  }
-}
-
-
-/* Container Queries */
-@container card (min-width: 20rem) {
-  .aboutMe-text {
-    font-size: calc(var(--about-text-font-size) + 0.5vw);
-  }
-}
-@container card (min-width: 40rem) {
-  .aboutMe-text {
-    font-size: calc(var(--about-text-font-size) + 1vw);
-  }
-}
-
-/* Contact Card */
+/* =============================================================================
+   CONTACT CARD
+============================================================================= */
 .contact-card {
   background-color: #111;
   padding: 2rem;
@@ -470,62 +502,59 @@ body::before {
   color: #fff;
 }
 
-/* Bottom Bar */
+/* =============================================================================
+   BOTTOM BAR
+============================================================================= */
 .bottom-bar {
   position: sticky;
-  flex-direction: row;
   bottom: 0;
-  width: 90%;
+  left: 5%;
+  width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  /* Distribute space evenly around each item */
+  justify-content: space-evenly;
   align-items: center;
   font-size: 0.9rem;
   z-index: 1;
-  left: 6.7%;
 }
+
 .bottom-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* Allow each item to take equal width */
+  flex: 1;
+  /* Center text within each item */
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   opacity: 0.8;
 }
+
 .bottom-item .icon {
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
 }
 
-/* 
-  ======================================================================
-  Projects Section (Latest Portfolio – Fully Customizable)
-  ======================================================================
-*/
 
-/* Customization Variables for Projects Section */
+/* =============================================================================
+   LATEST PORTFOLIO / PROJECTS SECTION
+============================================================================= */
+/* Custom Properties for Projects */
 .latest-portfolio {
-  /* Header Customizations */
   --header-title-margin: 10rem;
   --header-title-left-padding: 0rem;
   --header-title-font-size: 10rem;
   --header-title-color: #fff;
-  
   --header-description-margin: 30rem;
   --header-description-font-size: 1.8rem;
   --header-description-color: #ccc;
-  
-  /* Portfolio Grid & Item Customizations */
   --grid-gap: 6rem;
   --portfolio-item-width: 45%;
-  --portfolio-item-margin: 0; /* Use a more sensible value on mobile if needed */
+  --portfolio-item-margin: 0;
   --portfolio-item-text-align: center;
-  
   --portfolio-item-img-width: 70%;
   --portfolio-item-img-border-radius: 20px;
-  
   --project-offset: 20rem;
-  
+
   padding: 4rem 2rem;
   text-align: left;
   border-radius: 20px;
@@ -533,7 +562,6 @@ body::before {
   max-width: 90%;
 }
 
-/* Header: Title & Description */
 .latest-portfolio .portfolio-header {
   display: flex;
   align-items: flex-start;
@@ -560,7 +588,6 @@ body::before {
   align-self: flex-end;
 }
 
-/* Portfolio Grid */
 .latest-portfolio .portfolio-grid {
   display: flex;
   gap: var(--grid-gap);
@@ -568,7 +595,6 @@ body::before {
   justify-content: space-between;
 }
 
-/* Portfolio Item */
 .latest-portfolio .portfolio-item {
   flex: 1 1 var(--portfolio-item-width);
   position: relative;
@@ -593,46 +619,45 @@ body::before {
   text-transform: uppercase;
   color: #999;
 }
-
-/* Offset the second project */
+/* Offset second project */
 .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
   margin-top: var(--project-offset);
 }
 
-/* 
-  ======================================================================
-  Mobile Optimizations
-  ======================================================================
-*/
+/* =============================================================================
+   BLINK RED ANIMATION
+============================================================================= */
+.blink-red {
+  animation: blinkRedAnimation 0.5s;
+}
+@keyframes blinkRedAnimation {
+  0% { color: #fff; }
+  50% { color: rgb(125, 0, 0); }
+  100% { color: #fff; }
+}
 
-/* For screens up to 768px (tablets) */
+/* =============================================================================
+   MOBILE OPTIMIZATIONS
+============================================================================= */
+/* Tablets (up to 768px) */
 @media (max-width: 768px) {
   html, body {
     font-size: 0.9rem;
   }
-  
   .home-local,
   .home-contact {
     font-size: 1.5rem;
     margin: 0.5rem 0;
   }
-  
   .digit {
     margin: -0.15rem;
     font-size: 1.5rem;
   }
-  
-  .home-burger {
-    left: 48%;
-  }
-  
+  .home-burger { left: 48%; }
   .overlay-menu {
     background-size: calc(100vw / 2) calc(100vw / 2);
   }
-  
-  .aboutMe-card {
-    width: 100%;
-  }
+  .aboutMe-card { width: 100%; }
   .aboutMe-content {
     flex-direction: column;
     align-items: center;
@@ -645,7 +670,6 @@ body::before {
     text-align: center;
     font-size: 1rem;
   }
-  
   .bottom-bar {
     bottom: 2rem;
     flex-direction: column;
@@ -654,11 +678,7 @@ body::before {
     gap: 1rem;
     padding: 0 1rem;
   }
-  
-  .main-content {
-    transform: translateY(-330px);
-  }
-  
+  .main-content { transform: translateY(-330px); }
   .overlay-header {
     left: 2rem;
     right: 2rem;
@@ -672,16 +692,11 @@ body::before {
     font-size: 2rem;
     transform: translateY(4px);
   }
-  
-  .overlay-nav li a {
-    font-size: 6rem;
-  }
+  .overlay-nav li a { font-size: 6rem; }
   .contact-card {
     width: 95%;
     padding: 1.5rem;
   }
-  
-  /* Adjust the Latest Portfolio header for tablets */
   .latest-portfolio .portfolio-header h2 {
     font-size: 6rem;
     margin-bottom: 4rem;
@@ -693,7 +708,7 @@ body::before {
   }
 }
 
-/* For screens up to 480px (small mobiles) */
+/* Small Mobiles (up to 480px) */
 @media (max-width: 480px) {
   .aboutMe-card,
   .contact-card,
@@ -703,53 +718,33 @@ body::before {
     margin: 1rem auto;
     padding: 1.5rem 1rem;
   }
-  
   body::before {
     background-size: calc(100vw / 2) calc(100vw / 2);
   }
-  
   .home-local,
-  .home-contact {
-    font-size: 1rem;
-  }
-  
+  .home-contact { font-size: 1rem; }
   .digit {
     margin: -0.08rem;
     font-size: 1rem;
   }
-  
-  .home-burger {
-    left: 46%;
-  }
-  
+  .home-burger { left: 46%; }
   .aboutMe-text {
     font-size: 0.95rem;
     text-align: center;
   }
-  
   .project-card img {
     width: 90%;
     margin: 0 auto 1rem;
   }
-  
   .large-text {
     font-size: 4.5rem;
     padding: 0 0.5rem;
   }
-  .large-text.in-view {
-    transform: translateY(-150px);
-  }
-  
-  .home-header {
-    font-size: 0.5rem;
-  }
-  
+  .large-text.in-view { transform: translateY(-150px); }
+  .home-header { font-size: 0.5rem; }
   .overlay-menu {
     background-size: calc(100vw / 2) calc(100vw / 2);
   }
-
-  
-  
   .overlay-header {
     left: 1rem;
     right: 1rem;
@@ -765,28 +760,70 @@ body::before {
     font-size: 1rem;
     transform: translateY(14px);
   }
-  
   .overlay-nav li a {
     color: #6f00ff;
     font-size: 5rem;
   }
+    /* About Me Card on mobile */
+    .aboutMe-card {
+      /* You can adjust spacing/padding for mobile if needed */
+      margin: 1rem auto;
+      padding: 1.5rem 1rem;
+    }
   
-  .latest-portfolio .portfolio-header h2 {
-    font-size: 2.5rem;
-  }
-  .latest-portfolio .portfolio-item h3 {
-    font-size: 1.2rem;
-  }
-  .latest-portfolio .portfolio-item span {
-    font-size: 0.9rem;
-  }
-
-  .latest-portfolio .portfolio-grid {
-    gap: 0rem; /* Decreased gap on mobile */
-  }
-
+    /* Stack the image above the text */
+    .aboutMe-content {
+      flex-direction: column;
+      align-items: center; 
+      gap: 1rem; /* optional spacing between image & text */
+    }
+  
+    .aboutMe-content img {
+      width: 100%;         /* Make the image more mobile-friendly */
+      margin-bottom: 1rem; 
+    }
+  
+    /* Adjust the big heading on mobile */
+    .aboutMe-card h2 {
+      margin-top: -2rem !important;       /* Removes the -5rem margin on small screens */
+      font-size: 4rem !important;   /* Scale down from 10rem for mobile */
+      text-align: center;             /* Center the heading if desired */
+    }
+  
+    /* Scale down the large text for mobile */
+    .aboutMe-text {
+      font-size: 1rem !important;   /* Override the 4rem !important */
+      line-height: 1.5 !important;  /* More comfortable reading line-height */
+      text-align: center !important;
+    }
+  
+  .latest-portfolio .portfolio-header h2 { font-size: 2.5rem; }
+  .latest-portfolio .portfolio-item h3 { font-size: 1.2rem; }
+  .latest-portfolio .portfolio-item span { font-size: 0.9rem; }
+  .latest-portfolio .portfolio-grid { gap: 0rem; }
   .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
-    margin-top: 10rem; /* Reduced offset to raise the project */
+    margin-top: 10rem;
   }
 
+  .section-divider {
+    margin: 1.5rem 0;  /* Slightly reduced vertical spacing */
+  }
+  .divider-text {
+    margin-top: 0.5rem;  /* Adjust vertical offset on mobile */
+  }
+  .divider-word.middle {
+    font-size: 0.9rem;       /* Slightly smaller font size */
+    padding: 0 0.5em;        /* Reduced horizontal padding */
+  }
+  .divider-word.left,
+  .divider-word.right {
+    font-size: 0.9rem;       /* Slightly smaller font size */
+    padding: 0 1em;          /* Reduced horizontal padding */
+  }
+
+    body::before {
+      /* Keep the vertical divider gradients covering the full viewport,
+         but reduce the grid tile size to, say, 200px by 200px */
+      background-size: 100% 100%, 100% 100%, 200px 200px;
+    }
 }

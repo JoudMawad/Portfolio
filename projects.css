@@ -48,18 +48,7 @@
     animation: slideUp 1s forwards;
   }
   
-  /* Small white circle */
-  .circle {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #fff;
-    margin: 1rem 0;
-    /* Animate circle */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 0.6s forwards;
-  }
+
   
   /* Call-to-action Button */
   .cta-btn {
@@ -87,7 +76,7 @@
   /* Right side image */
   .projects-right img {
     width: 100%;
-    max-width: 500px; /* limit size if preferred */
+    max-width: 300px; /* limit size if preferred */
     border-radius: 20px;
     object-fit: cover;
     /* Animate image */
@@ -99,7 +88,7 @@
   /* PROJECTS GALLERY SECTION */
   .projects-gallery {
     padding: 2rem;
-    background: #111;
+ 
     color: #fff;
     /* Custom animation for gallery landing */
     opacity: 0;
@@ -121,7 +110,7 @@
   }
   
   .gallery-item {
-    background: #222;
+
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
