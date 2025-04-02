@@ -790,6 +790,7 @@ body::before {
   .aboutMe-card { 
     width: 100%;
     margin-bottom: -4rem !important;  
+    gap: 1rem;
   }
   .aboutMe-content {
     flex-direction: column;
@@ -813,11 +814,23 @@ body::before {
       line-height: 1.2 !important;  /* More comfortable reading line-height */
       text-align: left !important;
     }
-  
-  .latest-portfolio .portfolio-header h2 { font-size: 2.5rem; }
-  .latest-portfolio .portfolio-item h3 { font-size: 1.2rem; }
-  .latest-portfolio .portfolio-item span { font-size: 0.9rem; }
-  .latest-portfolio .portfolio-grid { gap: 0rem; }
+    .latest-portfolio .portfolio-header { 
+      font-size: 2.5rem;
+      gap: 1rem  !important ;
+      }
+
+  .latest-portfolio .portfolio-header h2 { 
+    font-size: 2.5rem;
+    }
+  .latest-portfolio .portfolio-item h3 { 
+    font-size: 1.2rem; 
+  }
+  .latest-portfolio .portfolio-item span {
+     font-size: 0.9rem; 
+    }
+  .latest-portfolio .portfolio-grid { 
+    gap: 0rem !important;
+    }
   .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
     margin-top: 10rem;
   }
