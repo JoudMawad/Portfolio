@@ -418,23 +418,23 @@ body::before {
   display: flex;
   align-items: flex;
   justify-content: space-between;
-  gap: 10rem;
+  gap: 2rem;
   margin-bottom: 3rem;
+  margin-top: 2rem;
   width: 97vw;
-  box-sizing: border-box;
-
+  box-sizing:border-box;
+padding: 3rem;
 }
 
 /* Left column: Title + Text */
 .aboutMe-left {
   flex: 1 1 60%;
   box-sizing: border-box;
-  
 }
 
 /* Title */
 .aboutMe-left h2 {
-  font-size: 7vw;
+  font-size: 5vw;
   color: #ffffff;
   text-transform: uppercase;
   margin: 0 0 2vw 0;
@@ -444,7 +444,7 @@ body::before {
 
 /* Text */
 .aboutMe-text {
-  font-size: 2.2vw;
+  font-size: 1.5vw;
   line-height: 1.3;
   color: #555;
   margin: 0;
@@ -454,7 +454,7 @@ body::before {
 /* Image on the right */
 .aboutMe-image {
   flex: 0 0 auto;
-  width: 45%;
+  width: 35%;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
@@ -570,7 +570,7 @@ body::before {
   --portfolio-item-width: 45%;
   --portfolio-item-margin: 0;
   --portfolio-item-text-align: center;
-  --portfolio-item-img-width: 85%;
+  --portfolio-item-img-width: 65%;
   --portfolio-item-img-border-radius: 20px;
   --project-offset: 20rem;
 
@@ -579,6 +579,7 @@ body::before {
   border-radius: 20px;
   margin: 2rem auto;
   max-width: 98%;
+
 }
 
 .latest-portfolio .portfolio-header {
@@ -589,10 +590,11 @@ body::before {
   margin-bottom: 3rem;
   width: 96vw;
   box-sizing: border-box;
+  padding: 3rem;
 
 }
 .latest-portfolio .portfolio-header h2 {
-  font-size: 7vw;
+  font-size: 5vw;
   color: #ffffff;
   text-transform: uppercase;
   margin: 0 0 2vw 0;
@@ -600,7 +602,7 @@ body::before {
   text-align: left;
 }
 .latest-portfolio .portfolio-header p {
-  font-size: 2.2vw;
+  font-size: 2vw;
   line-height: 1.3;
   color: #555;
   margin-top: 15rem;
@@ -754,10 +756,7 @@ body::before {
     font-size: 1rem;
   }
   .home-burger { left: 46%; }
-  .aboutMe-text {
-    font-size: 0.95rem;
-    text-align: center;
-  }
+
   .project-card img {
     width: 90%;
     margin: 0 auto 1rem;
@@ -787,25 +786,28 @@ body::before {
     color: #6f00ff;
     font-size: 5rem;
   }
+
   .aboutMe-card { 
     width: 100%;
-    margin-bottom: -4rem !important;  
     gap: 1rem;
-  }
-  .aboutMe-content {
-    flex-direction: column;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    padding: 0;
+
   }
 
   .aboutMe-text {
     text-align: left;
     font-size: 1rem;
+
   }
     /* Adjust the big heading on mobile */
     .aboutMe-card h2 {
-      margin-top: -4rem !important;       /* Removes the -5rem margin on small screens */
-
+      margin-top: -6rem !important;       /* Removes the -5rem margin on small screens */
+      margin-bottom: 2rem;
       font-size: 3rem !important;   /* Scale down from 10rem for mobile */
       text-align: left;             /* Center the heading if desired */
+
     }
   
     /* Scale down the large text for mobile */
@@ -816,12 +818,20 @@ body::before {
     }
     .latest-portfolio .portfolio-header { 
       font-size: 2.5rem;
+      margin-top: 4rem;
       gap: 1rem  !important ;
+      padding: 0;
       }
 
   .latest-portfolio .portfolio-header h2 { 
-    font-size: 2.5rem;
+    font-size: 3rem;
     }
+
+    .latest-portfolio .portfolio-header p {
+    font-size: 1rem;
+    margin-top: 9rem;
+    }
+
   .latest-portfolio .portfolio-item h3 { 
     font-size: 1.2rem; 
   }
@@ -830,6 +840,7 @@ body::before {
     }
   .latest-portfolio .portfolio-grid { 
     gap: 0rem !important;
+    margin-top: -5rem;
     }
   .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
     margin-top: 10rem;
