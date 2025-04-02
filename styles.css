@@ -259,12 +259,13 @@ body::before {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 1) url('grid.svg') repeat;
-  background-size: cover;
+  background-size: calc(100vw / 3) calc(100vw / 3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transform: translateY(100%);
+  opacity: 0;
   visibility: hidden;
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 2;
@@ -673,7 +674,7 @@ body::before {
   }
   .home-burger { left: 48%; }
   .overlay-menu {
-    background-size: calc(100vw / 2) calc(100vw / 2);
+    background-size: calc(100vw / 1) calc(100vw / 1);
   }
   .aboutMe-card { width: 100%; }
   .aboutMe-content {
@@ -765,7 +766,7 @@ body::before {
   .large-text.in-view { transform: translateY(-150px); }
   .home-header { font-size: 0.5rem; }
   .overlay-menu {
-    background-size: calc(100vw / 2) calc(100vw / 2);
+    background-size: calc(100vw / 1) calc(100vw / 1);
   }
   .overlay-header {
     left: 1rem;
