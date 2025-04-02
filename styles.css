@@ -745,7 +745,7 @@ body::before {
     padding: 1.5rem 1rem;
   }
   body::before {
-    background-size: 150% 150%, 150% 150%, 500px 500px !important;
+    background-size: 150% 150%, 150% 150%, 400px 400px !important;
   }
   .home-local,
   .home-contact { font-size: 1rem; }
