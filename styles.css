@@ -291,47 +291,130 @@ body::before {
   position: relative;
   z-index: 1;
 }
+/* 
+  About Me Section – Fully Customizable
+  ----------------------------------------
+  Use the custom properties below to control:
+    • The about title's font size, color, and spacing.
+    • The gap and layout of the content (image and text).
+    • The image size and text styling.
+*/
+
+/* Base styling for the About Me section */
 .aboutMe-card {
-  background-color: #111;
+  /* Customization Variables */
+  --about-title-font-size: 10rem;
+  --about-title-color: #fff;
+  --about-title-margin-bottom: 1.5rem;
+  
+  --about-content-gap: 2rem;
+  
+  --about-image-width: 30%;       /* Percentage of the container width */
+  --about-image-border-radius: 20px;
+  
+  --about-text-font-size: 4rem !important;
+  --about-text-line-height: 2;
+  --about-text-align: left;
+  
+
   padding: 2rem;
   border-radius: 20px;
-  max-width: 2000px;
-  width: 80%;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  container: card / inline-size;
+  max-width: 92%;
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+/* About Me Title */
 .aboutMe-card h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  text-align: left;
+  font-size: var(--about-title-font-size);
+  color: var(--about-title-color);
+  margin-bottom: var(--about-title-margin-bottom);
+  text-transform: uppercase;
 }
+
+/* About Me Content Layout */
 .aboutMe-content {
   display: flex;
-  flex-direction: row;
+  gap: var(--about-content-gap);
   align-items: flex-start;
-  gap: 2rem;
 }
+
+/* About Me Image */
 .aboutMe-content img {
-  max-width: 600px;
-  width: 30%;
+  width: var(--about-image-width);
   height: auto;
-  border-radius: 20px;
+  border-radius: var(--about-image-border-radius);
+  object-fit: cover;
 }
+
+/* About Me Text */
 .aboutMe-text {
-  line-height: 1.6;
-  font-size: 1rem;
+  font-size: var(--about-text-font-size);
+  line-height: var(--about-text-line-height);
+  text-align: var(--about-text-align);
 }
+
+/* 
+  Mobile Optimizations
+  -----------------------
+  On smaller screens, we stack the content vertically and adjust sizes.
+*/
+
+/* For tablets (up to 768px) */
+@media (max-width: 768px) {
+  .aboutMe-card {
+    width: 100%;
+    padding: 1.5rem;
+    align-items: left;
+  }
+  .aboutMe-content img {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+  .aboutMe-text {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+/* For small mobiles (up to 480px) */
+@media (max-width: 480px) {
+  .aboutMe-card {
+    width: 100%;
+    margin: 1rem auto;
+    padding
+    : 1rem;
+    align-items: left;
+  }
+
+  .aboutMe-content {
+    flex-direction: column;
+    align-items: left;
+  }
+  .aboutMe-card h2 {
+    font-size: 2.5rem;
+  }
+
+  .aboutMe-content img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .aboutMe-text {
+    font-size: 0.9rem;
+  }
+}
+
 
 /* Container Queries */
 @container card (min-width: 20rem) {
   .aboutMe-text {
-    font-size: calc(1rem + 0.5vw);
+    font-size: calc(var(--about-text-font-size) + 0.5vw);
   }
 }
 @container card (min-width: 40rem) {
   .aboutMe-text {
-    font-size: calc(1rem + 1vw);
+    font-size: calc(var(--about-text-font-size) + 1vw);
   }
 }
 
@@ -689,7 +772,7 @@ body::before {
   }
   
   .latest-portfolio .portfolio-header h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .latest-portfolio .portfolio-item h3 {
     font-size: 1.2rem;
