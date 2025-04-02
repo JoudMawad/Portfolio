@@ -66,7 +66,7 @@ body::before {
 .delay-5 { transition-delay: 1.7s; }
 .delay-6 { transition-delay: 1.9s; }
 
-/* Home Header (Fixed Header for Home View) */
+/* Home Header */
 .home-header {
   max-width: 1200px;
   width: 100%;
@@ -82,7 +82,6 @@ body::before {
   background: transparent;
 }
 
-/* Hide only the local & contact elements when overlay is active */
 .home-local.hide,
 .home-contact.hide {
   opacity: 0;
@@ -91,7 +90,6 @@ body::before {
   transition: opacity 0.3s ease;
 }
 
-/* Home Header Elements */
 .home-local,
 .home-contact {
   font-size: 1.5rem;
@@ -100,36 +98,29 @@ body::before {
 .blink-red {
   animation: blinkRedAnimation 0.5s;
 }
-
 @keyframes blinkRedAnimation {
   0% { color: #fff; }
   50% { color: rgb(125, 0, 0); }
   100% { color: #fff; }
 }
 
-
-/* Home Contact Button Style */
 .home-contact {
   color: #fff;
   text-decoration: none;
   border: 1px solid #fff;
   padding: 0.5rem 1rem;
-  /* Combine slide-in and hover transitions */
   transition: opacity 0.8s ease-out, transform 0.8s ease-out, background-color 0.3s ease, color 0.3s ease;
 }
-
 .home-contact:hover {
   background-color: #fff;
   color: #000;
 }
 
-/* Center the burger menu in the home header */
 .home-burger {
   position: absolute;
   left: 50%;
 }
 
-/* Burger Menu (Re-used for both header and overlay) */
 .burger-menu {
   width: 30px;
   cursor: pointer;
@@ -137,7 +128,6 @@ body::before {
   flex-direction: column;
   justify-content: space-between;
   height: 22px;
-
 }
 .burger-menu span {
   display: block;
@@ -175,14 +165,12 @@ body::before {
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 2;
 }
-
 .overlay-menu.active {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
 }
 
-/* Overlay Header (Local & Contact) in Menu */
 .overlay-header {
   position: absolute;
   top: 1rem;
@@ -195,20 +183,15 @@ body::before {
 .overlay-local {
   font-size: 1.5rem;
 }
-
 .digit {
-  display: inline-block; /* keeps the digits inline */
+  display: inline-block;
   font-size: 1.5rem;
   font-family: inherit;
   margin: -0.25rem;
-  /* Optionally, add any padding or margin adjustments if needed */
 }
-
 .overlay-local-location {
   font-size: 2rem;
 }
-
-
 .overlay-contact {
   font-size: 1.5rem;
   color: #fff;
@@ -222,7 +205,6 @@ body::before {
   color: #000;
 }
 
-/* Overlay Navigation */
 .overlay-nav-container {
   text-align: center;
 }
@@ -248,7 +230,6 @@ body::before {
   color: #33c1ff;
 }
 
-/* Social Links */
 .social-links {
   display: flex;
   gap: 2rem;
@@ -268,7 +249,6 @@ body::before {
   color: #33c1ff;
 }
 
-/* Main Content Position */
 .main-content {
   transform: translateY(-320px);
 }
@@ -292,18 +272,15 @@ body::before {
   padding: 0 1rem;
   z-index: 1;
 }
-
 .red-text {
   color: rgb(125, 0, 0);
 }
-
 .gray-text {
   color: rgb(125, 125, 125);
 }
 
-
 /* Colored Icons */
-.icon-location i { color:rgb(255, 255, 255); }
+.icon-location i { color: rgb(255, 255, 255); }
 .icon-globe i { color: #ffffff; }
 .icon-code i { color: #ffffff; }
 
@@ -423,7 +400,6 @@ body::before {
   font-size: 0.9rem;
   z-index: 1;
   left: 6.7%;
-  
 }
 .bottom-item {
   display: flex;
@@ -432,94 +408,148 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   opacity: 0.8;
-  
 }
 .bottom-item .icon {
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
 }
 
-/* Projects Section */
-.projects-section {
+/* 
+  ======================================================================
+  Projects Section (Latest Portfolio – Fully Customizable)
+  ======================================================================
+*/
+
+/* Customization Variables for Projects Section */
+.latest-portfolio {
+  /* Header Customizations */
+  --header-title-margin: 10rem;
+  --header-title-left-padding: 0rem;
+  --header-title-font-size: 10rem;
+  --header-title-color: #fff;
+  
+  --header-description-margin: 30rem;
+  --header-description-font-size: 1.8rem;
+  --header-description-color: #ccc;
+  
+  /* Portfolio Grid & Item Customizations */
+  --grid-gap: 6rem;
+  --portfolio-item-width: 45%;
+  --portfolio-item-margin: 0; /* Use a more sensible value on mobile if needed */
+  --portfolio-item-text-align: center;
+  
+  --portfolio-item-img-width: 70%;
+  --portfolio-item-img-border-radius: 20px;
+  
+  --project-offset: 20rem;
+  
   padding: 4rem 2rem;
-  text-align: center;
-  background-color: #111;
+  text-align: left;
   border-radius: 20px;
   margin: 2rem auto;
-  max-width: 1200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  max-width: 90%;
 }
-.projects-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+/* Header: Title & Description */
+.latest-portfolio .portfolio-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 2rem;
-  padding: 0 1rem;
+  margin-bottom: 3rem;
 }
-.project-card {
-  transition: transform 0.3s ease;
+.latest-portfolio .portfolio-header h2 {
+  margin-bottom: var(--header-title-margin);
+  padding-left: var(--header-title-left-padding);
+  font-size: var(--header-title-font-size);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--header-title-color);
 }
-.project-card:hover {
-  transform: translateY(-5px);
+.latest-portfolio .portfolio-header p {
+  margin-top: var(--header-description-margin);
+  max-width: 500px;
+  font-size: var(--header-description-font-size);
+  line-height: 1.5;
+  color: var(--header-description-color);
+  align-self: flex-end;
 }
-.project-card img {
-  width: 50%;
+
+/* Portfolio Grid */
+.latest-portfolio .portfolio-grid {
+  display: flex;
+  gap: var(--grid-gap);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Portfolio Item */
+.latest-portfolio .portfolio-item {
+  flex: 1 1 var(--portfolio-item-width);
+  position: relative;
+  margin-top: var(--portfolio-item-margin);
+  text-align: var(--portfolio-item-text-align);
+}
+.latest-portfolio .portfolio-item img {
+  width: var(--portfolio-item-img-width);
   height: auto;
-  border-radius: 10px;
+  border-radius: var(--portfolio-item-img-border-radius);
+  object-fit: cover;
   margin-bottom: 1rem;
 }
-.project-card h3 {
+.latest-portfolio .portfolio-item h3 {
   font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
-.project-card p {
+.latest-portfolio .portfolio-item span {
   font-size: 1rem;
-  line-height: 1.5;
+  text-transform: uppercase;
+  color: #999;
 }
 
-@media (min-width: 1024px) {
-  .large-text {
-    font-size: clamp(3rem, 8vw, 10rem);
-  }
+/* Offset the second project */
+.latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
+  margin-top: var(--project-offset);
 }
 
-/* Responsive Adjustments for Tablets & Smaller Devices */
+/* 
+  ======================================================================
+  Mobile Optimizations
+  ======================================================================
+*/
+
+/* For screens up to 768px (tablets) */
 @media (max-width: 768px) {
   html, body {
     font-size: 0.9rem;
   }
-
+  
   .home-local,
   .home-contact {
     font-size: 1.5rem;
     margin: 0.5rem 0;
   }
-
-  .digit{
+  
+  .digit {
     margin: -0.15rem;
     font-size: 1.5rem;
   }
-
- 
   
-
   .home-burger {
-    position: absolute;
     left: 48%;
   }
-
+  
   .overlay-menu {
     background-size: calc(100vw / 2) calc(100vw / 2);
-    
   }
-
+  
   .aboutMe-card {
     width: 100%;
   }
-
   .aboutMe-content {
     flex-direction: column;
     align-items: center;
@@ -551,18 +581,15 @@ body::before {
     right: 2rem;
     top: 1rem;
   }
-
-  .overlay-header .overlay-local-location
-  {
+  .overlay-header .overlay-local-location {
     font-size: 1.9rem;
     transform: translateY(4px);
   }
-
-  .overlay-header .overlay-contact{
+  .overlay-header .overlay-contact {
     font-size: 2rem;
     transform: translateY(4px);
   }
-
+  
   .overlay-nav li a {
     font-size: 6rem;
   }
@@ -570,35 +597,45 @@ body::before {
     width: 95%;
     padding: 1.5rem;
   }
+  
+  /* Adjust the Latest Portfolio header for tablets */
+  .latest-portfolio .portfolio-header h2 {
+    font-size: 6rem;
+    margin-bottom: 4rem;
+  }
+  .latest-portfolio .portfolio-header p {
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    max-width: 100%;
+  }
 }
 
-
-/* Responsive Adjustments for Mobile (up to 480px) */
+/* For screens up to 480px (small mobiles) */
 @media (max-width: 480px) {
   .aboutMe-card,
   .contact-card,
-  .projects-section {
+  .projects-section,
+  .latest-portfolio {
     width: 100%;
     margin: 1rem auto;
     padding: 1.5rem 1rem;
   }
-
+  
   body::before {
     background-size: calc(100vw / 2) calc(100vw / 2);
   }
-
+  
   .home-local,
   .home-contact {
     font-size: 1rem;
   }
-
-  .digit{
+  
+  .digit {
     margin: -0.08rem;
     font-size: 1rem;
   }
-
+  
   .home-burger {
-    position: absolute;
     left: 46%;
   }
   
@@ -616,19 +653,19 @@ body::before {
     font-size: 4.5rem;
     padding: 0 0.5rem;
   }
-
   .large-text.in-view {
     transform: translateY(-150px);
   }
-
+  
   .home-header {
     font-size: 0.5rem;
   }
-
+  
   .overlay-menu {
     background-size: calc(100vw / 2) calc(100vw / 2);
-    
   }
+
+  
   
   .overlay-header {
     left: 1rem;
@@ -637,13 +674,11 @@ body::before {
     flex-direction: row;
     gap: 0.5rem;
   }
-  .overlay-header .overlay-local-location
-  {
+  .overlay-header .overlay-local-location {
     font-size: 0.9rem;
     transform: translateY(14px);
   }
-
-  .overlay-header .overlay-contact{
+  .overlay-header .overlay-contact {
     font-size: 1rem;
     transform: translateY(14px);
   }
@@ -653,14 +688,22 @@ body::before {
     font-size: 5rem;
   }
   
-  .projects-section h2 {
-    font-size: 2rem;
+  .latest-portfolio .portfolio-header h2 {
+    font-size: 3rem;
   }
-  
-  .project-card h3 {
-    font-size: 1.3rem;
+  .latest-portfolio .portfolio-item h3 {
+    font-size: 1.2rem;
   }
-  .project-card p {
+  .latest-portfolio .portfolio-item span {
     font-size: 0.9rem;
   }
+
+  .latest-portfolio .portfolio-grid {
+    gap: 0rem; /* Decreased gap on mobile */
+  }
+
+  .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
+    margin-top: 10rem; /* Reduced offset to raise the project */
+  }
+
 }
