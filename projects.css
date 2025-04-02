@@ -2,19 +2,18 @@
 .projects-hero {
     display: flex;
     flex-wrap: wrap;  /* stacks on mobile */
-    min-height: 100vh;
     align-items: center;
     justify-content: center;
     padding: 2rem;
     position: relative;
     z-index: 1; /* above grid background */
     color: #fff; /* ensure text is white */
-    left: 10%;
+
     /* Starting state for animation */
     opacity: 0;
     transform: translateY(1000px);
     animation: slideUp 1s forwards;
-    background-color: #000;
+
   }
   
   .projects-left,
@@ -25,6 +24,7 @@
     opacity: 0;
     transform: translateY(20px);
     animation: slideUp 1s forwards;
+    margin-top: 10rem;
   }
   
   /* Big heading & subtext */
@@ -74,28 +74,19 @@
     color: #fff;
   }
   
-  /* Right side image */
-  .projects-right img {
-    width: 100%;
-    max-width: 300px; /* limit size if preferred */
-    border-radius: 20px;
-    object-fit: cover;
-    /* Animate image */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s forwards;
-  }
+
   
   /* PROJECTS GALLERY SECTION */
   .projects-gallery {
     padding: 2rem;
- 
+
     color: #fff;
     /* Custom animation for gallery landing */
     opacity: 0;
     transform: translateY(20px);
     animation: slideUpInfo 1s forwards;
     animation-delay: 1s;
+    margin-top: 5rem;
   }
   
   .projects-gallery h2 {
