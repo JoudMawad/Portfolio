@@ -20,7 +20,7 @@ function scaleAllText() {
     const minW = parseFloat(element.dataset.minWidth) || 320;
     const maxW = parseFloat(element.dataset.maxWidth) || 2560;
     const minSize = parseFloat(element.dataset.minSize) || 1;
-    const maxSize = parseFloat(element.dataset.maxSize) || 20;
+    const maxSize = parseFloat(element.dataset.maxSize) || 5;
 
     // Constrain the current window width to [minW, maxW]
     const clampedWidth = Math.min(Math.max(windowWidth, minW), maxW);
