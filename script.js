@@ -165,7 +165,7 @@ function parallaxScroll() {
   const scrollPosition = window.pageYOffset;
   document.querySelectorAll('.parallax').forEach(el => {
     // Adjust speed factor as needed (0.5 means half the scroll speed)
-    el.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+    el.style.transform = `translateY(${scrollPosition * 0.03}px)`;
   });
 }
 window.addEventListener('scroll', parallaxScroll);

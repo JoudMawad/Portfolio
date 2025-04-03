@@ -388,7 +388,7 @@ body::before {
   align-items: center;
   max-width: 2560px;
   transform: translateY(-1rem);
-  margin-bottom: 1.6rem;
+  margin-bottom: -3rem;
 }
 .approuch-center {
   flex: 1 1 60%;
@@ -424,7 +424,7 @@ body::before {
   margin: 2rem auto 3rem;
   padding: 3rem;
   max-width: 1500px;
-  transform: translateY(-4rem);
+  transform: translateY(-3rem);
 }
 
 
@@ -710,7 +710,7 @@ body::before {
   .projects-section,
   .latest-portfolio {
     width: 100%;
-    margin: -5rem auto;
+    margin: 0rem auto;
     padding: 1.5rem 1rem;
   }
   body::before {
@@ -756,7 +756,7 @@ body::before {
     width: 100%;
     gap: 1rem;
     margin-top: 8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     padding: 0;
   }
   .aboutMe-text {
