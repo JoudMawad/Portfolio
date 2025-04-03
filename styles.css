@@ -566,6 +566,7 @@ body::before {
   gap: 10rem;
   margin-bottom: 3rem;
   padding: 3rem;
+  transform: translateY(10rem);
 }
 .latest-portfolio .portfolio-header h2 {
   font-size: 5vw;
@@ -710,8 +711,9 @@ body::before {
   .projects-section,
   .latest-portfolio {
     width: 100%;
-    margin: 0rem auto;
+    margin: -8rem auto;
     padding: 1.5rem 1rem;
+    transform: translateY(0rem);
   }
   body::before {
     background-size: 150% 150%, 150% 150%, 400px 400% !important;
@@ -755,7 +757,7 @@ body::before {
   .aboutMe-card { 
     width: 100%;
     gap: 1rem;
-    margin-top: 8rem;
+    margin-top: 6rem;
     margin-bottom: 0rem;
     padding: 0;
   }
