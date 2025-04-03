@@ -16,6 +16,7 @@ body {
   color: #fff;
   position: relative;
   font-size: 0.95rem;
+  scroll-behavior: smooth; /* New: Smooth scrolling */
 }
 
 @font-face {
@@ -28,10 +29,8 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
 
-
-
 /* -----------------------------------------------------------------------------
-   Grid Background
+   GRID BACKGROUND
 ----------------------------------------------------------------------------- */
 body::before {
   content: "";
@@ -43,7 +42,6 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background: 
-    /* Vertical divider at 33.33% */
     linear-gradient(
       to right,
       transparent calc(33.33%),
@@ -51,7 +49,6 @@ body::before {
       #111 calc(33.33% + 1px),
       transparent calc(33.33%)
     ),
-    /* Vertical divider at 66.66% */
     linear-gradient(
       to right,
       transparent calc(66.66%),
@@ -59,24 +56,20 @@ body::before {
       #111 calc(66.66% + 1px),
       transparent calc(66.66%)
     ),
-    /* Checkered grid background */
     url('grid.svg') repeat;
   background-size: 100% 100%, 100% 100%, 500px 500px;
   background-repeat: no-repeat, no-repeat, repeat;
   background-attachment: fixed;
 }
 
-
-
-
-
 /* =============================================================================
    ANIMATION & TRANSITION BASE
 ============================================================================= */
+/* Updated: Using a smooth fade‑in from 50px below */
 .animate {
   opacity: 0;
-  transform: translateY(-100px);
-  transition: opacity 0.4s ease-out, transform 0.6s ease-out;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .animate.in-view {
   opacity: 1;
@@ -104,52 +97,45 @@ body::before {
 .delay-66 { transition-delay: 0.32s; }
 .delay-1 { transition-delay: 0.22s; }
 .delay-2 { transition-delay: 0.24s; }
-.delay-3 { transition-delay: 0.26s; }
-.delay-4 { transition-delay: 0.32s; }
-.delay-5 { transition-delay: 0.34s; }
+.delay-3 { transition-delay: 0.25s; }
+.delay-333 { transition-delay: 0.26s; }
+.delay-4 { transition-delay: 0.28s; }
+.delay-5 { transition-delay: 0.30s; }
 .delay-6 { transition-delay: 1.9s; }
 
 /* =============================================================================
-   Section Divider
+   SECTION DIVIDER
 ============================================================================= */
 .section-divider {
   position: relative;
-  margin: 2rem 0rem;  /* Adjust vertical spacing as needed */
+  margin: 2rem 0;
   width: 100%;
   border: none;
 }
-
-/* Draw the horizontal line */
 .section-divider::before {
   content: "";
   display: block;
-  border-top: 2px solid #111;  /* Change line color/thickness as needed */
+  border-top: 2px solid #111;
 }
-
-/* Container for the optional text over the divider */
 .divider-text {
   position: absolute;
-  margin-top: 1rem;  /* Adjust vertical placement of the text */
+  margin-top: 1rem;
   left: 0;
   right: 0;
-  pointer-events: none;  /* So the text doesn't interfere with clicks */
+  pointer-events: none;
 }
-
-/* Middle word – exactly centered */
 .divider-word.middle {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'OrganettoSemiExt', sans-serif;
-  font-size: 1rem;       /* Adjust as needed */
-  font-weight: 500;      
+  font-size: 1rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0 1em;        /* Minimal padding to cover the line behind */
+  padding: 0 1em;
   color: #cecece;
 }
-
-/* Left word – anchored to the left */
 .divider-word.left {
   position: absolute;
   left: 0;
@@ -161,8 +147,6 @@ body::before {
   padding: 0 4em;
   color: #cecece;
 }
-
-/* Right word – anchored to the right */
 .divider-word.right {
   position: absolute;
   right: 0;
@@ -174,11 +158,6 @@ body::before {
   padding: 0 4em;
   color: #898989;
 }
-
-
-
-
-
 
 /* =============================================================================
    HEADER & NAVIGATION
@@ -198,7 +177,6 @@ body::before {
   z-index: 3;
   background: transparent;
 }
-
 .home-local,
 .home-contact {
   font-size: 1.5rem;
@@ -210,8 +188,6 @@ body::before {
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
-
-/* Header Contact Button */
 .home-contact {
   color: #fff;
   text-decoration: none;
@@ -224,8 +200,6 @@ body::before {
   background-color: #fff;
   color: #000;
 }
-
-/* Burger Menu */
 .home-burger {
   position: absolute;
   left: 50%;
@@ -279,7 +253,6 @@ body::before {
   opacity: 1;
   visibility: visible;
 }
-
 .overlay-header {
   position: absolute;
   top: 1rem;
@@ -313,8 +286,6 @@ body::before {
   background-color: #fff;
   color: #000;
 }
-
-/* Overlay Navigation */
 .overlay-nav-container {
   text-align: center;
 }
@@ -339,8 +310,6 @@ body::before {
 .overlay-nav li a:hover {
   color: #33c1ff;
 }
-
-/* Social Links */
 .social-links {
   display: flex;
   gap: 2rem;
@@ -364,9 +333,8 @@ body::before {
    MAIN CONTENT & HERO SECTION
 ============================================================================= */
 .main-content {
-  transform: translateY(-0px);
+  transform: translateY(0);
 }
-
 .hero {
   display: flex;
   justify-content: center;
@@ -376,9 +344,8 @@ body::before {
   height: 100vh;
   z-index: 1;
 }
-
-.center-content{
-margin: -15rem;
+.center-content {
+  margin: -15rem;
 }
 .scalable-text {
   font-family: 'League Spartan', sans-serif;
@@ -386,11 +353,10 @@ margin: -15rem;
   letter-spacing: -0.1em;
   text-transform: uppercase;
   line-height: 0;
-  padding: 0 0rem;
+  padding: 0;
   width: 200%;
-/* Example horizontal padding */
-  text-align: center;  /* Or left/right depending on layout */
-  color: white;        /* Or whatever you prefer */
+  text-align: center;
+  color: #fff;
   display: inline-block;
 }
 .red-text { color: rgb(125, 0, 0); }
@@ -416,43 +382,29 @@ margin: -15rem;
 }
 
 /* =============================================================================
-   APPROUCH SECTION
+   APPROOUCH SECTION
 ============================================================================= */
-
 .approuch-card {
   align-items: center;
-  box-sizing: border-box;
   max-width: 2560px;
   transform: translateY(-1rem);
-  margin-bottom: -3rem;
-
+  margin-bottom: 1.6rem;
 }
-
-/* Left column: Title + Text */
 .approuch-center {
   flex: 1 1 60%;
-  box-sizing: border-box;
 }
-
-/* Title */
 .approuch-center h1 {
   font-family: 'League Spartan', sans-serif;
-
   font-weight: 700;
-  line-height: 1.5;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
-  line-height: 0.85;
+  line-height: 0.9;
   text-align: center;
-  box-sizing:border-box;
-  max-width: 2660;
   margin-left: -50%;
   letter-spacing: -0.085rem;
 }
-
-/* Text */
 .approuch-text {
-  font-size: 2vw;
+  font-size: 2.2vw;
   line-height: 1.3;
   color: #888;
   margin-top: 1rem;
@@ -462,63 +414,45 @@ margin: -15rem;
 }
 
 /* =============================================================================
-   ABOUT ME SECTION - FIXED LAYOUT
+   ABOUT ME SECTION
 ============================================================================= */
-
 .aboutMe-card {
   display: flex;
   align-items: flex;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-  width: 97vw;
-  box-sizing:border-box;
-  padding: 3rem;
   margin: 2rem auto 3rem;
+  padding: 3rem;
   max-width: 1500px;
+  transform: translateY(-4rem);
 }
 
-/* Left column: Title + Text */
+
 .aboutMe-left {
   flex: 1 1 60%;
-  box-sizing: border-box;
 }
-
-/* Title */
 .aboutMe-left h2 {
   font-size: 5vw;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
-  margin: 0 0 2vw 0;
+  margin-bottom: 2vw;
   line-height: 1;
   text-align: left;
 }
-
-/* Text */
 .aboutMe-text {
   font-size: 1.5vw;
   line-height: 1.3;
   color: #555;
-  margin: 0;
   text-align: left;
 }
-
-/* Image on the right */
 .aboutMe-image {
   flex: 0 0 auto;
   width: 35%;
   height: auto;
   object-fit: cover;
   border-radius: 10px;
-  align-self: flex-start; /* aligns with top of text content */
+  align-self: flex-start;
 }
-
-
-
-
-
-
 
 /* =============================================================================
    CONTACT CARD
@@ -584,33 +518,26 @@ margin: -15rem;
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  /* Distribute space evenly around each item */
   justify-content: space-evenly;
   align-items: center;
   font-size: 0.9rem;
   z-index: 1;
 }
-
 .bottom-item {
-  /* Allow each item to take equal width */
   flex: 1;
-  /* Center text within each item */
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   opacity: 0.8;
 }
-
 .bottom-item .icon {
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
 }
 
-
 /* =============================================================================
    LATEST PORTFOLIO / PROJECTS SECTION
 ============================================================================= */
-/* Custom Properties for Projects */
 .latest-portfolio {
   --header-title-margin: 10rem;
   --header-title-left-padding: 0rem;
@@ -626,30 +553,25 @@ margin: -15rem;
   --portfolio-item-img-width: 65%;
   --portfolio-item-img-border-radius: 20px;
   --project-offset: 20rem;
-
-  padding: 4rem 2rem;
   text-align: left;
-  border-radius: 20px;
-  margin: 2rem auto;
-  margin: 2rem auto 3rem;
+  margin: -13rem auto 3rem;
   max-width: 1500px;
-}
 
+  margin-bottom: 10rem;
+}
 .latest-portfolio .portfolio-header {
   display: flex;
   align-items: flex;
   justify-content: space-between;
   gap: 10rem;
   margin-bottom: 3rem;
-  box-sizing: border-box;
   padding: 3rem;
-
 }
 .latest-portfolio .portfolio-header h2 {
   font-size: 5vw;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
-  margin: 0 0 2vw 0;
+  margin-bottom: 2vw;
   line-height: 1;
   text-align: left;
 }
@@ -658,17 +580,13 @@ margin: -15rem;
   line-height: 1.3;
   color: #555;
   margin-top: 15rem;
-
 }
-
 .latest-portfolio .portfolio-grid {
   display: flex;
   gap: var(--grid-gap);
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
-
 .latest-portfolio .portfolio-item {
   flex: 1 1 var(--portfolio-item-width);
   position: relative;
@@ -693,7 +611,6 @@ margin: -15rem;
   text-transform: uppercase;
   color: #999;
 }
-/* Offset second project */
 .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
   margin-top: var(--project-offset);
 }
@@ -739,14 +656,11 @@ margin: -15rem;
     text-align: left;
     font-size: 1rem;
   }
-    /* Adjust the big heading on mobile */
-    .aboutMe-card h2 {
-      margin-top: 0rem !important;       /* Removes the -5rem margin on small screens */
-
-      font-size: 4.5rem !important;   /* Scale down from 10rem for mobile */
-      text-align: left;             /* Center the heading if desired */
-    }
-
+  .aboutMe-card h2 {
+    margin-top: 0 !important;
+    font-size: 4.5rem !important;
+    text-align: left;
+  }
   .aboutMe-text {
     text-align: left;
     font-size: 1.5rem;
@@ -760,7 +674,7 @@ margin: -15rem;
     padding: 0 1rem;
   }
   .main-content { transform: translateY(-180px); }
-  .scalable-text{margin-bottom: -15rem;}
+  .scalable-text { margin-bottom: -15rem; }
   .overlay-header {
     left: 2rem;
     right: 2rem;
@@ -789,7 +703,6 @@ margin: -15rem;
     max-width: 100%;
   }
 }
-
 /* Small Mobiles (up to 480px) */
 @media (max-width: 480px) {
   .aboutMe-card,
@@ -797,11 +710,11 @@ margin: -15rem;
   .projects-section,
   .latest-portfolio {
     width: 100%;
-    margin: 1rem auto;
+    margin: -5rem auto;
     padding: 1.5rem 1rem;
   }
   body::before {
-    background-size: 150% 150%, 150% 150%, 400px 400px !important;
+    background-size: 150% 150%, 150% 150%, 400px 400% !important;
   }
   .home-local,
   .home-contact { font-size: 1rem; }
@@ -810,20 +723,12 @@ margin: -15rem;
     font-size: 1rem;
   }
   .home-burger { left: 46%; }
-
   .project-card img {
     width: 90%;
     margin: 0 auto 1rem;
   }
-
-  .main-content{
-    transform: translateY(-200px) !important; 
-  }
-
-     
-  .scalable-text{
-    margin-bottom: -15rem; 
-  }
+  .main-content { transform: translateY(-200px) !important; }
+  .scalable-text { margin-bottom: -15rem; }
   .home-header { font-size: 0.5rem; }
   .overlay-menu {
     background-size: calc(100vw / 1) calc(100vw / 1);
@@ -847,80 +752,76 @@ margin: -15rem;
     color: #6f00ff;
     font-size: 5rem;
   }
-
   .aboutMe-card { 
     width: 100%;
     gap: 1rem;
     margin-top: 8rem;
     margin-bottom: 2rem;
     padding: 0;
-
   }
-
   .aboutMe-text {
     text-align: left;
     font-size: 1rem;
-
   }
-    /* Adjust the big heading on mobile */
-    .aboutMe-card h2 {
-      margin-top: -6rem !important;       /* Removes the -5rem margin on small screens */
-      margin-bottom: 2rem;
-      font-size: 3rem !important;   /* Scale down from 10rem for mobile */
-      text-align: left;             /* Center the heading if desired */
-
-    }
-  
-    /* Scale down the large text for mobile */
-    .aboutMe-text {
-      font-size: 1rem !important;   /* Override the 4rem !important */
-      line-height: 1.2 !important;  /* More comfortable reading line-height */
-      text-align: left !important;
-    }
-    .latest-portfolio .portfolio-header { 
-      font-size: 2.5rem;
-      margin-top: 4rem;
-      gap: 1rem  !important ;
-      padding: 0;
-      }
-
+  .aboutMe-card h2 {
+    margin-top: -6rem !important;
+    margin-bottom: 2rem;
+    font-size: 3rem !important;
+    text-align: left;
+  }
+  .aboutMe-text {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+  .latest-portfolio .portfolio-header { 
+    font-size: 2.5rem;
+    margin-top: 0rem;
+    gap: 1rem !important;
+    padding: 0;
+  }
   .latest-portfolio .portfolio-header h2 { 
     font-size: 3rem;
-    }
-
-    .latest-portfolio .portfolio-header p {
+  }
+  .latest-portfolio .portfolio-header p {
     font-size: 1rem;
     margin-top: 9rem;
-    }
-
+  }
   .latest-portfolio .portfolio-item h3 { 
     font-size: 1.2rem; 
   }
   .latest-portfolio .portfolio-item span {
-     font-size: 0.9rem; 
-    }
+    font-size: 0.9rem; 
+  }
   .latest-portfolio .portfolio-grid { 
     gap: 0rem !important;
     margin-top: -5rem;
-    }
+  }
   .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
     margin-top: 10rem;
   }
-
   .section-divider {
-    margin: 1.5rem 0;  /* Slightly reduced vertical spacing */
+    margin: 1.5rem 0;
   }
   .divider-text {
-    margin-top: 0.5rem;  /* Adjust vertical offset on mobile */
+    margin-top: 0.5rem;
   }
   .divider-word.middle {
-    font-size: 0.9rem;       /* Slightly smaller font size */
-    padding: 0 0.5em;        /* Reduced horizontal padding */
+    font-size: 0.9rem;
+    padding: 0 0.5em;
   }
   .divider-word.left,
   .divider-word.right {
-    font-size: 0.9rem;       /* Slightly smaller font size */
-    padding: 0 1em;          /* Reduced horizontal padding */
+    font-size: 0.9rem;
+    padding: 0 1em;
   }
+}
 
+/* =============================================================================
+   NEW: PARALLAX EFFECT STYLES
+============================================================================= */
+/* Apply parallax effect to any element with the .parallax class */
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
 }
