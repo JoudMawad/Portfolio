@@ -808,6 +808,27 @@ background-position-y: 4rem ;
     transform: translateY(0rem);
   }
 
+  .custom-cursor{
+    width: 0px;
+  height: 0px;
+  }
+
+  /* Hide the default cursor globally */
+body {
+  cursor:auto;
+}
+
+/* Override default interactive element cursors */
+a, button, input, textarea {
+  cursor: auto !important;
+}
+
+.burger-container,
+.burger-menu,
+.burger-menu span {
+  cursor: auto !important;
+}
+
   .section-divider::before {
     border-top: 1px solid #111;
   }
