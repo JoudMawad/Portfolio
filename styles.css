@@ -545,6 +545,60 @@ background-position-y: 4rem ;
   transform: scale(1.05);
 }
 
+/* TECH Section Styling */
+#tech {
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+  background-position-y: 4rem;
+  margin-top: -6rem;
+}
+
+#tech .tech-card {
+  max-width: 2660px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tech-strip-wrapper {
+  overflow: hidden;
+  width: 150%;
+  margin-left: -5rem;
+  align-items: center;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  padding: 10px 0;
+  list-style: none;
+  /* Auto-scroll animation */
+  animation: scroll 20s linear infinite;
+}
+
+.tech-list li {
+  display: flex;
+  width: 200px;       /* Fixed width */
+  height: 150px;      /* Fixed height */
+  flex: 0 0 auto;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#tech .tech-list li:hover {
+  transform: scale(1.05);
+}
+
+/* Ensure images inside each slide are sized properly */
+.tech-list li img {
+  width: 80%;         /* Adjust percentage to suit your logos */
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+
+
 /* =============================================================================
    BOTTOM BAR
 ============================================================================= */
@@ -853,6 +907,15 @@ background-position-y: 4rem ;
     border: 1px solid #111;
     font-size: 1.2rem;
     font-weight: 700;
+  }
+
+  .tech-list {
+    gap: 20px;
+  }
+
+  .tech-list li {
+    width: 140px;       /* Fixed width */
+    height: 90px;      /* Fixed height */
   }
 
   .latest-portfolio{

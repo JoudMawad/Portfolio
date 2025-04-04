@@ -131,6 +131,36 @@
     scrollSkills();
   });
 
+  document.addEventListener("DOMContentLoaded", function() {
+    const techList = document.querySelector('#tech .tech-list');
+    if (!techList) return;
+    
+    // Duplicate the tech list content for a seamless loop
+    techList.innerHTML += techList.innerHTML;
+    
+    // Wait for the browser to render so scrollWidth is correctly computed.
+    const halfWidth = techList.scrollWidth / 2;
+    let scrollPosition = -halfWidth; // Start from negative half width
+    
+    const speed = 1; // Adjust speed (pixels per frame) as needed
+    
+    function scrollTech() {
+      scrollPosition += speed;
+      // When the content has scrolled all the way to 0, reset to start from -halfWidth
+      if (scrollPosition >= 0) {
+        scrollPosition = -halfWidth;
+      }
+      techList.style.transform = `translateX(${scrollPosition}px)`;
+      requestAnimationFrame(scrollTech);
+    }
+    
+    scrollTech();
+  });
+  
+  
+  
+  
+
 
 //custom cursor
 document.addEventListener('DOMContentLoaded', () => {
