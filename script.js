@@ -131,7 +131,7 @@
     scrollSkills();
   });
 
-  document.addEventListener("DOMContentLoaded", function() {
+  /*document.addEventListener("DOMContentLoaded", function() {
     const techList = document.querySelector('#tech .tech-list');
     if (!techList) return;
     
@@ -156,7 +156,7 @@
     
     scrollTech();
   });
-  
+  */
   
   
   

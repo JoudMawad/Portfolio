@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" shape-rendering="crispEdges">
   <defs>
     <pattern id="checkered" width="8" height="8" patternUnits="userSpaceOnUse">
-      <rect x="0" y="0" width="4" height="4" fill="#111"/>
+      <rect x="0" y="0" width="4" height="4" fill="#101010"/>
       <rect x="4" y="0" width="4" height="4" fill="#000"/>
       <rect x="0" y="4" width="4" height="4" fill="#000"/>
-      <rect x="4" y="4" width="4" height="4" fill="#111"/>
+      <rect x="4" y="4" width="4" height="4" fill="#101010"/>
     </pattern>
   </defs>
   <!-- Main checkered background -->
