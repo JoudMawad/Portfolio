@@ -495,14 +495,15 @@ a, button, input, textarea {
   padding: 60px 20px;
   color: #fff;
   text-align: center;
-  margin-bottom: -5rem;
-  margin-top: -4rem;
+background-position-y: 4rem ;
+
 }
 
 #skills .skills-card {
   max-width: 2660px;
   margin: 0 auto;
   padding: 20px;
+
 }
 
 .skills-strip-wrapper {
@@ -510,30 +511,37 @@ a, button, input, textarea {
   width: 150%;
   overflow: hidden;
   margin-left: -5rem;
+  align-items: center;
 }
 
 .skills-list {
   display: flex;
   flex-wrap: nowrap;
-  gap: 30px;
+  gap: 40px;
   padding: 10px 0;
   animation: none; /* Controlled by JavaScript */
-  white-space: nowrap;
+  list-style: none;
 }
 
 .skills-list li {
+  display: flex;
+  width: 200px;       /* Fixed width */
+  height: 150px;
   flex: 0 0 auto;
-  background-color: #222;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c0c0c;
+  border: 2px solid #111;
+  border-radius: 20px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 #skills .skills-list li:hover {
   transform: scale(1.05);
-  background-color: #333;
 }
 
 
@@ -884,6 +892,21 @@ a, button, input, textarea {
     line-height: 1.2 !important;
     text-align: left !important;
   }
+
+  .skills-strip-wrapper{
+    margin-top: -3rem;
+    margin-bottom: -3rem;
+  }
+
+  .skills-list li {
+    width: 180px;       /* Fixed width */
+    height: 130px;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+
   .latest-portfolio .portfolio-header { 
     font-size: 2.5rem;
     margin-top: 0rem;

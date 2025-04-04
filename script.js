@@ -116,7 +116,7 @@
     skillsList.innerHTML += skillsList.innerHTML;
     
     let scrollPosition = 0;
-    const speed = 2; // Adjust the speed (in pixels per frame) as needed
+    const speed = 1; // Adjust the speed (in pixels per frame) as needed
   
     function scrollSkills() {
       scrollPosition -= speed;
