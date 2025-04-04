@@ -677,6 +677,7 @@ background-position-y: 4rem ;
   gap: var(--grid-gap);
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 15rem;
 }
 .latest-portfolio .portfolio-item {
   flex: 1 1 var(--portfolio-item-width);
@@ -950,6 +951,7 @@ background-position-y: 4rem ;
   .latest-portfolio .portfolio-grid { 
     gap: 0rem !important;
     margin-bottom: 10rem;
+    margin-top: 8rem;
   }
   .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
     margin-top: 10rem;
