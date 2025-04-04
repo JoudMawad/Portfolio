@@ -808,6 +808,10 @@ background-position-y: 4rem ;
     transform: translateY(0rem);
   }
 
+  .section-divider::before {
+    border-top: 1px solid #111;
+  }
+
   .home-local,
   .home-contact { font-size: 1rem; }
   .digit {
@@ -901,7 +905,7 @@ background-position-y: 4rem ;
   .skills-list li {
     width: 150px;       /* Fixed width */
     height: 100px;
-
+    border: 1px solid #111;
     font-size: 1.2rem;
     font-weight: 700;
   }
