@@ -17,11 +17,12 @@
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
   <!-- Fixed Home Header: local (left), burger menu (center) & contact (right) -->
   <header class="home-header">
-    <div class="home-local animate delay-11">
+    <div class="home-local animate delay-111">
       <span class="gray-text"> LOCAL／</span>
       <span class="time-hours">
         <span class="digit" data-index="0">0</span>
@@ -36,7 +37,7 @@
         <span class="digit" data-index="1">0</span>
       </span>
     </div>
-    <div class="burger-container home-burger animate delay-11">
+    <div class="burger-container home-burger animate">
       <div class="burger-menu" id="burgerMenuHome">
         <span></span>
         <span></span>
@@ -46,16 +47,13 @@
     <a href="contact.html" class="home-contact animate delay-11">CONTACT ME</a>
   </header>
 
-
-  
- <!-- Full-Screen Overlay Menu -->
- <div class="overlay-menu" id="overlayMenu">
-  <!-- Overlay Header inside Menu -->
-  <div class="overlay-header animate delay-0">
-    <div class="overlay-local-location">LOCAL // 52°15'55.3"N</div>
-    <a href="contact.html" class="overlay-contact">CONTACT ME</a>
-  </div> 
-    
+  <!-- Full-Screen Overlay Menu -->
+  <div class="overlay-menu" id="overlayMenu">
+    <!-- Overlay Header inside Menu -->
+    <div class="overlay-header animate delay-0">
+      <div class="overlay-local-location">LOCAL // 52°15'55.3"N</div>
+      <a href="contact.html" class="overlay-contact">CONTACT ME</a>
+    </div> 
     <!-- Centered Navigation Links -->
     <ul class="overlay-nav">
       <li class="animate delay-11"><a href="index.html">Home</a></li>
@@ -63,44 +61,24 @@
       <li class="animate delay-33"><a href="projects.html">Projects</a></li>
       <li class="animate delay-44"><a href="contact.html">Contact</a></li>
     </ul>
-    
-    
     <div class="social-links animate delay-66">
       <a href="https://www.instagram.com/jude_mawad?igsh=c3oxYjN0MHFjZTJn&utm_source=qr" target="_blank">INSTAGRAM ↗</a>
       <a href="https://github.com/JoudMawad" target="_blank">GITHUB ↗</a>
     </div>
   </div>
 
-
-
-
-
   <div class="main-content">
     <!-- Main Page Content (hidden beneath overlay) -->
-<main id="hero" class="center-content hero">
-  <h1 class="scalable-text animate delay-1" 
-      data-min-width="320" 
-      data-max-width="1133" 
-      data-min-size="9" 
-      data-max-size="26">JUDE
-  </h1>
-  <!-- 
-  <h1 class="scalable-text animate delay-2" 
-      data-min-width="320" 
-      data-max-width="2560" 
-      data-min-size="1.8" 
-      data-max-size="8">
-    a Computer Science
-  </h1>
-  
-  <h1 class="scalable-text animate delay-3" 
-      data-min-width="320" 
-      data-max-width="2560" 
-      data-min-size="1.8" 
-      data-max-size="8">
-    student
-  </h1>Main Page Content (hidden beneath overlay) -->
-</main>
+    <main id="hero" class="center-content hero">
+      <h1 class="scalable-text animate delay-1" 
+          data-min-width="320" 
+          data-max-width="1133" 
+          data-min-size="9" 
+          data-max-size="26">
+        JUDE
+      </h1>
+      <!-- Additional hero text can go here -->
+    </main>
     <hr class="section-divider animate delay-333">
     <div class="bottom-bar animate delay-3">
       <div class="bottom-item">
@@ -125,24 +103,23 @@
       </div>
     </div>
 
-        <!-- APPROUCH Section -->
-        <section id="approuch" class="section animate delay-5">
-          <div class="approuch-card">
-            <div class="approuch-center">
-              <h1 class="approuch-center animate delay-1" 
-      data-min-width="320" 
-      data-max-width="1440" 
-      data-min-size="1.5" 
-      data-max-size="0">
-      I'M Jude Mawad, <br/>A Computer scince student
-  </h1>
-              <p class="approuch-text animate delay-66">
-                I love turning ideas into beautifully functional apps<br/> and learning new technologies<br/> along the way.
-              </p>
-            </div>
-          </div>
-          
-        </section>
+    <!-- APPROUCH Section -->
+    <section id="approuch" class="section animate delay-5">
+      <div class="approuch-card">
+        <div class="approuch-center">
+          <h1 class="approuch-center animate delay-1" 
+              data-min-width="320" 
+              data-max-width="1440" 
+              data-min-size="1.5" 
+              data-max-size="0">
+            I'M Jude Mawad, <br/>A Computer scince student
+          </h1>
+          <p class="approuch-text animate delay-66">
+            I love turning ideas into beautifully functional apps<br/> and learning new technologies<br/> along the way.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <div class="section-divider animate delay-66">
       <div class="divider-text">
@@ -163,7 +140,6 @@
         </div>
         <img src="images/IMG_4982.JPG" alt="About Me Photo" class="aboutMe-image">
       </div>
-      
     </section>
 
     <div class="section-divider">
@@ -174,6 +150,7 @@
       </div>
     </div>
 
+    <!-- Skills Section -->
     <section id="skills" class="section animate delay-5">
       <div class="skills-card">
         <!-- Scrolling Wrapper -->
@@ -186,12 +163,11 @@
             <li>UI/UX Principles</li>
             <li>Problem Solving</li>
             <li>Responsive Design</li>
-            <!-- You can add more skills here -->
+            <!-- Additional skills can be added here -->
           </ul>
         </div>
       </div>
     </section>
-
 
     <div class="section-divider">
       <div class="divider-text">
@@ -201,12 +177,9 @@
       </div>
     </div>
 
+    <!-- Projects Section -->
     <section id="projects" class="latest-portfolio section animate delay-3">
-
-
-      
       <!-- Header: Title & Description -->
-
       <div class="portfolio-header">
         <h2>MY<br/>PROJECTS</h2>
         <p>
@@ -214,7 +187,6 @@
           With nimble fingers flying across the device.
         </p>
       </div>
-      
       <!-- Portfolio Items -->
       <div class="portfolio-grid">
         <div class="portfolio-item">
@@ -228,11 +200,57 @@
           <span>Project Oriented Time Management</span>
         </div>
       </div>
-     
     </section>
-    <hr class="section-divider">
-    
+
+    <div class="section-divider">
+      <div class="divider-text">
+        <span class="divider-word left">S5</span>
+        <span class="divider-word middle">//CONTACTS</span>
+        <span class="divider-word right">2025</span>
+      </div>
+    </div>
+
+    <!-- Footer: Contact Info Section -->
+    <section class="contact-info">
+      <!-- Column 1: Follow Me -->
+      <div class="info-col">
+        <h3>Follow Me</h3>
+        <div class="contact-social-links">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/jude_mawad?igsh=c3oxYjN0MHFjZTJn&utm_source=qr" target="_blank">
+                INSTAGRAM
+              </a>
+            </li>
+            <!-- Add additional social links here as needed -->
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Column 2: Current Location -->
+      <div class="info-col">
+        <h3>Current Location</h3>
+        <p>
+          Brunswick, 38100<br/>
+          Germany
+        </p>
+      </div>
+      
+      <!-- Column 3: Phone -->
+      <div class="info-col">
+        <h3>Phone</h3>
+        <p>GER +49 1772257937</p>
+      </div>
+      
+      <!-- Column 4: Email Me -->
+      <div class="info-col">
+        <h3>Email Me</h3>
+        <p>JudeMawad@Gmail.com</p>
+      </div>
+    </section>
+
+  </div> <!-- End of main-content -->
+
   <script src="script.js"></script>
-  
 </body>
 </html>

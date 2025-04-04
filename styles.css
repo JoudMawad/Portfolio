@@ -68,7 +68,7 @@ body::before {
 /* Updated: Using a smooth fade‑in from 50px below */
 .animate {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(-50px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .animate.in-view {
@@ -81,7 +81,7 @@ body::before {
 
 /* Header-specific override */
 .home-header .animate {
-  transform: translateY(-150px);
+  transform: translateY(-50px);
 }
 .home-header .animate.in-view {
   transform: translateY(0);
@@ -113,13 +113,14 @@ a, button, input, textarea {
 }
 
 /* Delay Utilities */
-.delay-0 { transition-delay: 0.15s; }
-.delay-11 { transition-delay: 0.18s; }
-.delay-22 { transition-delay: 0.20s; }
-.delay-33 { transition-delay: 0.22s; }
-.delay-44 { transition-delay: 0.24s; }
-.delay-55 { transition-delay: 0.28s; }
-.delay-66 { transition-delay: 0.32s; }
+.delay-0 { transition-delay: 0.3s; }
+.delay-11 { transition-delay: 0.32s; }
+.delay-111 { transition-delay: 0.09s; }
+.delay-22 { transition-delay: 0.34s; }
+.delay-33 { transition-delay: 0.36s; }
+.delay-44 { transition-delay: 0.38s; }
+.delay-55 { transition-delay: 0.4s; }
+.delay-66 { transition-delay: 0.44s; }
 .delay-1 { transition-delay: 0.22s; }
 .delay-2 { transition-delay: 0.24s; }
 .delay-3 { transition-delay: 0.25s; }
@@ -544,62 +545,6 @@ background-position-y: 4rem ;
   transform: scale(1.05);
 }
 
-
-
-/* =============================================================================
-   CONTACT CARD
-============================================================================= */
-.contact-card {
-  background-color: #111;
-  padding: 2rem;
-  border-radius: 20px;
-  max-width: 1440px;
-  width: 90%;
-  margin: 2rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  text-align: left;
-}
-.contact-card h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-.contact-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.contact-card .form-group {
-  display: flex;
-  flex-direction: column;
-}
-.contact-card label {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-}
-.contact-card input,
-.contact-card textarea {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-}
-.contact-card button {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 10px;
-  background-color: #fff;
-  color: #000;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.contact-card button:hover {
-  background-color: #000;
-  color: #fff;
-}
-
 /* =============================================================================
    BOTTOM BAR
 ============================================================================= */
@@ -910,19 +855,24 @@ background-position-y: 4rem ;
     font-weight: 700;
   }
 
+  .latest-portfolio{
+    padding-top: 2rem;
+  }
+
 
   .latest-portfolio .portfolio-header { 
     font-size: 2.5rem;
-    margin-top: 0rem;
     gap: 1rem !important;
     padding: 0;
   }
+
   .latest-portfolio .portfolio-header h2 { 
     font-size: 3rem;
   }
   .latest-portfolio .portfolio-header p {
     font-size: 1rem;
-    margin-top: 9rem;
+    margin-top: 10rem;
+
   }
   .latest-portfolio .portfolio-item h3 { 
     font-size: 1.2rem; 
@@ -932,6 +882,7 @@ background-position-y: 4rem ;
   }
   .latest-portfolio .portfolio-grid { 
     gap: 0rem !important;
+    margin-bottom: 10rem;
   }
   .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
     margin-top: 10rem;

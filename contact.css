@@ -149,12 +149,11 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2rem;
-  padding: 2rem;
   z-index: 2;
   align-self: center;
+  padding: 2rem;
   /* Use custom animation so it lands higher */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUpInfo 1s forwards;
   animation-delay: 1s;
 }
@@ -163,14 +162,13 @@
 .contact-info .info-col {
   flex: 1 1 200px; /* each column grows/shrinks with min width */
   min-width: 200px;
+
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   /* Animate info columns */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUpInfo 1s forwards;
 }
 
@@ -183,21 +181,18 @@
   z-index: 2;
   /* Animate heading */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUpInfo 1s forwards;
   
 }
 
 .contact-info .info-col p,
 .contact-info .info-col li {
-  margin-bottom: -0.7rem;
   font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
   z-index: 2;
   /* Animate text items */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUpInfo 1s forwards;
 }
 
@@ -209,7 +204,6 @@
 
   /* Animate social links container */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUpSocial 0.6s forwards;
 }
 
@@ -223,7 +217,6 @@
   transition: color 0.3s ease;
   /* Animate individual links */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUp 0.6s forwards;
 }
 
@@ -233,17 +226,15 @@
 
 .contact-social-links ul {
   display: flex;
-  justify-content: flex-start;
+  align-items: flex-start;
   list-style: none;
-  padding-top: 10;
-  margin: 0;
+  flex-direction: column;
 }
 
 .contact-social-links li {
-  margin: 0.5rem;
+  margin-top: 1rem;
   /* Animate list items */
   opacity: 0;
-  transform: translateY(20px);
   animation: slideUp 0.6s forwards;
 }
 
@@ -264,9 +255,13 @@
 
 /* Custom Animation for Contact Info landing higher */
 @keyframes slideUpInfo {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* starting lower, then moving up */
+  }
   to {
     opacity: 1;
-    transform: translateY(-4rem); /* Adjust landing position as desired */
+    transform: translateY(0);
   }
 }
 
@@ -319,7 +314,7 @@
     transform: translateY(0);  /* reset transform for mobile */
     padding: 1rem;
     opacity: 1;
-    margin-top: 5rem;
+    margin-top: 8rem;
   }
 
   .contact-info .info-col {
