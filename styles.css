@@ -898,7 +898,7 @@ background-position-y: 4rem ;
 
   .skills-strip-wrapper{
     margin-top: -2rem;
-    margin-bottom: -3rem;
+    margin-bottom: -2rem;
   }
 
   .skills-list li {
@@ -913,9 +913,13 @@ background-position-y: 4rem ;
     gap: 20px;
   }
 
+  .tech-strip-wrapper{
+    margin-bottom: -3rem;
+  }
+
   .tech-list li {
-    width: 140px;       /* Fixed width */
-    height: 90px;      /* Fixed height */
+    width: 100px;       /* Fixed width */
+    height: 70px;      /* Fixed height */
   }
 
   .latest-portfolio{
