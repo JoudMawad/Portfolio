@@ -57,7 +57,7 @@ body::before {
       transparent calc(66.66%)
     ),
     url('grid.svg') repeat;
-  background-size: 100% 100%, 100% 100%, 400px 400px;
+  background-size: 100% 100%, 100% 100%, 300px 300px;
   background-repeat: no-repeat, no-repeat, repeat;
   background-attachment: fixed;
 }
@@ -493,51 +493,55 @@ a, button, input, textarea {
 ============================================================================= */
 /* Skills Section Styling */
 #skills {
-  padding: 60px 20px;
+  padding: 0px 0px;
   color: #fff;
   text-align: center;
-background-position-y: 4rem ;
-
+  background-position-y: 4rem;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
 }
 
 #skills .skills-card {
   max-width: 2660px;
-  margin: 0 auto;
-  padding: 20px;
-
 }
 
 .skills-strip-wrapper {
+  position: relative; /* Required for proper masking */
   overflow: hidden;
-  width: 150%;
-  overflow: hidden;
-  margin-left: -5rem;
+  width: 100%;
   align-items: center;
-}
+  box-sizing: border-box;
+  /* Apply fade effect to left and right edges */
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+
+  }
+
+
 
 .skills-list {
   display: flex;
   flex-wrap: nowrap;
   gap: 40px;
   padding: 10px 0;
-  animation: none; /* Controlled by JavaScript */
+  animation: none; /* Animation is controlled by JavaScript */
   list-style: none;
 }
 
 .skills-list li {
   display: flex;
-  width: 200px;       /* Fixed width */
-  height: 150px;
+  width: 250px;       /* Fixed width */
+  height: 200px;
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #0c0c0c;
-  border: 2px solid #111;
+  border: 1px solid #111;
   border-radius: 20px;
   font-family: 'League Spartan', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 1000;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -545,7 +549,8 @@ background-position-y: 4rem ;
   transform: scale(1.05);
 }
 
-/* TECH Section Styling */
+/*
+
 #tech {
   padding: 60px 20px;
   color: #fff;
@@ -573,14 +578,13 @@ background-position-y: 4rem ;
   gap: 40px;
   padding: 10px 0;
   list-style: none;
-  /* Auto-scroll animation */
   animation: scroll 20s linear infinite;
 }
 
 .tech-list li {
   display: flex;
-  width: 200px;       /* Fixed width */
-  height: 150px;      /* Fixed height */
+  width: 200px;       
+  height: 150px;      
   flex: 0 0 auto;
   align-items: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
@@ -590,14 +594,13 @@ background-position-y: 4rem ;
   transform: scale(1.05);
 }
 
-/* Ensure images inside each slide are sized properly */
+/ Ensure images inside each slide are sized properly /
 .tech-list li img {
-  width: 80%;         /* Adjust percentage to suit your logos */
+  width: 80%;         / Adjust percentage to suit your logos  /
   object-fit: contain;
   border-radius: 20px;
 }
-
-
+*/
 
 /* =============================================================================
    BOTTOM BAR
@@ -930,7 +933,7 @@ a, button, input, textarea {
     font-size: 1.2rem;
     font-weight: 700;
   }
-
+/*
   .tech-list {
     gap: 20px;
   }
@@ -940,9 +943,10 @@ a, button, input, textarea {
   }
 
   .tech-list li {
-    width: 100px;       /* Fixed width */
-    height: 70px;      /* Fixed height */
+    width: 100px;       /* Fixed width /
+    height: 70px;      /* Fixed height /
   }
+    */
 
   .latest-portfolio{
     padding-top: 2rem;
