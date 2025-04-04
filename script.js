@@ -130,6 +130,22 @@
     
     scrollSkills();
   });
+
+
+//custom cursor
+document.addEventListener('DOMContentLoaded', () => {
+  // Create and append the custom cursor element
+  const cursor = document.createElement('div');
+  cursor.className = 'custom-cursor';
+  document.body.appendChild(cursor);
+
+  // Update cursor position on mouse move
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+});
+
+
   
  
  

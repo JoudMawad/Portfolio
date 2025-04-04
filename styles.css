@@ -87,6 +87,31 @@ body::before {
   transform: translateY(0);
 }
 
+/* Hide the default cursor globally */
+body {
+  cursor: none;
+}
+
+/* Override default interactive element cursors */
+a, button, input, textarea {
+  cursor: none !important;
+}
+
+/* Custom Cursor Styling */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: white;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
 /* Delay Utilities */
 .delay-0 { transition-delay: 0.15s; }
 .delay-11 { transition-delay: 0.18s; }
@@ -219,6 +244,13 @@ body::before {
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.burger-container,
+.burger-menu,
+.burger-menu span {
+  cursor: none !important;
+}
+
 .burger-menu.open span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
