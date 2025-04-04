@@ -105,6 +105,32 @@
        });
      }
    });
+
+
+   //skills stripe
+   document.addEventListener("DOMContentLoaded", function() {
+    const skillsList = document.querySelector('#skills .skills-list');
+    if (!skillsList) return;
+  
+    // Duplicate the skills list content to enable seamless looping
+    skillsList.innerHTML += skillsList.innerHTML;
+    
+    let scrollPosition = 0;
+    const speed = 2; // Adjust the speed (in pixels per frame) as needed
+  
+    function scrollSkills() {
+      scrollPosition -= speed;
+      // Reset once we've scrolled the width of the original list
+      if (Math.abs(scrollPosition) >= skillsList.scrollWidth / 2) {
+        scrollPosition = 0;
+      }
+      skillsList.style.transform = `translateX(${scrollPosition}px)`;
+      requestAnimationFrame(scrollSkills);
+    }
+    
+    scrollSkills();
+  });
+  
  
  
  
