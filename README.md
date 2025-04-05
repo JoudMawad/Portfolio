@@ -19,8 +19,11 @@
 ## Project Structure
 
 ├── CNAME
+
 ├── LICENSE                # License
+
 ├── README.md              # Discription
+
 ├── Resume.pdf             # My Resume
 ├── calorie-details.html   # Calorie Tracker App details page
 ├── contact.css            # Contact page stylesheet
