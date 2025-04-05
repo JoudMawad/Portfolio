@@ -21,7 +21,6 @@
 ├── CNAME
 
 ├── LICENSE                # License
-
 ├── README.md              # Discription
 
 ├── Resume.pdf             # My Resume
