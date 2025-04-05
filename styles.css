@@ -1,24 +1,27 @@
 /* =============================================================================
    RESET & GLOBAL STYLES
 ============================================================================= */
+/* Reset margins, paddings, and set a consistent box-sizing for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Global settings for html and body elements */
 html,
 body {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
   font-family: 'Poppins', sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* Set a black background */
+  color: #fff; /* White text color */
   position: relative;
   font-size: 0.95rem;
-  scroll-behavior: smooth; /* New: Smooth scrolling */
+  scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
+/* Define custom font for specialized text */
 @font-face {
   font-family: 'OrganettoSemiExt';
   src: url('fonts/Organetto-Regular-SemiExt.woff2') format('woff2'),
@@ -27,11 +30,13 @@ body {
   font-style: normal;
 }
 
+/* Import an additional font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
 
 /* -----------------------------------------------------------------------------
    GRID BACKGROUND
 ----------------------------------------------------------------------------- */
+/* Create a fixed grid background overlay using a pseudo-element */
 body::before {
   content: "";
   position: fixed;
@@ -39,7 +44,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: none; /* Allow clicks to pass through */
   z-index: 0;
   background: 
     linear-gradient(
@@ -65,44 +70,46 @@ body::before {
 /* =============================================================================
    ANIMATION & TRANSITION BASE
 ============================================================================= */
-/* Updated: Using a smooth fade‑in from 50px below */
+/* Base animation for elements with the 'animate' class */
 .animate {
   opacity: 0;
   transform: translateY(-50px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+/* When an element is in view, reveal it with a smooth fade-in and slide */
 .animate.in-view {
   opacity: 1;
   transform: translateY(0);
 }
+/* Larger text elements have a slightly different translate value */
 .large-text.in-view {
   transform: translateY(-150px);
 }
 
-/* Header-specific override */
+/* Specific overrides for header animations */
 .home-header .animate {
   transform: translateY(-50px);
 }
-
 .home-header .animate.in-view {
   transform: translateY(0);
 }
 
+/* Similar animation behavior for the resume section */
 .home-resume .animate {
   transform: translateY(-50px);
 }
 
-/* Hide the default cursor globally */
+/* Hide the default cursor for a custom experience */
 body {
   cursor: none;
 }
 
-/* Override default interactive element cursors */
+/* Force interactive elements to hide the cursor */
 a, button, input, textarea {
   cursor: none !important;
 }
 
-/* Custom Cursor Styling */
+/* Custom cursor styling for a unique pointer effect */
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -117,7 +124,7 @@ a, button, input, textarea {
   z-index: 10000;
 }
 
-/* Delay Utilities */
+/* Delay Utilities: Control the timing of animated elements */
 .delay-0 { transition-delay: 0.3s; }
 .delay-11 { transition-delay: 0.32s; }
 .delay-111 { transition-delay: 0.09s; }
@@ -139,6 +146,7 @@ a, button, input, textarea {
 /* =============================================================================
    SECTION DIVIDER
 ============================================================================= */
+/* Styling for visual section dividers */
 .section-divider {
   position: relative;
   margin: 2rem 0;
@@ -150,6 +158,8 @@ a, button, input, textarea {
   display: block;
   border-top: 2px solid #111;
 }
+
+/* Styling for text overlay on dividers */
 .divider-text {
   position: absolute;
   margin-top: 1rem;
@@ -195,6 +205,7 @@ a, button, input, textarea {
 /* =============================================================================
    HEADER & NAVIGATION
 ============================================================================= */
+/* Home page header layout and styling */
 .home-header {
   max-width: 1440px;
   width: 100%;
@@ -210,10 +221,13 @@ a, button, input, textarea {
   z-index: 3;
   background: transparent;
 }
+
+/* Styling for local time display and contact button */
 .home-local,
 .home-contact {
   font-size: 1.5rem;
 }
+/* Hide elements when not active */
 .home-local.hide,
 .home-contact.hide {
   opacity: 0;
@@ -221,6 +235,8 @@ a, button, input, textarea {
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
+
+/* Home contact button appearance and hover effects */
 .home-contact {
   color: #fff;
   text-decoration: none;
@@ -233,6 +249,8 @@ a, button, input, textarea {
   background-color: #fff;
   color: #000;
 }
+
+/* Burger menu container and appearance */
 .home-burger {
   position: absolute;
   left: 50%;
@@ -253,12 +271,14 @@ a, button, input, textarea {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Ensure the custom cursor remains active on burger elements */
 .burger-container,
 .burger-menu,
 .burger-menu span {
   cursor: none !important;
 }
 
+/* Animation for burger menu open state */
 .burger-menu.open span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -269,7 +289,7 @@ a, button, input, textarea {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Overlay Menu & Header */
+/* Overlay menu styling for full-screen navigation */
 .overlay-menu {
   position: fixed;
   top: 0;
@@ -288,11 +308,14 @@ a, button, input, textarea {
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 2;
 }
+/* Reveal the overlay menu when active */
 .overlay-menu.active {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
 }
+
+/* Overlay header positioning within the menu */
 .overlay-header {
   position: absolute;
   top: 1rem;
@@ -303,6 +326,7 @@ a, button, input, textarea {
   align-items: center;
 }
 
+/* Styling for digit elements in the header */
 .digit {
   display: inline-block;
   font-size: 1.5rem;
@@ -310,6 +334,7 @@ a, button, input, textarea {
   margin: -0.25rem;
 }
 
+/* Navigation list styling within the overlay */
 .overlay-nav-container {
   text-align: center;
 }
@@ -334,6 +359,8 @@ a, button, input, textarea {
 .overlay-nav li a:hover {
   color: #33c1ff;
 }
+
+/* Styling for social links in the overlay menu */
 .social-links {
   display: flex;
   gap: 2rem;
@@ -356,9 +383,11 @@ a, button, input, textarea {
 /* =============================================================================
    MAIN CONTENT & HERO SECTION
 ============================================================================= */
+/* Reset any transforms on main content */
 .main-content {
   transform: translateY(0);
 }
+/* Hero section layout settings */
 .hero {
   display: flex;
   justify-content: center;
@@ -371,6 +400,7 @@ a, button, input, textarea {
 .center-content {
   margin: -15rem;
 }
+/* Scalable text styling for dynamic hero text */
 .scalable-text {
   font-family: 'League Spartan', sans-serif;
   font-weight: 900;
@@ -389,6 +419,7 @@ a, button, input, textarea {
 /* =============================================================================
    ICON STYLES
 ============================================================================= */
+/* Apply white color to specific icons */
 .icon-location i,
 .icon-globe i,
 .icon-code i {
@@ -398,6 +429,7 @@ a, button, input, textarea {
 /* =============================================================================
    SECTION BASE
 ============================================================================= */
+/* Base styling for generic sections */
 .section {
   padding: 4rem 2rem;
   text-align: center;
@@ -408,12 +440,12 @@ a, button, input, textarea {
 /* =============================================================================
    APPROOUCH SECTION
 ============================================================================= */
+/* Layout for the approuch (approach) section cards */
 .approuch-card {
   align-items: center;
   transform: translateY(-1rem);
   margin-bottom: 3rem;
   margin-top: 6rem;
-
 }
 .approuch-center {
   flex: 1 1 60%;
@@ -440,6 +472,7 @@ a, button, input, textarea {
   right: 30rem;
 }
 
+/* Home resume button styling */
 .home-resume {
   font-size: 1.7vw;
   font-weight: 700;
@@ -456,16 +489,17 @@ a, button, input, textarea {
   color: #000;
 }
 
+/* Reset list style for animated list items */
 li.animate {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-
 /* =============================================================================
    ABOUT ME SECTION
 ============================================================================= */
+/* Layout for the About Me section card */
 .aboutMe-card {
   display: flex;
   align-items: flex;
@@ -476,7 +510,6 @@ li.animate {
   max-width: 1440px;
   transform: translateY(-3rem);
 }
-
 .aboutMe-left {
   flex: 1 1 60%;
 }
@@ -504,9 +537,9 @@ li.animate {
 }
 
 /* =============================================================================
-   Skills SECTION
+   SKILLS SECTION
 ============================================================================= */
-/* Skills Section Styling */
+/* Styling for the skills section container */
 #skills {
   padding: 0px 0px;
   color: #fff;
@@ -515,34 +548,31 @@ li.animate {
   margin-top: 5rem;
   margin-bottom: 4rem;
 }
-
 #skills .skills-card {
   max-width: 2660px;
 }
 
+/* Wrapper for skills list with edge fade effect */
 .skills-strip-wrapper {
-  position: relative; /* Required for proper masking */
+  position: relative; /* Needed for proper masking */
   overflow: hidden;
   width: 100%;
   align-items: center;
   box-sizing: border-box;
-  /* Apply fade effect to left and right edges */
+  /* Apply fade effect at the edges */
   mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
 
-  }
-
-
-
+/* Horizontal skills list styling */
 .skills-list {
   display: flex;
   flex-wrap: nowrap;
   gap: 40px;
   padding: 10px 0;
-  animation: none; /* Animation is controlled by JavaScript */
+  animation: none; /* Animation controlled via JavaScript */
   list-style: none;
 }
-
 .skills-list li {
   display: flex;
   width: 250px;       /* Fixed width */
@@ -559,67 +589,14 @@ li.animate {
   font-weight: 1000;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 #skills .skills-list li:hover {
   transform: scale(1.05);
 }
 
-/*
-
-#tech {
-  padding: 60px 20px;
-  color: #fff;
-  text-align: center;
-  background-position-y: 4rem;
-  margin-top: -6rem;
-}
-
-#tech .tech-card {
-  max-width: 2660px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.tech-strip-wrapper {
-  overflow: hidden;
-  width: 150%;
-  margin-left: -5rem;
-  align-items: center;
-}
-
-.tech-list {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 40px;
-  padding: 10px 0;
-  list-style: none;
-  animation: scroll 20s linear infinite;
-}
-
-.tech-list li {
-  display: flex;
-  width: 200px;       
-  height: 150px;      
-  flex: 0 0 auto;
-  align-items: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-#tech .tech-list li:hover {
-  transform: scale(1.05);
-}
-
-/ Ensure images inside each slide are sized properly /
-.tech-list li img {
-  width: 80%;         / Adjust percentage to suit your logos  /
-  object-fit: contain;
-  border-radius: 20px;
-}
-*/
-
 /* =============================================================================
    BOTTOM BAR
 ============================================================================= */
+/* Bottom bar that sticks to the bottom of the page */
 .bottom-bar {
   position: sticky;
   bottom: 0;
@@ -647,6 +624,7 @@ li.animate {
 /* =============================================================================
    LATEST PORTFOLIO / PROJECTS SECTION
 ============================================================================= */
+/* Styling for the latest portfolio/projects section with custom properties */
 .latest-portfolio {
   --header-title-margin: 10rem;
   --header-title-left-padding: 0rem;
@@ -721,6 +699,7 @@ li.animate {
   text-transform: uppercase;
   color: #999;
 }
+/* Offset for the second portfolio item */
 .latest-portfolio .portfolio-grid .portfolio-item:nth-child(2) {
   margin-top: var(--project-offset);
 }
@@ -728,6 +707,7 @@ li.animate {
 /* =============================================================================
    BLINK RED ANIMATION
 ============================================================================= */
+/* Simple red blinking text effect */
 .blink-red {
   animation: blinkRedAnimation 0.5s;
 }
@@ -740,7 +720,7 @@ li.animate {
 /* =============================================================================
    MOBILE OPTIMIZATIONS
 ============================================================================= */
-/* Tablets (up to 768px) */
+/* Tablet-specific adjustments (up to 768px) */
 @media (max-width: 768px) {
   html, body {
     font-size: 0.9rem;
@@ -785,7 +765,6 @@ li.animate {
   }
   .main-content { transform: translateY(-180px); }
   .scalable-text { margin-bottom: -15rem; }
-
   .overlay-header {
     left: 2rem;
     right: 2rem;
@@ -814,7 +793,8 @@ li.animate {
     max-width: 100%;
   }
 }
-/* Small Mobiles (up to 480px) */
+
+/* Small mobile-specific adjustments (up to 480px) */
 @media (max-width: 480px) {
   .aboutMe-card,
   .contact-card,
@@ -826,20 +806,16 @@ li.animate {
     transform: translateY(0rem);
   }
 
-
-
+  /* Hide custom cursor on small devices */
   .custom-cursor{
     width: 0px;
-  height: 0px;
+    height: 0px;
   }
 
-  /* Hide the default cursor globally */
-body {
-  cursor:auto;
-}
-
-
-
+  /* Use default cursor for interactive elements */
+  body {
+    cursor:auto;
+  }
   body::before {
     content: "";
     position: fixed;
@@ -869,21 +845,18 @@ body {
     background-repeat: no-repeat, no-repeat, repeat;
     background-attachment: fixed;
   }
-/* Override default interactive element cursors */
-a, button, input, textarea {
-  cursor: auto !important;
-}
-
-.burger-container,
-.burger-menu,
-.burger-menu span {
-  cursor: auto !important;
-}
-
+  /* Reset interactive element cursors */
+  a, button, input, textarea {
+    cursor: auto !important;
+  }
+  .burger-container,
+  .burger-menu,
+  .burger-menu span {
+    cursor: auto !important;
+  }
   .section-divider::before {
     border-top: 1px solid #111;
   }
-
   .home-local,
   .home-contact { font-size: 1rem; }
   .digit {
@@ -896,15 +869,12 @@ a, button, input, textarea {
     margin: 0 auto 1rem;
   }
   .main-content { transform: translateY(-200px) !important; }
-
-.main-content{
-  margin-top: -10rem;
-}
-
-.scalable-text{
-  margin-bottom: -15rem;
-}
-
+  .main-content{
+    margin-top: -10rem;
+  }
+  .scalable-text{
+    margin-bottom: -15rem;
+  }
   .home-header { font-size: 0.5rem; }
   .overlay-menu {
     background-size: calc(100vw / 1) calc(100vw / 1);
@@ -928,31 +898,25 @@ a, button, input, textarea {
     color: #6f00ff;
     font-size: 5rem;
   }
-
   .bottom-bar{
     margin-bottom: 2rem;
   }
-
   .approuch-center{
     margin-top: -5rem;
     margin-bottom: -5rem;
   }
-
   .approuch-center h1 {
     font-size: 5.5vw;
     margin-bottom: 0rem;
   }
-
   .approuch-text{
     font-size: 0.8rem;
     margin-bottom: 2rem;
   }
-
   .home-resume {
     font-size: 0.8rem;
     font-weight: 700;
   }
-
   .aboutMe-card { 
     width: 100%;
     gap: 1rem;
@@ -975,12 +939,10 @@ a, button, input, textarea {
     line-height: 1.2 !important;
     text-align: left !important;
   }
-
   .skills-strip-wrapper{
     margin-top: -2rem;
     margin-bottom: -2rem;
   }
-
   .skills-list li {
     width: 150px;       /* Fixed width */
     height: 100px;
@@ -988,39 +950,32 @@ a, button, input, textarea {
     font-size: 1.2rem;
     font-weight: 700;
   }
-/*
+  /*
   .tech-list {
     gap: 20px;
   }
-
   .tech-strip-wrapper{
     margin-bottom: -3rem;
   }
-
   .tech-list li {
     width: 100px;       /* Fixed width /
     height: 70px;      /* Fixed height /
   }
-    */
-
+  */
   .latest-portfolio{
     padding-top: 2rem;
   }
-
-
   .latest-portfolio .portfolio-header { 
     font-size: 2.5rem;
     gap: 1rem !important;
     padding: 0;
   }
-
   .latest-portfolio .portfolio-header h2 { 
     font-size: 3rem;
   }
   .latest-portfolio .portfolio-header p {
     font-size: 1rem;
     margin-top: 10rem; 
-
   }
   .latest-portfolio .portfolio-item h3 { 
     font-size: 1.2rem; 

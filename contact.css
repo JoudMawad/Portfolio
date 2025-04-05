@@ -1,38 +1,52 @@
-/* CONTACT HERO - Fullscreen style */
+/* =============================================================================
+   CONTACT HERO - Fullscreen Style
+   -----------------------------------------------------------------------------
+   This section styles the fullscreen "Contact Hero" area which includes
+   the contact message and form on the left, as well as an image on the right.
+   It also applies initial animations to create a slide-up effect.
+============================================================================= */
 .contact-hero {
   display: flex;
-  flex-wrap: wrap;  /* stacks on mobile */
-  min-height: 100vh;
+  flex-wrap: wrap;  /* Stacks content on mobile devices */
+  min-height: 100vh; /* Full viewport height */
   align-items: center;
   justify-content: center;
   padding: 2rem;
   position: relative;
-  z-index: 1; /* above grid background */
-  color: #fff; /* ensure text is white */
-  left: 10%;
-  /* Starting state for animation */
+  z-index: 1; /* Ensures this section appears above the grid background */
+  color: #fff; /* Ensures all text is white for high contrast */
+  left: 10%;  /* Shifts the section slightly to the right */
+  
+  /* Initial state for the slide-up animation */
   opacity: 0;
   transform: translateY(1000px);
   animation: slideUp 1s forwards;
 }
 
+/* -----------------------------------------------------------------------------
+   Contact Hero Sub-Sections: Left (Text & Form) and Right (Image)
+----------------------------------------------------------------------------- */
 .contact-left,
 .contact-right {
   flex: 1 1 50%;
   padding: 1rem;
-  /* Apply sliding animation */
+  
+  /* Apply sliding animation to these blocks */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
 }
 
-/* Big heading & subtext */
+/* -----------------------------------------------------------------------------
+   Contact Text: Heading and Paragraph Styling within .contact-left
+----------------------------------------------------------------------------- */
 .contact-left h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  /* Animate heading */
+  
+  /* Animate the heading with a slide-up effect */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
@@ -42,54 +56,78 @@
   font-size: 1.2rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
-  /* Animate paragraph */
+  
+  /* Animate the paragraph text */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
 }
 
-/* Small white circle */
+/* -----------------------------------------------------------------------------
+   Decorative Element: Small White Circle
+   -----------------------------------------------------------------------------
+   A simple circular element used as a visual separator or accent.
+----------------------------------------------------------------------------- */
 .circle {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #fff;
   margin: 1rem 0;
-  /* Animate circle */
+  
+  /* Animate the circle */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 0.6s forwards;
 }
 
-/* Subheading before the form */
+/* -----------------------------------------------------------------------------
+   Form Subheading Styling
+   -----------------------------------------------------------------------------
+   Provides instructions to the user before the contact form.
+----------------------------------------------------------------------------- */
 .form-heading {
   font-size: 1.2rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
   letter-spacing: 0.05em;
-  /* Animate subheading */
+  
+  /* Animate the subheading */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
 }
 
-/* Form container */
+/* -----------------------------------------------------------------------------
+   Contact Form Container
+   -----------------------------------------------------------------------------
+   Styles the form layout as a vertical column and applies the slide-up animation.
+----------------------------------------------------------------------------- */
 .contact-left form {
   display: flex;
   flex-direction: column;
-  /* Animate form container */
+  
+  /* Animate the entire form container */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
 }
 
-/* Form Group spacing */
+/* -----------------------------------------------------------------------------
+   Form Group Spacing
+   -----------------------------------------------------------------------------
+   Provides spacing between individual form fields.
+----------------------------------------------------------------------------- */
 .form-group {
   margin-bottom: 1rem;
-  /* Animate each form group */
+  /* Each form group inherits the parent's animation if needed */
 }
 
-/* Form fields (inputs & textarea) */
+/* -----------------------------------------------------------------------------
+   Form Fields Styling (Inputs & Textarea)
+   -----------------------------------------------------------------------------
+   Sets a consistent style for text input and textarea fields.
+----------------------------------------------------------------------------- */
 .contact-left input,
 .contact-left textarea {
   width: 100%;
@@ -99,16 +137,19 @@
   border-radius: 10px;
   padding: 0.75rem;
   font-size: 1rem;
-
 }
 
-/* Placeholder color for inputs */
+/* Placeholder styling for inputs and textarea */
 .contact-left input::placeholder,
 .contact-left textarea::placeholder {
   color: #aaa;
 }
 
-/* Submit button */
+/* -----------------------------------------------------------------------------
+   Submit Button Styling
+   -----------------------------------------------------------------------------
+   Provides styles for the form's submit button along with hover effects.
+----------------------------------------------------------------------------- */
 .submit-btn {
   background-color: #fff;
   color: #000;
@@ -120,7 +161,8 @@
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 0.5rem;
-  /* Animate submit button */
+  
+  /* Initial animated state for the submit button */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
@@ -131,19 +173,29 @@
   color: #fff;
 }
 
-/* Right side image */
+/* -----------------------------------------------------------------------------
+   Contact Right: Image Styling
+   -----------------------------------------------------------------------------
+   Styles the image on the right side with a max-width and rounded corners.
+----------------------------------------------------------------------------- */
 .contact-right img {
   width: 100%;
-  max-width: 500px; /* limit size if preferred */
+  max-width: 500px; /* Limits image size if preferred */
   border-radius: 20px;
   object-fit: cover;
-  /* Animate image */
+  
+  /* Animate the image as it appears */
   opacity: 0;
   transform: translateY(20px);
   animation: slideUp 1s forwards;
 }
 
-/* CONTACT INFO SECTION */
+/* =============================================================================
+   CONTACT INFO SECTION
+   -----------------------------------------------------------------------------
+   This section provides additional contact details (social links, location,
+   phone, and email) in a flexible layout.
+============================================================================= */
 .contact-info {
   display: flex;
   flex-wrap: wrap;
@@ -152,22 +204,27 @@
   z-index: 2;
   align-self: center;
   padding: 2rem;
-  /* Use custom animation so it lands higher */
+  
+  /* Use a custom animation to have the info land higher on the screen */
   opacity: 0;
   animation: slideUpInfo 1s forwards;
   animation-delay: 1s;
 }
 
-/* Each column in Contact Info */
+/* -----------------------------------------------------------------------------
+   Individual Contact Info Column Styling
+   -----------------------------------------------------------------------------
+   Each column is designed to be flexible and center its content.
+----------------------------------------------------------------------------- */
 .contact-info .info-col {
-  flex: 1 1 200px; /* each column grows/shrinks with min width */
+  flex: 1 1 200px; /* Allows each column to grow/shrink with a min width */
   min-width: 200px;
-
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Animate info columns */
+  
+  /* Animate the info columns */
   opacity: 0;
   animation: slideUpInfo 1s forwards;
 }
@@ -179,10 +236,10 @@
   letter-spacing: 0.05em;
   color: #bcb8b8ea;
   z-index: 2;
-  /* Animate heading */
+  
+  /* Animate the info column headings */
   opacity: 0;
   animation: slideUpInfo 1s forwards;
-  
 }
 
 .contact-info .info-col p,
@@ -191,18 +248,23 @@
   font-weight: 600;
   color: #fff;
   z-index: 2;
-  /* Animate text items */
+  
+  /* Animate the text items in the info columns */
   opacity: 0;
   animation: slideUpInfo 1s forwards;
 }
 
-/* Social Links within Contact Info */
+/* -----------------------------------------------------------------------------
+   Contact Social Links Styling
+   -----------------------------------------------------------------------------
+   Styles the container and individual social links within the contact info.
+----------------------------------------------------------------------------- */
 .contact-social-links {
   display: flex;
   gap: 2rem;
   justify-content: flex-start;
-
-  /* Animate social links container */
+  
+  /* Animate the social links container */
   opacity: 0;
   animation: slideUpSocial 0.6s forwards;
 }
@@ -215,7 +277,8 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   transition: color 0.3s ease;
-  /* Animate individual links */
+  
+  /* Animate individual social links */
   opacity: 0;
   animation: slideUp 0.6s forwards;
 }
@@ -224,6 +287,7 @@
   color: #33c1ff;
 }
 
+/* Social Links List Styling */
 .contact-social-links ul {
   display: flex;
   align-items: flex-start;
@@ -231,14 +295,22 @@
   flex-direction: column;
 }
 
+/* Social Links List Item Styling */
 .contact-social-links li {
   margin-top: 1rem;
-  /* Animate list items */
+  
+  /* Animate each social link list item */
   opacity: 0;
   animation: slideUp 0.6s forwards;
 }
 
-/* Standard Sliding Animation Keyframes */
+/* =============================================================================
+   ANIMATION KEYFRAMES
+   -----------------------------------------------------------------------------
+   Defines the standard sliding animations for elements.
+============================================================================= */
+
+/* Standard Slide-Up Animation */
 @keyframes slideUp {
   to {
     opacity: 1;
@@ -246,34 +318,39 @@
   }
 }
 
+/* Slide-Up Animation for Social Links (Less vertical movement) */
 @keyframes slideUpSocial {
   to {
     opacity: 1;
-    transform: translateY(-1rem); /* No upward shift */
+    transform: translateY(-1rem); /* Minimal upward shift */
   }
 }
 
-/* Custom Animation for Contact Info landing higher */
+/* Custom Slide-Up Animation for Contact Info Landing Higher */
 @keyframes slideUpInfo {
   from {
     opacity: 0;
-    transform: translateY(20px); /* starting lower, then moving up */
+    transform: translateY(20px); /* Start lower */
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0);    /* End at natural position */
   }
 }
 
-/* Responsive Adjustments for Mobile and Small Devices */
+/* =============================================================================
+   RESPONSIVE ADJUSTMENTS FOR MOBILE & SMALL DEVICES
+   -----------------------------------------------------------------------------
+   Modify layout, sizing, and animations to improve mobile viewing experience.
+============================================================================= */
 @media (max-width: 768px) {
   .contact-hero {
     flex-direction: column;
     text-align: center;
-    padding-top: 4rem; /* extra top padding if you have a sticky header */
-    left: 0;             /* remove left offset */
-    transform: translateY(0); /* reset vertical transform */
-    padding: 1rem;       /* reduce padding if needed */
+    padding-top: 4rem; /* Extra top padding if a sticky header is present */
+    left: 0;         /* Remove left offset */
+    transform: translateY(0); /* Reset vertical transform */
+    padding: 1rem;   /* Reduce padding as needed */
     opacity: 0;
   }
 
@@ -283,11 +360,11 @@
     padding: 1rem;
   }
 
-  .contact-left{
+  /* For mobile, reapply animation to the left section with a larger vertical offset */
+  .contact-left {
     opacity: 0;
     transform: translateY(1000px);
     animation: slideUp 1s forwards;
-
   }
 
   .contact-left h1 {
@@ -307,11 +384,12 @@
     animation-delay: 0.3s;
   }
 
+  /* Adjust contact info layout for mobile devices */
   .contact-info {
     flex-direction: column;
     align-items: flex-start;
-    animation: none; /* Disable custom animation if needed */
-    transform: translateY(0);  /* reset transform for mobile */
+    animation: none;  /* Option to disable the custom animation */
+    transform: translateY(0); /* Reset transform for mobile */
     padding: 1rem;
     opacity: 1;
     margin-top: 8rem;
@@ -320,11 +398,12 @@
   .contact-info .info-col {
     flex: 1 1 100%;
     margin-bottom: 1.5rem;
-    align-items: flex-start; /* align text to the left */
-    animation: none; /* Disable custom animation if needed */
+    align-items: flex-start; /* Align text to the left */
+    animation: none; /* Optionally disable animation */
     opacity: 1;
   }
 
+  /* Adjust slideUp keyframes for mobile for subtle animation */
   @keyframes slideUp {
     to {
       opacity: 1;
@@ -332,7 +411,7 @@
     }
   }
   
-  /* Custom Animation for Contact Info landing higher */
+  /* Adjust slideUpInfo for mobile devices */
   @keyframes slideUpInfo {
     to {
       opacity: 1;

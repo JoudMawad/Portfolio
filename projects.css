@@ -1,197 +1,223 @@
-/* PROJECTS HERO - Fullscreen style */
+/* =============================================================================
+   PROJECTS HERO - Fullscreen Style
+   ---------------------------------------------------------------------------
+   This section defines the fullscreen hero area for the Projects page.
+   It includes layout settings, animations, and responsive adjustments.
+============================================================================= */
+
+/* Main container for the projects hero section */
 .projects-hero {
-    display: flex;
-    flex-wrap: wrap;  /* stacks on mobile */
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 1; /* above grid background */
-    color: #fff; /* ensure text is white */
+  display: flex;
+  flex-wrap: wrap;  /* Allows stacking on smaller screens/mobile */
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1; /* Ensures this section sits above the grid background */
+  color: #fff; /* White text for clear visibility on dark background */
 
-    /* Starting state for animation */
-    opacity: 0;
-    transform: translateY(1000px);
-    animation: slideUp 1s forwards;
+  /* Starting state for the slide-up animation */
+  opacity: 0;
+  transform: translateY(1000px);
+  animation: slideUp 1s forwards;
+}
 
-  }
-  
-  .projects-left,
-  .projects-right {
-    flex: 1 1 50%;
-    padding: 1rem;
-    /* Apply sliding animation */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s forwards;
-    margin-top: 10rem;
-  }
-  
-  /* Big heading & subtext */
-  .projects-left h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    /* Animate heading */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s forwards;
-  }
-  
-  .projects-left p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    /* Animate paragraph */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s forwards;
-  }
-  
+/* Layout for the left and right content blocks within the hero section */
+.projects-left,
+.projects-right {
+  flex: 1 1 50%;
+  padding: 1rem;
+  /* Initial state for sliding animation on these blocks */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+  margin-top: 10rem;
+}
 
-  
-  /* Call-to-action Button */
-  .cta-btn {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-top: 0.5rem;
-    /* Animate button */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s forwards;
-  }
-  
-  .cta-btn:hover {
-    background-color: #000;
-    color: #fff;
-  }
-  
+/* Styling for the main heading inside the left content block */
+.projects-left h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  /* Apply slide-up animation to the heading */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
 
-  
-  /* PROJECTS GALLERY SECTION */
-  .projects-gallery {
-    padding: 2rem;
+/* Styling for the paragraph text in the projects section */
+.projects-left p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  /* Animate the paragraph to slide up into view */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
 
-    color: #fff;
-    /* Custom animation for gallery landing */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUpInfo 1s forwards;
-    animation-delay: 1s;
-    margin-top: 5rem;
-  }
-  
-  .projects-gallery h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .gallery-item {
+/* ---------------------------------------------------------------------------
+ Call-to-action Button Styling
+ ---------------------------------------------------------------------------
+ This button invites users to interact further (e.g., view the gallery).
+--------------------------------------------------------------------------- */
+.cta-btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 0.5rem;
+  /* Initial animation state for the button */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1s forwards;
+}
 
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    transform: translateY(20px);
-  }
-  
-  .gallery-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-  }
-  
-  /* Standard Sliding Animation Keyframes */
-  @keyframes slideUp {
-    to {
+/* Hover effect for the call-to-action button */
+.cta-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* =============================================================================
+ PROJECTS GALLERY SECTION
+ ---------------------------------------------------------------------------
+ This section displays the project thumbnails in a responsive grid layout.
+============================================================================= */
+.projects-gallery {
+  padding: 2rem;
+  color: #fff;
+  /* Custom animation for a smooth landing effect */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpInfo 1s forwards;
+  animation-delay: 1s;
+  margin-top: 5rem;
+}
+
+/* Gallery heading styling */
+.projects-gallery h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Grid layout for gallery items */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual gallery item styling */
+.gallery-item {
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  transform: translateY(20px); /* Initial transform state before any animation */
+}
+
+/* Image styling within gallery items */
+.gallery-item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* =============================================================================
+ ANIMATION KEYFRAMES
+ ---------------------------------------------------------------------------
+ Defines the sliding animations for various elements.
+============================================================================= */
+
+/* Standard slide-up animation for hero elements */
+@keyframes slideUp {
+  to {
       opacity: 1;
       transform: translateY(-50px);
-    }
   }
-  
-  /* Custom Animation for Gallery info */
-  @keyframes slideUpInfo {
-    to {
+}
+
+/* Custom slide-up animation for gallery information */
+@keyframes slideUpInfo {
+  to {
       opacity: 1;
       transform: translateY(-10rem);
-    }
   }
-  
-  /* Responsive Adjustments for Mobile and Small Devices */
-  @media (max-width: 768px) {
-    .projects-hero {
+}
+
+/* =============================================================================
+ RESPONSIVE ADJUSTMENTS FOR MOBILE & SMALL DEVICES
+ ---------------------------------------------------------------------------
+ Modifies layout and animations for better performance on small screens.
+============================================================================= */
+@media (max-width: 768px) {
+  .projects-hero {
       flex-direction: column;
       text-align: center;
-      padding-top: 4rem; /* extra top padding if you have a sticky header */
-      left: 0;             /* remove left offset */
-      transform: translateY(0); /* reset vertical transform */
-      padding: 1rem;       /* reduce padding if needed */
+      padding-top: 4rem; /* Extra padding for sticky headers */
+      left: 0;             /* Remove any left offset */
+      transform: translateY(0); /* Reset vertical transform */
+      padding: 1rem;       /* Reduce overall padding if necessary */
       opacity: 0;
-    }
-  
-    .projects-left,
-    .projects-right {
+  }
+
+  .projects-left,
+  .projects-right {
       flex: 1 1 100%;
       padding: 1rem;
-    }
-  
-    .projects-left h1 {
+  }
+
+  .projects-left h1 {
       font-size: 2.5rem;
-    }
-  
-    .projects-left p {
+  }
+
+  .projects-left p {
       font-size: 1rem;
-    }
-  
-    .projects-right img {
+  }
+
+  .projects-right img {
       max-width: 80%;
       margin: 0 auto;
+      /* Set initial state and animate image on mobile */
       opacity: 0;
       transform: translateY(1000px);
       animation: slideUp 1s forwards;
       animation-delay: 0.3s;
-    }
-  
-    .projects-gallery {
+  }
+
+  .projects-gallery {
       flex-direction: column;
       align-items: center;
-      animation: none; /* Disable custom animation if needed */
-      transform: translateY(0);  /* reset transform for mobile */
+      animation: none; /* Option to disable custom animation on mobile */
+      transform: translateY(0);  /* Reset transform for mobile view */
       padding: 1rem;
       opacity: 1;
-    }
-  
-    .gallery-item {
+  }
+
+  .gallery-item {
       animation: none;
       opacity: 1;
-    }
-  
-    @keyframes slideUp {
+  }
+
+  /* Adjusted keyframes for smaller screens */
+  @keyframes slideUp {
       to {
-        opacity: 1;
-        transform: translateY(-5px);
+          opacity: 1;
+          transform: translateY(-5px);
       }
-    }
-    
-    @keyframes slideUpInfo {
-      to {
-        opacity: 1;
-        transform: translateY(-4rem);
-      }
-    }
   }
   
+  @keyframes slideUpInfo {
+      to {
+          opacity: 1;
+          transform: translateY(-4rem);
+      }
+  }
+}

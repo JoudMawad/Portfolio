@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    =============================================================================
+    HEAD SECTION – METADATA, TITLE, & RESOURCE LINKS
+    -----------------------------------------------------------------------------
+    Sets character encoding, page description, keywords, viewport settings, and
+    the page title. It also includes links to the manifest (for PWA), Google Fonts,
+    the main stylesheet, Font Awesome icons, and AOS (Animate On Scroll) CSS.
+    =============================================================================
+  -->
   <meta charset="UTF-8">
   <meta name="description" content="Calorie Tracker App Details - Explore the design and functionality behind the Calorie Tracker App built by Jude Mawad.">
   <meta name="keywords" content="Calorie Tracker App, App Details, Portfolio, Web Development, Mobile Development, Swift, SwiftUI">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calorie Tracker App Details</title>
   
-  <!-- Manifest for PWA -->
+  <!-- Manifest for Progressive Web App functionality -->
   <link rel="manifest" href="manifest.json">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Main CSS -->
+  <!-- Main CSS for global styles -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icon fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-  <!-- AOS CSS -->
+  <!-- AOS CSS for scroll animations -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
-  <!-- Simple Navbar -->
+  <!--
+    =============================================================================
+    SIMPLE NAVBAR
+    -----------------------------------------------------------------------------
+    A basic navigation bar featuring:
+      • A logo (JM).
+      • Navigation links for Home and Projects.
+      • A dark mode toggle button.
+    AOS data attributes trigger a fade-down animation on scroll.
+    =============================================================================
+  -->
   <nav class="navbar" role="navigation" data-aos="fade-down">
     <div class="logo">JM</div>
     <ul class="nav-menu">
@@ -37,7 +56,19 @@
     </div>
   </nav>
   
-  <!-- Project Details Section -->
+  <!--
+    =============================================================================
+    PROJECT DETAILS SECTION
+    -----------------------------------------------------------------------------
+    Main content area for the Calorie Tracker App details. This section includes:
+      • A heading and project title.
+      • An image link displaying the app logo (switchable based on theme).
+      • A descriptive paragraph explaining the app.
+      • A set of screenshots with a zoom-in animation.
+      • A "Back to Projects" button.
+    AOS is used to animate content into view.
+    =============================================================================
+  -->
   <section class="project-details section" role="main" data-aos="fade-up">
     <h1>Calorie Tracker App</h1>
     <a href="calorie-details.html" target="_blank">
@@ -51,6 +82,7 @@
       This app is something I built to make tracking calories feel effortless and actually enjoyable. It’s designed with simplicity in mind — clean UI, smooth navigation, and just the features you need, nothing extra. On this page, I’ll walk you through how the app works, the decisions I made while building it, and some behind-the-scenes insights. Scroll down to check out screenshots and get a feel for the user experience!
     </p>
       
+    <!-- App Screenshots with a zoom-in animation -->
     <div class="app-screenshots" data-aos="zoom-in">
       <img src="images/IMG_2464.jpg" alt="Screenshot 1" loading="lazy">
       <img src="images/IMG_2481.jpg" alt="Screenshot 2" loading="lazy">
@@ -58,11 +90,29 @@
     <a href="index.html#projects" class="btn-back">Back to Projects</a>
   </section>
   
-  <!-- Footer -->
+  <!--
+    =============================================================================
+    FOOTER
+    -----------------------------------------------------------------------------
+    A simple footer displaying copyright information.
+    =============================================================================
+  -->
   <footer data-aos="fade-up">
     <p>© 2025 Jude Mawad</p>
   </footer>
   
+  <!--
+    =============================================================================
+    SCRIPT INCLUSIONS & INITIALIZATION
+    -----------------------------------------------------------------------------
+    Loads external JavaScript libraries and includes inline scripts for:
+      • AOS initialization (scroll animations).
+      • GSAP for advanced animations (parallax effect on screenshots).
+      • Barba.js for smooth page transitions.
+      • Dark mode toggle with persistence via localStorage.
+      • Service Worker registration for PWA functionality.
+    =============================================================================
+  -->
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- GSAP for advanced animations -->
@@ -72,14 +122,14 @@
   <script src="https://unpkg.com/@barba/core"></script>
   
   <script>
-    // Initialize AOS
+    // Initialize AOS with custom duration, easing, and one-time animation
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
       once: true
     });
 
-    // GSAP parallax effect on screenshots
+    // GSAP parallax effect: moves screenshots upward as the user scrolls
     gsap.to('.app-screenshots img', {
       scrollTrigger: {
         trigger: '.app-screenshots',
@@ -90,7 +140,7 @@
       ease: 'none'
     });
 
-    // Barba.js page transitions
+    // Initialize Barba.js for smooth fade transitions between pages
     barba.init({
       transitions: [{
         name: 'fade',
@@ -103,7 +153,7 @@
       }]
     });
 
-    // Dark mode toggle with localStorage persistence
+    // Dark mode toggle: switches themes and updates project logos accordingly
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
       const isDarkMode = document.body.classList.toggle('dark-mode');
@@ -112,6 +162,7 @@
       themeToggle.querySelector('i').classList.toggle('fa-moon');
       updateProjectLogos();
     });
+    // On DOM load, apply saved theme from localStorage
     document.addEventListener('DOMContentLoaded', () => {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
@@ -121,7 +172,7 @@
       }
     });
 
-    // Update project logos based on theme mode
+    // Function to update project logos based on the current theme mode
     function updateProjectLogos() {
       const isDark = document.body.classList.contains('dark-mode');
       document.querySelectorAll('.project-logo').forEach(img => {
@@ -132,7 +183,7 @@
       });
     }
 
-    // Service Worker registration for PWA
+    // Register Service Worker for PWA functionality
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
         .then(registration => {

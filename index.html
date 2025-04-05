@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    =============================================================================
+    HEAD SECTION – METADATA, TITLE, & RESOURCE LINKS
+    -----------------------------------------------------------------------------
+    This section sets the character encoding, meta descriptions/keywords,
+    and viewport settings. It also loads external resources like Google Fonts,
+    Font Awesome, and the CSS stylesheets.
+    =============================================================================
+  -->
   <meta charset="UTF-8" />
-  <meta name="description" content="Minimal Black Portfolio" />
-  <meta name="keywords" content="Minimal, Black, Portfolio" />
+  <meta name="description" content="Portfolio" />
+  <meta name="keywords" content="Portfolio" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JUDE Portfolio</title>
   
@@ -12,15 +21,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-  <!-- Main CSS -->
+  <!-- Main CSS and Contact CSS -->
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-  <!-- Fixed Home Header: local (left), burger menu (center) & contact (right) -->
+  <!--
+    =============================================================================
+    FIXED HOME HEADER
+    -----------------------------------------------------------------------------
+    Contains:
+      • Left: Local time display with animated digits.
+      • Center: Burger menu for toggling the overlay menu.
+      • Right: A "CONTACT ME" button linking to the Contact page.
+    =============================================================================
+  -->
   <header class="home-header">
     <div class="home-local animate delay-111">
       <span class="gray-text"> LOCAL／</span>
@@ -47,10 +65,15 @@
     <a href="contact.html" class="home-contact animate delay-11">CONTACT ME</a>
   </header>
 
-  <!-- Full-Screen Overlay Menu -->
+  <!--
+    =============================================================================
+    FULL-SCREEN OVERLAY MENU
+    -----------------------------------------------------------------------------
+    This overlay menu appears when the burger menu is toggled. It includes
+    navigation links and social links for quick access.
+    =============================================================================
+  -->
   <div class="overlay-menu" id="overlayMenu">
-    <!-- Overlay Header inside Menu -->
-
     <!-- Centered Navigation Links -->
     <ul class="overlay-nav">
       <li class="animate delay-11"><a href="index.html">Home</a></li>
@@ -58,14 +81,29 @@
       <li class="animate delay-33"><a href="projects.html">Projects</a></li>
       <li class="animate delay-44"><a href="contact.html">Contact</a></li>
     </ul>
+    <!-- Social Links -->
     <div class="social-links animate delay-66">
       <a href="https://www.instagram.com/jude_mawad?igsh=c3oxYjN0MHFjZTJn&utm_source=qr" target="_blank">INSTAGRAM ↗</a>
       <a href="https://github.com/JoudMawad" target="_blank">GITHUB ↗</a>
     </div>
   </div>
 
+  <!--
+    =============================================================================
+    MAIN CONTENT AREA
+    -----------------------------------------------------------------------------
+    This container holds the primary content of the page (below the header and
+    overlay), including the hero section, divider sections, and multiple content
+    sections like "APPROUCH", "ABOUT", "SKILLS", "PROJECTS", and "CONTACTS".
+    =============================================================================
+  -->
   <div class="main-content">
-    <!-- Main Page Content (hidden beneath overlay) -->
+    <!--
+      MAIN HERO SECTION
+      -----------------------------------------------------------------------------
+      Displays a large, scalable "JUDE" heading. Additional hero text can be added
+      as needed.
+    -->
     <main id="hero" class="center-content hero">
       <h1 class="scalable-text animate delay-1" 
           data-min-width="320" 
@@ -76,7 +114,11 @@
       </h1>
       <!-- Additional hero text can go here -->
     </main>
+
+    <!-- Section Divider with Animation -->
     <hr class="section-divider animate delay-333">
+    
+    <!-- Bottom Bar with Key Information -->
     <div class="bottom-bar animate delay-3">
       <div class="bottom-item">
         <div class="icon icon-location"><i class="fas fa-map-marker-alt"></i></div>
@@ -92,6 +134,7 @@
       </div>
     </div>
 
+    <!-- Divider Section with Text -->
     <div class="section-divider animate delay-4">
       <div class="divider-text">
         <span class="divider-word left">S1</span>
@@ -100,30 +143,34 @@
       </div>
     </div>
 
-    <!-- APPROUCH Section -->
-   <!-- APPROUCH Section -->
-<section id="approuch" class="section">
-  <div class="approuch-card">
-    <div class="approuch-center">
-      <h1 class="approuch-center animate delay-1" 
-          data-min-width="320" 
-          data-max-width="1440" 
-          data-min-size="1.5" 
-          data-max-size="0">
-        I'M Jude Mawad, <br/>A Computer science student
-      </h1>
-      <p class="approuch-text animate delay-77">
-        I love turning ideas into beautifully functional apps<br/> and learning new technologies<br/> along the way.
-      </p>
-      <!-- Download Resume Button -->
-      <li class="animate delay-88">
-        <a href="Resume.pdf" class="home-resume" download>Download Resume</a>
-      </li>
+    <!--
+      APPROUCH SECTION
+      -----------------------------------------------------------------------------
+      Introduces who you are with a headline, subtext, and a button to download
+      your resume.
+    -->
+    <section id="approuch" class="section">
+      <div class="approuch-card">
+        <div class="approuch-center">
+          <h1 class="approuch-center animate delay-1" 
+              data-min-width="320" 
+              data-max-width="1440" 
+              data-min-size="1.5" 
+              data-max-size="0">
+            I'M Jude Mawad, <br/>A Computer science student
+          </h1>
+          <p class="approuch-text animate delay-77">
+            I love turning ideas into beautifully functional apps<br/> and learning new technologies<br/> along the way.
+          </p>
+          <!-- Download Resume Button -->
+          <li class="animate delay-88">
+            <a href="Resume.pdf" class="home-resume" download>Download Resume</a>
+          </li>
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-
+    <!-- Divider for "WHO AM I" -->
     <div class="section-divider animate delay-66">
       <div class="divider-text">
         <span class="divider-word left">S2</span>
@@ -132,7 +179,12 @@
       </div>
     </div>
 
-    <!-- About Section -->
+    <!--
+      ABOUT SECTION
+      -----------------------------------------------------------------------------
+      Provides a brief introduction about your background and skills along with
+      an image.
+    -->
     <section id="about" class="section animate delay-5">
       <div class="aboutMe-card">
         <div class="aboutMe-left">
@@ -145,6 +197,7 @@
       </div>
     </section>
 
+    <!-- Divider for "skills" -->
     <div class="section-divider">
       <div class="divider-text">
         <span class="divider-word left">S3</span>
@@ -153,10 +206,14 @@
       </div>
     </div>
 
-    <!-- Skills Section -->
+    <!--
+      SKILLS SECTION
+      -----------------------------------------------------------------------------
+      Showcases a list of your skills in a scrolling wrapper.
+    -->
     <section id="skills" class="section animate delay-5">
       <div class="skills-card">
-        <!-- Scrolling Wrapper -->
+        <!-- Scrolling Wrapper for Skills -->
         <div class="skills-strip-wrapper">
           <ul class="skills-list">
             <li>Swift & SwiftUI</li>
@@ -172,13 +229,17 @@
       </div>
     </section>
 
- <!-- 
+    <!--
+      TECH SECTION (Commented Out)
+      -----------------------------------------------------------------------------
+      This section is commented out but can be enabled to display additional tech
+      related logos.
+    -->
+    <!-- 
     <section id="tech" class="section animate delay-5">
       <div class="tech-card">
-       
         <div class="tech-strip-wrapper">
           <ul class="tech-list">
-           
             <li><img src="images/1200x630bb.png" alt="Xcode"></li>
             <li><img src="images/Octicons-mark-github.svg.png" alt="GitHub"></li>
             <li><img src="images/swift-og.png" alt="SWIFT"></li>
@@ -190,8 +251,9 @@
         </div>
       </div>
     </section>
-  -->
+    -->
 
+    <!-- Divider for "PROJECTS" -->
     <div class="section-divider">
       <div class="divider-text">
         <span class="divider-word left">S4</span>
@@ -200,9 +262,13 @@
       </div>
     </div>
 
-    <!-- Projects Section -->
+    <!--
+      PROJECTS SECTION
+      -----------------------------------------------------------------------------
+      Displays your portfolio items with images, titles, and short descriptions.
+    -->
     <section id="projects" class="latest-portfolio section animate delay-3">
-      <!-- Header: Title & Description -->
+      <!-- Header: Title & Description for Projects -->
       <div class="portfolio-header">
         <h2>MY<br/>PROJECTS</h2>
         <p>
@@ -210,7 +276,7 @@
           With nimble fingers flying across the device.
         </p>
       </div>
-      <!-- Portfolio Items -->
+      <!-- Portfolio Items Grid -->
       <div class="portfolio-grid">
         <div class="portfolio-item">
           <img src="images/svgviewer-png-output.png" alt="Seventy Seven Taxi" />
@@ -225,6 +291,7 @@
       </div>
     </section>
 
+    <!-- Divider for "CONTACTS" -->
     <div class="section-divider">
       <div class="divider-text">
         <span class="divider-word left">S5</span>
@@ -233,9 +300,14 @@
       </div>
     </div>
 
-    <!-- Footer: Contact Info Section -->
+    <!--
+      FOOTER – CONTACT INFO SECTION
+      -----------------------------------------------------------------------------
+      Provides additional ways to contact you, including social media, location,
+      phone number, and email address.
+    -->
     <section class="contact-info">
-      <!-- Column 1: Follow Me -->
+      <!-- Column 1: Social Media -->
       <div class="info-col">
         <h3>Follow Me</h3>
         <div class="contact-social-links">
@@ -265,7 +337,7 @@
         <p>GER +49 1772257937</p>
       </div>
       
-      <!-- Column 4: Email Me -->
+      <!-- Column 4: Email -->
       <div class="info-col">
         <h3>Email Me</h3>
         <p>JudeMawad@Gmail.com</p>
@@ -274,6 +346,7 @@
 
   </div> <!-- End of main-content -->
 
+  <!-- External JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
