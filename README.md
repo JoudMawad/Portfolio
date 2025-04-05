@@ -1,7 +1,7 @@
 # Portfolio
 
- Portfolio is a responsive web portfolio that displays projects, skills, and background information. The site includes smooth animations and PWA functionality.
-
+ Portfolio is a responsive web portfolio that displays projects, skills, and background information.
+ 
 ## Features
 
 - **Responsive Design:** Works well on desktop and mobile devices.
