@@ -18,9 +18,9 @@ body {
   margin: 0;
   font-family: 'Space Grotesk', 'Sora', sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 15% 20%, rgba(255, 106, 61, 0.12), transparent 25%),
-              radial-gradient(circle at 80% 0%, rgba(255, 179, 71, 0.1), transparent 28%),
-              linear-gradient(145deg, #06070d 0%, #0b0d18 100%);
+  background: radial-gradient(circle at 20% 20%, rgba(174, 255, 64, 0.12), transparent 28%),
+              radial-gradient(circle at 80% 0%, rgba(207, 255, 122, 0.1), transparent 28%),
+              linear-gradient(160deg, #0b0f12 0%, #0f1418 60%, #0c1215 100%);
   min-height: 100vh;
   padding: 54px 18px 72px;
   position: relative;
@@ -32,7 +32,7 @@ a {
 }
 
 a:hover {
-  color: #ffd2b6;
+  color: #dfff9e;
 }
 
 .bg-glow {
@@ -46,13 +46,13 @@ a:hover {
 }
 
 .glow-one {
-  background: radial-gradient(circle at 30% 30%, rgba(255, 106, 61, 0.4), transparent 55%);
+  background: radial-gradient(circle at 30% 30%, rgba(174, 255, 64, 0.35), transparent 55%);
   top: -40px;
   left: -120px;
 }
 
 .glow-two {
-  background: radial-gradient(circle at 70% 70%, rgba(255, 179, 71, 0.32), transparent 55%);
+  background: radial-gradient(circle at 70% 70%, rgba(207, 255, 122, 0.28), transparent 55%);
   bottom: -60px;
   right: -120px;
 }
@@ -135,13 +135,13 @@ a:hover {
   inset: 0;
   border-radius: 18px;
   pointer-events: none;
-  background: linear-gradient(120deg, rgba(255, 106, 61, 0.06), transparent 45%, rgba(255, 179, 71, 0.05));
+  background: linear-gradient(120deg, rgba(174, 255, 64, 0.08), transparent 45%, rgba(207, 255, 122, 0.06));
   mix-blend-mode: screen;
 }
 
 .policy-card.highlight {
-  border-color: rgba(255, 106, 61, 0.55);
-  box-shadow: 0 22px 54px rgba(255, 106, 61, 0.18);
+  border-color: rgba(174, 255, 64, 0.55);
+  box-shadow: 0 22px 54px rgba(174, 255, 64, 0.18);
 }
 
 .section-title {
