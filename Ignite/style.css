@@ -25,6 +25,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
 }
@@ -163,6 +164,7 @@ a:hover {
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin: 10px 0;
   letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 .hero .lede {
@@ -274,7 +276,7 @@ a:hover {
 }
 
 .section {
-  padding: 26px 0;
+  padding: clamp(18px, 4vw, 28px) 0;
   position: relative;
   z-index: 1;
 }
@@ -532,6 +534,28 @@ a:hover {
   transform: translate(-50%, -50%) scale(1.6);
 }
 
+.mobile-cta {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 520px;
+  background: linear-gradient(140deg, rgba(174, 255, 64, 0.16), rgba(207, 255, 122, 0.08));
+  border: 1px solid rgba(174, 255, 64, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+  padding: 10px;
+  gap: 10px;
+  z-index: 12;
+  backdrop-filter: blur(10px);
+}
+
+.mobile-cta .btn {
+  flex: 1;
+}
+
 @media (pointer: fine) {
   body {
     cursor: none;
@@ -568,6 +592,51 @@ a:hover {
 }
 
 @media (max-width: 640px) {
+  body {
+    padding-bottom: 120px;
+  }
+
+  .topbar .btn {
+    display: none;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-visual {
+    order: 1;
+  }
+
+  .hero-copy {
+    order: 2;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .lede {
+    font-size: 1rem;
+  }
+
+  .section-head h2 {
+    font-size: 1.6rem;
+  }
+
+  .card,
+  .screen-card,
+  .contact-card,
+  .final-card {
+    padding: 14px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero {
     gap: 16px;
   }
@@ -607,6 +676,10 @@ a:hover {
 
   .screen-placeholder {
     height: 84%;
+  }
+
+  .mobile-cta {
+    display: flex;
   }
 }
 
