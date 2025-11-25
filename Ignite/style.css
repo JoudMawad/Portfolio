@@ -101,8 +101,6 @@ a:hover {
   background: rgba(11, 15, 18, 0.7);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
   padding-left: max(14px, calc((100vw - 1200px) / 2));
   padding-right: max(14px, calc((100vw - 1200px) / 2));
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
@@ -176,7 +174,7 @@ a:hover {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: radial-gradient(circle at 20% 20%, rgba(174, 255, 64, 0.08), transparent 32%),
               radial-gradient(circle at 80% 0%, rgba(207, 255, 122, 0.06), transparent 32%),
               #05070b;
@@ -189,6 +187,8 @@ a:hover {
   visibility: hidden;
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 11;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .overlay-menu.active {
@@ -286,8 +286,6 @@ a:hover {
   position: relative;
   z-index: 1;
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
   padding-left: max(14px, calc((100vw - 1200px) / 2));
   padding-right: max(14px, calc((100vw - 1200px) / 2));
 }
