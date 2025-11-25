@@ -57,4 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Hide topbar on scroll down (mobile)
+  let lastScrollY = window.scrollY;
+  const topbar = document.querySelector('.topbar');
+  const isMobile = () => window.matchMedia('(max-width: 800px)').matches;
+
+  window.addEventListener('scroll', () => {
+    if (!topbar || !isMobile()) return;
+    const current = window.scrollY;
+    if (current > lastScrollY + 5) {
+      topbar.classList.add('hide-bar');
+    } else {
+      topbar.classList.remove('hide-bar');
+    }
+    lastScrollY = current;
+  });
 });

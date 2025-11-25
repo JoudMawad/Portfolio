@@ -104,6 +104,7 @@ a:hover {
   padding-left: max(14px, calc((100% - 1200px) / 2));
   padding-right: max(14px, calc((100% - 1200px) / 2));
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease;
 }
 
 .brand {
@@ -826,11 +827,20 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .topbar.hide-bar {
+    transform: translateY(-110%);
+  }
 }
 
 @media (max-width: 640px) {
   body {
     padding-bottom: 120px;
+  }
+
+  /* Hide lower mobile CTA to avoid overlap issues */
+  .mobile-cta {
+    display: none !important;
   }
 
   .topbar .btn {
