@@ -1,20 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cursor = document.querySelector('.cursor-dot');
-  const hasPointer = window.matchMedia('(pointer: fine)').matches;
+  const cursor = document.createElement('div');
+  cursor.className = 'custom-cursor';
+  document.body.appendChild(cursor);
 
-  if (cursor && hasPointer) {
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.opacity = '1';
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    });
-
-    document.addEventListener('mouseleave', () => {
-      cursor.style.opacity = '0';
-    });
-
-    document.addEventListener('mousedown', () => cursor.classList.add('active'));
-    document.addEventListener('mouseup', () => cursor.classList.remove('active'));
-  }
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
 
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
