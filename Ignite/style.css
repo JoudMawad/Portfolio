@@ -16,6 +16,11 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+  height: -webkit-fill-available;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -26,8 +31,11 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   min-height: 100dvh;
+  min-height: -webkit-fill-available;
   position: relative;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .no-scroll {
@@ -761,7 +769,7 @@ a:hover {
   display: none;
   position: fixed;
   left: 50%;
-  bottom: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
   width: calc(100% - 32px);
   max-width: 520px;
