@@ -30,6 +30,10 @@ body {
   overflow-x: hidden;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 a {
   color: var(--text);
   text-decoration: none;
@@ -122,6 +126,114 @@ a:hover {
 }
 
 .nav-links a:hover {
+  color: var(--accent);
+}
+
+.burger-container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.burger-menu {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burger-menu span {
+  display: block;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-menu.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.burger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger-menu.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(174, 255, 64, 0.08), transparent 32%),
+              radial-gradient(circle at 80% 0%, rgba(207, 255, 122, 0.06), transparent 32%),
+              #05070b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 11;
+}
+
+.overlay-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.overlay-nav li {
+  margin: 1rem 0;
+}
+
+.overlay-nav li a {
+  color: #e7ecf2;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.overlay-nav li a:hover {
+  color: var(--accent);
+}
+
+.overlay-nav-container {
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: #e7ecf2;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
   color: var(--accent);
 }
 
@@ -684,6 +796,14 @@ a:hover {
     display: none;
   }
 
+  .brand {
+    display: none;
+  }
+
+  .burger-container {
+    display: flex;
+  }
+
   .topbar {
     padding: 14px 0;
   }
@@ -718,11 +838,11 @@ a:hover {
   }
 
   .hero-visual {
-    order: 1;
+    order: 2;
   }
 
   .hero-copy {
-    order: 2;
+    order: 1;
   }
 
   .hero-copy h1 {
