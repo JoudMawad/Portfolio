@@ -18,7 +18,7 @@
     <div class="badge">Ignite</div>
     <h1>Privacy & Data Policy</h1>
     <p class="lede">
-      Your health data stays on your device. No analytics. No tracking. No ads.
+      Your health data stays on your device. Only your food entries sync to improve the community library.
     </p>
     <div class="contact-chip">
       <span>Contact</span>
@@ -29,12 +29,12 @@
   <main class="policy">
     <section class="policy-card" id="introduction">
       <div class="section-title"><span>01</span> Introduction</div>
-      <p>Ignite is a personal health and nutrition tracker. Your privacy is a priority. The App does not send, sell, or share your data with any external servers or companies. All personal data is stored locally on your device.</p>
+      <p>Ignite is a personal health and nutrition tracker. Your privacy is a priority. Health data, profile information, and all other app data stay on your device. Only the food items you enter are synced to our Supabase database to improve the shared/community food library. We do not run ads, use analytics SDKs, or sell or share personal data.</p>
     </section>
 
     <section class="policy-card" id="data-we-collect">
       <div class="section-title"><span>02</span> Data We Collect</div>
-      <p>The App stores only the information required to provide its core features. All data is kept locally on device using Apple HealthKit, Core Data, and User Defaults.</p>
+      <p>The App stores only the information required to provide its core features. Health data, profile information, and app settings stay on device using Apple HealthKit, Core Data, and User Defaults. The only data sent to our server is the food entries you add to the shared/community food library.</p>
       <div class="subsection">
         <h3>2.1 HealthKit Data (Read Only)</h3>
         <p>If permission is granted, the App reads:</p>
@@ -61,6 +61,15 @@
         </ul>
         <p class="note">These are used only to calculate daily totals, progress, trends, and recommendations.</p>
       </div>
+      <div class="subsection">
+        <h3>2.3 Synced Food Entries (Supabase)</h3>
+        <p>When you save a food to the shared/community library, we sync that entry to our Supabase database so it can be reused.</p>
+        <ul>
+          <li>Synced data: the food entry you created (e.g., food name, brand, nutrition facts, optional barcode or portion info).</li>
+          <li>Not synced: Health data, profile information, account identifiers, or device identifiers.</li>
+          <li>Purpose: improve the shared food library and help you find foods faster.</li>
+        </ul>
+      </div>
     </section>
 
     <section class="policy-card" id="usage">
@@ -72,6 +81,7 @@
         <li>Track weight trends and hydration</li>
         <li>Generate progress charts</li>
         <li>Customize nutrition goals</li>
+        <li>Power the shared/community food library using the food entries you submit</li>
       </ul>
       <p class="note">We do not use your data for marketing, analytics, or advertising.</p>
     </section>
@@ -79,9 +89,11 @@
     <section class="policy-card" id="storage-security">
       <div class="section-title"><span>04</span> Data Storage and Security</div>
       <ul>
-        <li>All data remains on your device.</li>
-        <li>The App does not store or process personal information on any server.</li>
-        <li>If you delete the App, all stored data is removed from your device.</li>
+        <li>Health data, profile info, and app settings remain on your device.</li>
+        <li>Food entries you choose to sync are sent over HTTPS (TLS) to Supabase and stored in an encrypted database at rest.</li>
+        <li>Only limited data goes over the network: your food entries (when you add them to the shared library) and optional food lookups (barcode or name) when you request them.</li>
+        <li>Synced entries remain until you edit or delete them. Deletions remove the entry locally and delete the synced copy; removals also propagate through backups and logs on their normal retention cycle.</li>
+        <li>If you delete the App, all locally stored data is removed from your device. You can also request deletion of any remaining synced food entries.</li>
         <li>HealthKit data is protected by Apple's built-in security and encrypted when the device is locked.</li>
       </ul>
     </section>
@@ -89,7 +101,16 @@
     <section class="policy-card" id="third-party">
       <div class="section-title"><span>05</span> Third-Party Services</div>
       <div class="subsection">
-        <h3>5.1 OpenFoodFacts (OFF) API</h3>
+        <h3>5.1 Supabase (Sync & Storage)</h3>
+        <p>Supabase securely stores the food entries you choose to sync to the shared/community library.</p>
+        <ul>
+          <li>Data sent: the food entry you submit (no health data, profile info, or identifiers).</li>
+          <li>Security: transmitted over HTTPS and stored in an encrypted database at rest.</li>
+          <li>Retention: entries persist until you edit or delete them; deletions remove the synced copy.</li>
+        </ul>
+      </div>
+      <div class="subsection">
+        <h3>5.2 OpenFoodFacts (OFF) API</h3>
         <p>The App retrieves public food information from the OFF API when you scan a barcode or search for foods.</p>
         <ul>
           <li>We only send barcode or food name to OFF.</li>
@@ -97,7 +118,7 @@
         </ul>
       </div>
       <div class="subsection">
-        <h3>5.2 Apple In-App Purchases</h3>
+        <h3>5.3 Apple In-App Purchases</h3>
         <p>Subscriptions and payments are processed securely by Apple. Ignite does not see or store:</p>
         <ul>
           <li>Payment cards</li>
@@ -108,8 +129,8 @@
     </section>
 
     <section class="policy-card" id="no-analytics">
-      <div class="section-title"><span>06</span> No Analytics, No Tracking, No Logging</div>
-      <p>We do not collect:</p>
+      <div class="section-title"><span>06</span> No Ads, No Analytics, No Selling Data</div>
+      <p>We do not run ads, use analytics SDKs, or sell/share personal data. We do not collect:</p>
       <ul>
         <li>Device identifiers</li>
         <li>Crash logs</li>
@@ -122,9 +143,12 @@
 
     <section class="policy-card" id="rights">
       <div class="section-title"><span>07</span> Your Rights</div>
-      <p>Because all data is local:</p>
+      <p>Because most data is local and synced entries are tied to your controls:</p>
       <ul>
-        <li>You can delete data by deleting the App.</li>
+        <li>You can view, edit, or delete your food entries at any time; changes also update the synced copy.</li>
+        <li>Deleting a food entry removes it locally and deletes it from the Supabase database; removal then flows through backups on their regular retention schedule.</li>
+        <li>You can request confirmation or deletion of any remaining synced entries by contacting us.</li>
+        <li>You can delete local data by deleting the App.</li>
         <li>You can revoke HealthKit permissions at any time.</li>
         <li>You control everything stored by the App.</li>
       </ul>

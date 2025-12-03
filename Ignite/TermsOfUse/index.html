@@ -81,15 +81,17 @@
 
     <section class="policy-card" id="privacy">
       <div class="section-title"><span>06</span> Data & Privacy</div>
-      <p>Ignite is designed to keep your data on-device. Please review the <a href="../PrivacyPolicy/">Privacy Policy</a> for full details on what is collected, how it is stored, and your controls.</p>
+      <p>Ignite keeps health data, profile information, and app settings on your device. Only the food items you enter are synced to our Supabase database to improve the shared/community food library. Food entries and optional food lookups are the only data sent over the network, and they are transmitted over HTTPS and stored encrypted at rest. You can edit or delete your food entries at any time; deletions remove the synced copy as well.</p>
+      <p>Please review the <a href="../PrivacyPolicy/">Privacy Policy</a> for full details on what is collected, how it is stored, and your controls.</p>
       <p class="note">By using the App you also agree to the Privacy Policy.</p>
     </section>
 
     <section class="policy-card" id="third-party">
       <div class="section-title"><span>07</span> Third-Party Services</div>
-      <p>The App may integrate with services such as Apple HealthKit and OpenFoodFacts to provide functionality.</p>
+      <p>The App may integrate with services such as Apple HealthKit, Supabase, and OpenFoodFacts to provide functionality.</p>
       <ul>
-        <li>Only the minimum required data (e.g., barcode or food name) is sent when you request it.</li>
+        <li>Supabase stores only the food entries you add to the shared/community food library; entries are sent via HTTPS and stored encrypted at rest, and deletions remove the synced copy.</li>
+        <li>Only the minimum required data (e.g., barcode or food name) is sent to OpenFoodFacts when you request it.</li>
         <li>Third-party terms and privacy practices may apply to data shared with those services.</li>
       </ul>
     </section>
